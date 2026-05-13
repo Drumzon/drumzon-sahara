@@ -1,0 +1,9 @@
+# Netlify config — explicit Next.js runtime adapter so Next 16
+# routes serve correctly. Without this, Netlify falls back to serving
+# the .next/ directory as plain static files and the home returns 404.
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
