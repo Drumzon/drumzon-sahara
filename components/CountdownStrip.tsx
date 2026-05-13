@@ -1,0 +1,75 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
+// Real launch deadline. Update this single constant when you re-launch.
+const LAUNCH_END = new Date("2026-05-20T23:59:59Z").getTime();
+
+function diff(target: number, now: number) {
+  const remaining = Math.max(0, target - now);
+  const days = Math.floor(remaining / 86_400_000);
+  const hours = Math.floor((remaining % 86_400_000) / 3_600_000);
+  const mins = Math.floor((remaining % 3_600_000) / 60_000);
+  const secs = Math.floor((remaining % 60_000) / 1000);
+  return { remaining, days, hours, mins, secs };
+}
+
+export default function CountdownStrip() {
+  const [now, setNow] = useState(LAUNCH_END);
+  useEffect(() => {
+    setNow(Date.now());
+    const id = setInterval(() => setNow(Date.now()), 1000);
+    return () => clearInterval(id);
+  }, []);
+
+  const { remaining, days, hours, mins, secs } = diff(LAUNCH_END, now);
+  const expired = remaining === 0;
+
+  return (
+    <div
+      role="region"
+      aria-label="Launch announcement"
+      className="fixed top-0 inset-x-0 h-[38px] z-[105] flex items-center justify-center gap-3 px-6 text-cream-base text-[12px] sm:text-[13px] font-medium tracking-tight"
+      style={{
+        background: "var(--color-ink)",
+        borderBottom: "1px solid rgba(255,255,255,0.06)",
+      }}
+    >
+      <span
+        className="ab-dot w-1.5 h-1.5 rounded-full"
+        style={{
+          background: "var(--color-orange)",
+          boxShadow: "0 0 6px rgba(255,107,53,0.8)",
+        }}
+        aria-hidden
+      />
+      {expired ? (
+        <span className="text-center">
+          Launch ended.{" "}
+          <a
+            href="#hero"
+            className="underline underline-offset-[3px] decoration-[1.5px] font-semibold text-orange"
+          >
+            Get Sahara →
+          </a>
+        </span>
+      ) : (
+        <span className="text-center font-mono tabular-nums text-text-dark">
+          Launch ends in{" "}
+          <strong className="font-semibold text-cream-base">
+            {days}d {String(hours).padStart(2, "0")}h{" "}
+            {String(mins).padStart(2, "0")}m{" "}
+            {String(secs).padStart(2, "0")}s
+          </strong>{" "}
+          ·{" "}
+          <a
+            href="#hero"
+            className="underline underline-offset-[3px] decoration-[1.5px] font-semibold text-orange"
+          >
+            Use SAHARA10 for €27
+          </a>
+        </span>
+      )}
+    </div>
+  );
+}
