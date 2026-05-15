@@ -28,8 +28,8 @@ export default function Hero() {
       className="relative pt-[clamp(80px,9vw,128px)] pb-[clamp(28px,3.5vw,48px)] px-6 md:px-10"
     >
       <div className="mx-auto max-w-[1100px] grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-        {/* LEFT — text content */}
-        <div className="lg:col-span-7 flex flex-col gap-5 items-center lg:items-start text-center lg:text-left">
+        {/* LEFT — text content (centered) */}
+        <div className="lg:col-span-7 flex flex-col gap-5 items-center text-center">
           <h1
             className="fade-up h-display"
             style={{ fontSize: "clamp(36px, 5vw, 72px)", lineHeight: 0.9 }}
@@ -75,7 +75,7 @@ export default function Hero() {
             </span>
           </div>
 
-          <div className="fade-up-3 flex flex-wrap gap-2 mt-2 justify-center lg:justify-start">
+          <div className="fade-up-3 flex flex-wrap gap-2 mt-2 justify-center">
             <a
               href={buyUrl}
               className="inline-flex items-center justify-center gap-2 h-[42px] px-5 rounded-full bg-orange text-white text-[13px] font-medium hover:bg-orange-deep hover:-translate-y-0.5 transition-all"
@@ -96,7 +96,7 @@ export default function Hero() {
           </div>
 
           {/* Trust line — demos as guarantee, not refund */}
-          <div className="fade-up-3 mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] text-ash uppercase tracking-[0.14em] font-semibold justify-center lg:justify-start">
+          <div className="fade-up-3 mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] text-ash uppercase tracking-[0.14em] font-semibold justify-center">
             <span className="inline-flex items-center gap-1.5">
               <span aria-hidden>✓</span> Hear it before you buy
             </span>
