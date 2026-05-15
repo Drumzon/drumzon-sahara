@@ -114,138 +114,22 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Cover stack */}
-        <div
-          className="relative w-[clamp(280px,42vw,440px)] aspect-square mt-4"
-          style={{ perspective: "1200px" }}
-        >
-          {/* Back-left: Lite */}
+        {/* Cover — single big card with the real album art (Canva export). */}
+        <div className="relative w-[clamp(280px,40vw,440px)] aspect-[4/5] mt-4">
           <div
-            className="cover-1 absolute rounded-[20px] overflow-hidden"
-            style={{
-              width: "78%",
-              aspectRatio: "1",
-              top: "0",
-              left: "-4%",
-              zIndex: 1,
-              boxShadow: COVER_SHADOW,
-              background:
-                "linear-gradient(135deg, #f5f0e6 0%, #e8d5b7 60%, #b8a47e 100%)",
-            }}
+            className="cover-2 relative w-full h-full rounded-[20px] overflow-hidden"
+            style={{ boxShadow: COVER_SHADOW }}
           >
-            <div className="absolute inset-0 flex flex-col justify-end p-5 pointer-events-none">
-              <div
-                className="font-serif italic text-ink/90 leading-[0.95]"
-                style={{ fontSize: "clamp(20px, 2.6vw, 30px)" }}
-              >
-                Sahara Lite
-              </div>
-              <div className="text-ink/55 text-[9px] font-bold tracking-[0.18em] uppercase mt-1.5">
-                Free · 15 samples
-              </div>
-            </div>
-            <span
-              className="absolute bottom-2.5 left-2.5 inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-full text-ink text-[10px] font-semibold tracking-[0.05em]"
-              style={{
-                background: "rgba(250,247,242,0.9)",
-                backdropFilter: "blur(20px) saturate(180%)",
-                border: "1px solid rgba(26,26,26,0.06)",
-              }}
-            >
-              <span
-                className="w-1.5 h-1.5 rounded-full bg-emerald"
-                style={{ boxShadow: "0 0 8px rgba(45,132,102,0.7)" }}
-                aria-hidden
-              />
-              Free
-            </span>
+            <img
+              src="/images/sahara-cover.png"
+              alt="Drumzon Vol. 1: Sahara — album cover"
+              width="1080"
+              height="1350"
+              className="w-full h-full object-cover block"
+            />
           </div>
 
-          {/* Front-center: Sahara */}
-          <div
-            className="cover-2 absolute rounded-[20px] overflow-hidden"
-            style={{
-              width: "88%",
-              aspectRatio: "1",
-              top: "6%",
-              left: "6%",
-              zIndex: 3,
-              boxShadow: COVER_SHADOW,
-              background:
-                "radial-gradient(circle at 25% 30%, rgba(255,107,53,0.55) 0%, transparent 38%), radial-gradient(circle at 80% 75%, rgba(196,69,24,0.40) 0%, transparent 42%), linear-gradient(135deg, #ffe4d6, #f0e8da 50%, #e8d5b7)",
-            }}
-          >
-            <div className="absolute inset-0 flex flex-col justify-end p-6 pointer-events-none">
-              <div
-                className="font-serif italic text-ink leading-[0.92]"
-                style={{ fontSize: "clamp(34px, 5vw, 56px)" }}
-              >
-                Sahara
-              </div>
-              <div className="text-ink/65 text-[10px] font-bold tracking-[0.2em] uppercase mt-2">
-                Drumzon · Vol. 1
-              </div>
-            </div>
-            <span
-              className="absolute bottom-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-full text-ink text-[10px] font-semibold tracking-[0.05em]"
-              style={{
-                background: "rgba(250,247,242,0.9)",
-                backdropFilter: "blur(20px) saturate(180%)",
-                border: "1px solid rgba(26,26,26,0.06)",
-              }}
-            >
-              <span
-                className="w-1.5 h-1.5 rounded-full bg-orange"
-                style={{ boxShadow: "0 0 8px rgba(255,107,53,0.7)" }}
-                aria-hidden
-              />
-              120–125 BPM
-            </span>
-          </div>
-
-          {/* Back-right: Vol. 2 */}
-          <div
-            className="cover-3 absolute rounded-[20px] overflow-hidden"
-            style={{
-              width: "74%",
-              aspectRatio: "1",
-              top: "18%",
-              right: "-8%",
-              zIndex: 2,
-              boxShadow: COVER_SHADOW,
-              background:
-                "linear-gradient(135deg, #ffe4d6 0%, #ff9970 50%, #c44518 100%)",
-            }}
-          >
-            <div className="absolute inset-0 flex flex-col justify-end p-5 pointer-events-none">
-              <div
-                className="font-serif italic text-ink/85 leading-[0.92]"
-                style={{ fontSize: "clamp(22px, 2.8vw, 32px)" }}
-              >
-                Vol. 2
-              </div>
-              <div className="text-ink/55 text-[9px] font-bold tracking-[0.18em] uppercase mt-1.5">
-                Soon
-              </div>
-            </div>
-            <span
-              className="absolute bottom-2.5 left-2.5 inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-full text-ink text-[10px] font-semibold tracking-[0.05em]"
-              style={{
-                background: "rgba(250,247,242,0.9)",
-                backdropFilter: "blur(20px) saturate(180%)",
-                border: "1px solid rgba(26,26,26,0.06)",
-              }}
-            >
-              <span
-                className="w-1.5 h-1.5 rounded-full bg-orange-deep"
-                style={{ boxShadow: "0 0 8px rgba(229,90,43,0.7)" }}
-                aria-hidden
-              />
-              Soon
-            </span>
-          </div>
-
-          {/* Floating tags */}
+          {/* Floating glass tag — BPM (kept for hero design language) */}
           <div
             className="hidden lg:flex absolute items-center gap-2.5 px-4 py-3 rounded-[20px] z-10"
             style={{
@@ -272,6 +156,7 @@ export default function Hero() {
             </div>
           </div>
 
+          {/* Floating glass tag — sounds */}
           <div
             className="hidden lg:flex absolute items-center gap-2.5 px-4 py-3 rounded-[20px] z-10"
             style={{
