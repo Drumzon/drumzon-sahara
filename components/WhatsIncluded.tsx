@@ -35,24 +35,10 @@ export default function WhatsIncluded() {
   return (
     <section
       id="whats-included"
-      className="px-6 md:px-10 py-[clamp(72px,10vw,140px)]"
+      className="px-6 md:px-10 py-[clamp(48px,6vw,88px)]"
     >
       <div className="mx-auto max-w-[1180px]">
         <div className="flex flex-col items-center text-center gap-4 max-w-[760px] mx-auto mb-14 lg:mb-20">
-          <span
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-orange-deep text-[12px] font-semibold tracking-[0.06em] uppercase"
-            style={{
-              background: "rgba(255,107,53,0.08)",
-              border: "1px solid rgba(255,107,53,0.2)",
-            }}
-          >
-            <span
-              className="pulse-dot w-1.5 h-1.5 rounded-full bg-orange"
-              style={{ boxShadow: "0 0 0 4px rgba(255,107,53,0.18)" }}
-              aria-hidden
-            />
-            What you get
-          </span>
           <h2
             className="h-display text-ink"
             style={{ fontSize: "clamp(30px, 4.4vw, 56px)" }}

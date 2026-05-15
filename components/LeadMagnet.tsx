@@ -20,7 +20,7 @@ export default function LeadMagnet() {
   return (
     <section
       id="lead-magnet"
-      className="px-6 md:px-10 py-[clamp(72px,10vw,140px)]"
+      className="px-6 md:px-10 py-[clamp(48px,6vw,88px)]"
     >
       <div className="mx-auto max-w-[880px]">
         <div
@@ -43,21 +43,6 @@ export default function LeadMagnet() {
           />
 
           <div className="relative flex flex-col items-center gap-5">
-            <span
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-orange text-[12px] font-semibold tracking-[0.06em] uppercase"
-              style={{
-                background: "rgba(255,107,53,0.14)",
-                border: "1px solid rgba(255,107,53,0.30)",
-              }}
-            >
-              <span
-                className="pulse-dot w-1.5 h-1.5 rounded-full bg-orange"
-                style={{ boxShadow: "0 0 0 4px rgba(255,107,53,0.25)" }}
-                aria-hidden
-              />
-              Sahara Lite · 15 free
-            </span>
-
             <h2
               className="h-display text-cream-base"
               style={{ fontSize: "clamp(30px, 4.4vw, 56px)" }}

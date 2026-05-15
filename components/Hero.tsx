@@ -25,16 +25,12 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative pt-[clamp(108px,13vw,160px)] pb-[clamp(64px,9vw,120px)] px-6 md:px-10"
+      className="relative pt-[clamp(64px,7vw,96px)] pb-[clamp(40px,5vw,72px)] px-6 md:px-10"
     >
       <div className="mx-auto max-w-[1180px] flex flex-col items-center text-center gap-12 lg:gap-16">
         <div className="flex flex-col items-center max-w-[920px] gap-5">
-          <p className="fade-up text-[11px] text-ash uppercase tracking-[0.3em] font-semibold">
-            Drumzon · Vol. 1
-          </p>
-
           <h1
-            className="fade-up-1 h-display"
+            className="fade-up h-display"
             style={{ fontSize: "clamp(72px, 12vw, 180px)", lineHeight: 0.88 }}
           >
             <span className="serif-em gradient-text">Sahara</span>
