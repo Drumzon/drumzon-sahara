@@ -27,11 +27,12 @@ export default function Hero() {
       id="hero"
       className="relative pt-[clamp(64px,7vw,96px)] pb-[clamp(40px,5vw,72px)] px-6 md:px-10"
     >
-      <div className="mx-auto max-w-[1180px] flex flex-col items-center text-center gap-12 lg:gap-16">
-        <div className="flex flex-col items-center max-w-[920px] gap-5">
+      <div className="mx-auto max-w-[1180px] grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        {/* LEFT — text content */}
+        <div className="lg:col-span-7 flex flex-col gap-5 items-center lg:items-start text-center lg:text-left">
           <h1
             className="fade-up h-display"
-            style={{ fontSize: "clamp(72px, 12vw, 180px)", lineHeight: 0.88 }}
+            style={{ fontSize: "clamp(56px, 8vw, 120px)", lineHeight: 0.88 }}
           >
             <span className="serif-em gradient-text">Sahara</span>
             <span className="text-ink">.</span>
@@ -40,7 +41,7 @@ export default function Hero() {
           <p
             className="fade-up-1 h-display text-ink"
             style={{
-              fontSize: "clamp(22px, 2.6vw, 36px)",
+              fontSize: "clamp(20px, 2.4vw, 32px)",
               letterSpacing: "-0.025em",
               lineHeight: 1.1,
               maxWidth: "20ch",
@@ -49,7 +50,7 @@ export default function Hero() {
             Afro House, properly mixed.
           </p>
 
-          <p className="fade-up-2 lede text-center mx-auto">
+          <p className="fade-up-2 lede">
             160+ sounds. Drum loops ship with{" "}
             <span className="text-ink font-medium">
               kick · perc · hats · claps
@@ -74,7 +75,7 @@ export default function Hero() {
             </span>
           </div>
 
-          <div className="fade-up-3 flex flex-wrap gap-2.5 justify-center mt-2">
+          <div className="fade-up-3 flex flex-wrap gap-2.5 mt-2 justify-center lg:justify-start">
             <a
               href={buyUrl}
               className="inline-flex items-center justify-center gap-2 h-[56px] px-8 rounded-full bg-orange text-white text-[16px] font-medium hover:bg-orange-deep hover:-translate-y-0.5 transition-all"
@@ -95,7 +96,7 @@ export default function Hero() {
           </div>
 
           {/* Trust line — demos as guarantee, not refund */}
-          <div className="fade-up-3 mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[11px] text-ash uppercase tracking-[0.14em] font-semibold">
+          <div className="fade-up-3 mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] text-ash uppercase tracking-[0.14em] font-semibold justify-center lg:justify-start">
             <span className="inline-flex items-center gap-1.5">
               <span aria-hidden>✓</span> Hear it before you buy
             </span>
@@ -110,8 +111,8 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Cover — single big card with the real album art (Canva export). */}
-        <div className="relative w-[clamp(280px,40vw,440px)] aspect-[4/5] mt-4">
+        {/* RIGHT — cover with floating glass tags */}
+        <div className="lg:col-span-5 relative w-full max-w-[440px] aspect-[4/5] mx-auto lg:mx-0">
           <div
             className="cover-2 relative w-full h-full rounded-[20px] overflow-hidden"
             style={{ boxShadow: COVER_SHADOW }}
@@ -125,7 +126,7 @@ export default function Hero() {
             />
           </div>
 
-          {/* Floating glass tag — BPM (kept for hero design language) */}
+          {/* Floating glass tag — BPM */}
           <div
             className="hidden lg:flex absolute items-center gap-2.5 px-4 py-3 rounded-[20px] z-10"
             style={{
@@ -157,7 +158,7 @@ export default function Hero() {
             className="hidden lg:flex absolute items-center gap-2.5 px-4 py-3 rounded-[20px] z-10"
             style={{
               bottom: "12%",
-              right: "-22%",
+              right: "-18%",
               background: "rgba(250,247,242,0.85)",
               backdropFilter: "blur(30px) saturate(180%)",
               border: "1px solid rgba(26,26,26,0.10)",
