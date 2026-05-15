@@ -95,6 +95,10 @@
     -webkit-text-fill-color: transparent;
     color: transparent;
     animation: gradient-shift 7s ease-in-out infinite;
+    /* Prevent italic descender clipping at right edge */
+    display: inline-block;
+    padding-right: 0.12em;
+    margin-right: -0.08em;
     /* prevent italic descender clipping at right edge */
     display: inline-block;
     padding-right: 0.08em;
