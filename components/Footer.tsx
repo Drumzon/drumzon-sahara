@@ -41,11 +41,9 @@ export default function Footer() {
           <div className="md:col-span-5 flex flex-col gap-4">
             <Link
               href="/"
-              className="inline-flex items-center gap-3 font-serif italic text-ink text-[26px] leading-none w-fit hover:opacity-85 transition-opacity"
-              style={{ letterSpacing: "-0.025em" }}
+              className="inline-flex w-fit hover:opacity-85 transition-opacity"
             >
-              <LogoMark size={40} />
-              <span>Drumzon</span>
+              <LogoMark size="md" />
             </Link>
             <p className="text-stone text-[14px] leading-relaxed max-w-[34ch]">
               Afro House sounds, properly mixed. Stems on every loop.{" "}

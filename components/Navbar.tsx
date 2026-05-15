@@ -15,11 +15,9 @@ export default function Navbar() {
     >
       <Link
         href="/"
-        className="flex items-center gap-3 font-serif italic text-[20px] text-ink leading-none flex-shrink-0"
-        style={{ letterSpacing: "-0.025em" }}
+        className="flex items-center flex-shrink-0 hover:opacity-90 transition-opacity"
       >
-        <LogoMark size={30} />
-        <span>Drumzon</span>
+        <LogoMark size="sm" />
       </Link>
 
       <nav
