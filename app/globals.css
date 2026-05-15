@@ -95,10 +95,21 @@
     -webkit-text-fill-color: transparent;
     color: transparent;
     animation: gradient-shift 7s ease-in-out infinite;
-    /* Prevent italic descender clipping at right edge */
+    /* Prevent italic glyph clipping — extend box + compensate visually */
     display: inline-block;
-    padding-right: 0.12em;
-    margin-right: -0.08em;
+    padding-right: 0.25em;
+    padding-left: 0.05em;
+    margin-right: -0.15em;
+    margin-left: -0.03em;
+    overflow: visible;
+    line-height: inherit;
+  }
+
+  /* Generic italic fix for non-gradient italic text (e.g. price spans) */
+  .italic-fix {
+    display: inline-block;
+    padding-right: 0.18em;
+    margin-right: -0.1em;
     /* prevent italic descender clipping at right edge */
     display: inline-block;
     padding-right: 0.08em;

@@ -70,7 +70,7 @@ export default function Hero() {
             <span className="text-ash" aria-hidden>
               →
             </span>
-            <span className="font-serif italic text-orange-deep text-[18px]">
+            <span className="italic-fix font-serif italic text-orange-deep text-[18px]">
               Launch: €27
             </span>
           </div>
