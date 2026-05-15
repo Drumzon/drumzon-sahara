@@ -1,32 +1,22 @@
-// Drumzon wordmark logo — orange pill with "DRUMZON" centered in heavy
-// bold sans, cream text. Same typography treatment as "SAHARA" on the
-// album cover. Self-contained brand mark — replaces the prior icon+text
-// combo. Three sizes for navbar / footer / standalone use.
+// Drumzon wordmark — italic serif "Drumzon" in solid orange. No pill,
+// no background, no decoration. Pure typographic logo so it pops naturally
+// against the warm cream-sand body. Same visual language as the italic
+// gradient accents used throughout the site.
 
 type Size = "sm" | "md" | "lg";
 
-const SIZES: Record<
-  Size,
-  { padX: string; padY: string; fontSize: string }
-> = {
-  sm: { padX: "12px", padY: "6px", fontSize: "13px" },
-  md: { padX: "16px", padY: "9px", fontSize: "16px" },
-  lg: { padX: "24px", padY: "13px", fontSize: "22px" },
+const SIZES: Record<Size, { fontSize: string; tracking: string }> = {
+  sm: { fontSize: "22px", tracking: "-0.025em" },
+  md: { fontSize: "30px", tracking: "-0.03em" },
+  lg: { fontSize: "44px", tracking: "-0.035em" },
 };
 
 export default function LogoMark({ size = "sm" }: { size?: Size }) {
-  const { padX, padY, fontSize } = SIZES[size];
+  const { fontSize, tracking } = SIZES[size];
   return (
     <span
-      className="inline-flex items-center justify-center rounded-full bg-orange text-cream-base font-black uppercase leading-none whitespace-nowrap select-none"
-      style={{
-        paddingLeft: padX,
-        paddingRight: padX,
-        paddingTop: padY,
-        paddingBottom: padY,
-        fontSize,
-        letterSpacing: "-0.025em",
-      }}
+      className="font-serif italic text-orange leading-none whitespace-nowrap select-none"
+      style={{ fontSize, letterSpacing: tracking }}
     >
       Drumzon
     </span>

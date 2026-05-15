@@ -5,10 +5,10 @@
   --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
 
   /* Earth / sand / sun palette — Sahara grounded, no pastels */
-  --color-cream-base: #f5ead0;     /* warm wheat (was pink-cream) */
-  --color-cream-subtle: #ecdfb8;   /* deeper sand */
-  --color-cream-warm: #d9c290;     /* true wheat */
-  --color-sand: #b89764;           /* burnt sand / amber */
+  --color-cream-base: #ecdfb8;     /* deeper wheat sand (more amber, less pink) */
+  --color-cream-subtle: #ddc996;   /* deeper amber-sand */
+  --color-cream-warm: #c9ad6f;     /* true wheat / camel */
+  --color-sand: #a8854c;           /* burnt sand / dune brown */
   --color-amber: #d49a3f;          /* golden hour amber */
   --color-earth: #4a2e1a;          /* dark warm brown grounding */
 
