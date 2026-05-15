@@ -1,21 +1,21 @@
-// Drumzon wordmark — italic serif "Drumzon" in solid orange. No pill,
-// no background, no decoration. Pure typographic logo so it pops naturally
-// against the warm cream-sand body. Same visual language as the italic
-// gradient accents used throughout the site.
+// Drumzon wordmark — heavy bold sans uppercase in solid orange.
+// Same typography family/weight as "SAHARA" on the album cover, but
+// in orange (no pill, no background) so it pops on the warm cream body.
+// One coherent type system: cover = bold sans heavy, brand mark = same.
 
 type Size = "sm" | "md" | "lg";
 
 const SIZES: Record<Size, { fontSize: string; tracking: string }> = {
-  sm: { fontSize: "22px", tracking: "-0.025em" },
-  md: { fontSize: "30px", tracking: "-0.03em" },
-  lg: { fontSize: "44px", tracking: "-0.035em" },
+  sm: { fontSize: "18px", tracking: "-0.02em" },
+  md: { fontSize: "26px", tracking: "-0.025em" },
+  lg: { fontSize: "40px", tracking: "-0.03em" },
 };
 
 export default function LogoMark({ size = "sm" }: { size?: Size }) {
   const { fontSize, tracking } = SIZES[size];
   return (
     <span
-      className="font-serif italic text-orange leading-none whitespace-nowrap select-none"
+      className="font-sans font-black uppercase text-orange leading-none whitespace-nowrap select-none"
       style={{ fontSize, letterSpacing: tracking }}
     >
       Drumzon

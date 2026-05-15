@@ -4,13 +4,13 @@
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
 
-  /* Earth / sand / sun palette — Sahara grounded, no pastels */
-  --color-cream-base: #ecdfb8;     /* deeper wheat sand (more amber, less pink) */
-  --color-cream-subtle: #ddc996;   /* deeper amber-sand */
-  --color-cream-warm: #c9ad6f;     /* true wheat / camel */
-  --color-sand: #a8854c;           /* burnt sand / dune brown */
-  --color-amber: #d49a3f;          /* golden hour amber */
-  --color-earth: #4a2e1a;          /* dark warm brown grounding */
+  /* Light warm cream — neutral sand-cream, no pink, no aggressive wheat */
+  --color-cream-base: #f7efdc;     /* light warm cream (between original and deep wheat) */
+  --color-cream-subtle: #efe3c4;   /* subtle wheat tint for surfaces */
+  --color-cream-warm: #e0caa0;     /* mid wheat for hover/accents */
+  --color-sand: #c2a06c;           /* sand accent */
+  --color-amber: #d49a3f;          /* golden hour amber (kept) */
+  --color-earth: #4a2e1a;          /* dark warm brown grounding (kept) */
 
   --color-ink: #1a1a1a;
   --color-graphite: #3d3833;
