@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
-const LAUNCH_END = new Date("2026-05-20T23:59:59Z").getTime();
+import { LAUNCH_END_MS, getCurrentPrice } from "@/lib/pricing";
 
 function diff(target: number, now: number) {
   const remaining = Math.max(0, target - now);
@@ -15,7 +14,7 @@ function diff(target: number, now: number) {
 export default function StickyCTA() {
   const buyUrl = process.env.NEXT_PUBLIC_BUY_URL || "#";
   const [visible, setVisible] = useState(false);
-  const [now, setNow] = useState(LAUNCH_END);
+  const [now, setNow] = useState(LAUNCH_END_MS);
 
   useEffect(() => {
     setNow(Date.now());
@@ -28,8 +27,9 @@ export default function StickyCTA() {
     };
   }, []);
 
-  const { remaining, days, hours, mins } = diff(LAUNCH_END, now);
-  if (remaining === 0) return null;
+  const { remaining, days, hours, mins } = diff(LAUNCH_END_MS, now);
+  const expired = remaining === 0;
+  const currentPrice = getCurrentPrice(now);
 
   return (
     <div
@@ -61,12 +61,18 @@ export default function StickyCTA() {
           />
           <div className="flex flex-col leading-tight min-w-0">
             <span className="text-cream-base text-[11px] sm:text-[12px] font-semibold uppercase tracking-[0.1em]">
-              Sahara · €27
+              Sahara · €{currentPrice}
             </span>
-            <span className="text-orange text-[10px] sm:text-[11px] font-mono tabular-nums">
-              ends {days}d {String(hours).padStart(2, "0")}h{" "}
-              {String(mins).padStart(2, "0")}m
-            </span>
+            {expired ? (
+              <span className="text-orange text-[10px] sm:text-[11px] font-medium">
+                Yours forever · No sub
+              </span>
+            ) : (
+              <span className="text-orange text-[10px] sm:text-[11px] font-mono tabular-nums">
+                ends {days}d {String(hours).padStart(2, "0")}h{" "}
+                {String(mins).padStart(2, "0")}m
+              </span>
+            )}
           </div>
         </div>
         <a

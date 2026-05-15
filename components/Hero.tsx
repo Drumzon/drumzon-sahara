@@ -1,4 +1,9 @@
 import AudioPreview from "./AudioPreview";
+import {
+  ANCHOR_PRICE_EUR,
+  getCurrentPrice,
+  getPriceLabel,
+} from "@/lib/pricing";
 
 const ArrowRight = () => (
   <svg
@@ -21,6 +26,8 @@ const COVER_SHADOW =
 
 export default function Hero() {
   const buyUrl = process.env.NEXT_PUBLIC_BUY_URL || "#";
+  const currentPrice = getCurrentPrice();
+  const priceLabel = getPriceLabel();
 
   return (
     <section
@@ -62,16 +69,16 @@ export default function Hero() {
             <AudioPreview />
           </div>
 
-          {/* Value stack — anchoring the €27 against unbundled value */}
+          {/* Value stack — anchoring the current price against unbundled value */}
           <div className="fade-up-3 flex items-center gap-3 text-[13px] mt-1">
             <span className="line-through text-ash decoration-stone/60">
-              Sold individually: €75
+              Sold individually: €{ANCHOR_PRICE_EUR}
             </span>
             <span className="text-ash" aria-hidden>
               →
             </span>
             <span className="italic-fix font-serif italic text-orange-deep text-[18px]">
-              Launch: €27
+              {priceLabel}: €{currentPrice}
             </span>
           </div>
 
@@ -83,7 +90,7 @@ export default function Hero() {
                 boxShadow: "0 10px 28px -10px rgba(255,107,53,0.55)",
               }}
             >
-              Get the pack — €27
+              Get the pack — €{currentPrice}
               <ArrowRight />
             </a>
             <a
@@ -102,7 +109,7 @@ export default function Hero() {
             </span>
             <span aria-hidden className="text-ash/40">·</span>
             <span className="inline-flex items-center gap-1.5">
-              <span aria-hidden>✓</span> €27 once · yours forever
+              <span aria-hidden>✓</span> €{currentPrice} once · yours forever
             </span>
             <span aria-hidden className="text-ash/40">·</span>
             <span className="inline-flex items-center gap-1.5">

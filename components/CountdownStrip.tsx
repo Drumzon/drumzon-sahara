@@ -1,9 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
-// Real launch deadline. Update this single constant when you re-launch.
-const LAUNCH_END = new Date("2026-05-20T23:59:59Z").getTime();
+import {
+  LAUNCH_END_MS,
+  LAUNCH_PRICE_EUR,
+  POST_LAUNCH_PRICE_EUR,
+  PROMO_CODE,
+} from "@/lib/pricing";
 
 function diff(target: number, now: number) {
   const remaining = Math.max(0, target - now);
@@ -15,14 +18,14 @@ function diff(target: number, now: number) {
 }
 
 export default function CountdownStrip() {
-  const [now, setNow] = useState(LAUNCH_END);
+  const [now, setNow] = useState(LAUNCH_END_MS);
   useEffect(() => {
     setNow(Date.now());
     const id = setInterval(() => setNow(Date.now()), 1000);
     return () => clearInterval(id);
   }, []);
 
-  const { remaining, days, hours, mins, secs } = diff(LAUNCH_END, now);
+  const { remaining, days, hours, mins, secs } = diff(LAUNCH_END_MS, now);
   const expired = remaining === 0;
 
   return (
@@ -45,12 +48,12 @@ export default function CountdownStrip() {
       />
       {expired ? (
         <span className="text-center">
-          Launch ended.{" "}
+          Sahara is live · €{POST_LAUNCH_PRICE_EUR}.{" "}
           <a
             href="#hero"
             className="underline underline-offset-[3px] decoration-[1.5px] font-semibold text-orange"
           >
-            Get Sahara →
+            Get the pack →
           </a>
         </span>
       ) : (
@@ -66,7 +69,7 @@ export default function CountdownStrip() {
             href="#hero"
             className="underline underline-offset-[3px] decoration-[1.5px] font-semibold text-orange"
           >
-            Use SAHARA10 for €27
+            Use {PROMO_CODE} for €{LAUNCH_PRICE_EUR}
           </a>
         </span>
       )}

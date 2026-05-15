@@ -1,3 +1,5 @@
+import { getCurrentPrice } from "@/lib/pricing";
+
 const ITEMS = [
   {
     title: "100+ One-Shots",
@@ -32,6 +34,8 @@ const ITEMS = [
 ];
 
 export default function WhatsIncluded() {
+  const currentPrice = getCurrentPrice();
+
   return (
     <section
       id="whats-included"
@@ -109,7 +113,7 @@ export default function WhatsIncluded() {
               Yours forever
             </strong>
             <span className="block mt-2 text-[11px] text-ash uppercase tracking-[0.12em] font-medium">
-              €27 once · No sub
+              €{currentPrice} once · No sub
             </span>
           </div>
         </div>
