@@ -4,11 +4,11 @@
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
 
-  /* Light warm cream — neutral sand-cream, no pink, no aggressive wheat */
-  --color-cream-base: #f7efdc;     /* light warm cream (between original and deep wheat) */
-  --color-cream-subtle: #efe3c4;   /* subtle wheat tint for surfaces */
-  --color-cream-warm: #e0caa0;     /* mid wheat for hover/accents */
-  --color-sand: #c2a06c;           /* sand accent */
+  /* Original light cream palette — restored per user request */
+  --color-cream-base: #faf7f2;
+  --color-cream-subtle: #f5f0e6;
+  --color-cream-warm: #f0e8da;
+  --color-sand: #e8d5b7;
   --color-amber: #d49a3f;          /* golden hour amber (kept) */
   --color-earth: #4a2e1a;          /* dark warm brown grounding (kept) */
 
