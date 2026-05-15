@@ -15,7 +15,7 @@ export default function LogoMark({ size = "sm" }: { size?: Size }) {
   const { fontSize, tracking } = SIZES[size];
   return (
     <span
-      className="font-sans font-black uppercase text-orange leading-none whitespace-nowrap select-none"
+      className="gradient-text font-sans font-black uppercase leading-none whitespace-nowrap select-none"
       style={{ fontSize, letterSpacing: tracking }}
     >
       Drumzon

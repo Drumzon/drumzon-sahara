@@ -83,14 +83,18 @@
     background: linear-gradient(
       120deg,
       #ffb088 0%,
-      var(--color-orange) 40%,
-      var(--color-orange-deep) 70%,
-      var(--color-clay) 100%
+      var(--color-orange) 20%,
+      var(--color-orange-deep) 40%,
+      var(--color-clay) 60%,
+      var(--color-orange-deep) 80%,
+      #ffb088 100%
     );
+    background-size: 220% 100%;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
+    animation: gradient-shift 7s ease-in-out infinite;
     /* prevent italic descender clipping at right edge */
     display: inline-block;
     padding-right: 0.08em;
@@ -218,6 +222,11 @@ main {
 @keyframes ab-pulse {
   0%, 100% { opacity: 1; }
   50%      { opacity: 0.35; }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
 }
 
 @keyframes float-1 {
