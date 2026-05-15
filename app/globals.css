@@ -4,17 +4,20 @@
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
 
-  --color-cream-base: #faf7f2;
-  --color-cream-subtle: #f5f0e6;
-  --color-cream-warm: #f0e8da;
-  --color-sand: #e8d5b7;
+  /* Earth / sand / sun palette — Sahara grounded, no pastels */
+  --color-cream-base: #f5ead0;     /* warm wheat (was pink-cream) */
+  --color-cream-subtle: #ecdfb8;   /* deeper sand */
+  --color-cream-warm: #d9c290;     /* true wheat */
+  --color-sand: #b89764;           /* burnt sand / amber */
+  --color-amber: #d49a3f;          /* golden hour amber */
+  --color-earth: #4a2e1a;          /* dark warm brown grounding */
 
   --color-ink: #1a1a1a;
   --color-graphite: #3d3833;
   --color-stone: #6b5d4f;
   --color-ash: #8b7355;
 
-  --color-orange-soft: #ffe4d6;
+  --color-orange-soft: #e8c896;    /* warm wheat-amber (was pink #ffe4d6) */
   --color-orange: #ff6b35;
   --color-orange-deep: #e55a2b;
   --color-clay: #c44518;

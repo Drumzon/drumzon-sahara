@@ -24,46 +24,52 @@ export default function LeadMagnet() {
     >
       <div className="mx-auto max-w-[880px]">
         <div
-          className="relative overflow-hidden rounded-[40px] p-[clamp(40px,6vw,72px)] text-center border border-black/[0.10]"
+          className="relative overflow-hidden rounded-[40px] p-[clamp(40px,6vw,72px)] text-center"
           style={{
-            background: "rgba(26,26,26,0.025)",
-            backdropFilter: "blur(40px)",
+            background: "var(--color-ink)",
+            border: "1px solid rgba(255,255,255,0.06)",
+            boxShadow:
+              "0 30px 60px -20px rgba(26,17,8,0.35), 0 12px 24px -8px rgba(26,17,8,0.18)",
           }}
         >
+          {/* Warm sun glow from top — pronounced on dark bg */}
           <div
             aria-hidden
             className="absolute inset-0 pointer-events-none"
             style={{
               background:
-                "radial-gradient(ellipse at top, rgba(255,107,53,0.12), transparent 60%)",
+                "radial-gradient(ellipse at top, rgba(255,107,53,0.30), transparent 55%), radial-gradient(circle at 0% 100%, rgba(196,69,24,0.18), transparent 50%)",
             }}
           />
 
           <div className="relative flex flex-col items-center gap-5">
             <span
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-orange-deep text-[12px] font-semibold tracking-[0.06em] uppercase"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-orange text-[12px] font-semibold tracking-[0.06em] uppercase"
               style={{
-                background: "rgba(255,107,53,0.08)",
-                border: "1px solid rgba(255,107,53,0.2)",
+                background: "rgba(255,107,53,0.14)",
+                border: "1px solid rgba(255,107,53,0.30)",
               }}
             >
               <span
                 className="pulse-dot w-1.5 h-1.5 rounded-full bg-orange"
-                style={{ boxShadow: "0 0 0 4px rgba(255,107,53,0.18)" }}
+                style={{ boxShadow: "0 0 0 4px rgba(255,107,53,0.25)" }}
                 aria-hidden
               />
               Sahara Lite · 15 free
             </span>
 
             <h2
-              className="h-display text-ink"
+              className="h-display text-cream-base"
               style={{ fontSize: "clamp(30px, 4.4vw, 56px)" }}
             >
               Try it{" "}
               <span className="serif-em gradient-text">free</span> first.
             </h2>
 
-            <p className="lede mx-auto">
+            <p
+              className="lede mx-auto"
+              style={{ color: "var(--color-text-dark)" }}
+            >
               15 hand-picked samples from the full pack. In your inbox in
               seconds. If they don’t fit your sound, you’ve lost nothing — and
               we’ve never had your address.
@@ -81,7 +87,11 @@ export default function LeadMagnet() {
                 autoComplete="email"
                 placeholder="your@email.com"
                 aria-label="Email address"
-                className="lead-input flex-1 min-w-0 h-[52px] px-5 rounded-full bg-cream-base border border-black/[0.16] text-ink placeholder:text-ash text-[15px] focus:outline-none focus:border-orange transition-all"
+                className="lead-input flex-1 min-w-0 h-[52px] px-5 rounded-full text-cream-base placeholder:text-stone text-[15px] focus:outline-none focus:border-orange transition-all"
+                style={{
+                  background: "var(--color-ink-lighter)",
+                  border: "1px solid var(--color-border-dark)",
+                }}
               />
               <button
                 type="submit"
@@ -95,7 +105,10 @@ export default function LeadMagnet() {
               </button>
             </form>
 
-            <p className="mt-2 text-[12px] text-ash">
+            <p
+              className="mt-2 text-[12px]"
+              style={{ color: "var(--color-text-dark)", opacity: 0.7 }}
+            >
               No spam. One-click unsubscribe. We only write when Vol. 2 drops.
             </p>
           </div>
