@@ -4,9 +4,9 @@
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
 
-  /* Light cream-white palette — barely-warm, leaning toward clean white */
-  --color-cream-base: #fcfaf6;
-  --color-cream-subtle: #f5f0e6;
+  /* Pure white base per user request */
+  --color-cream-base: #ffffff;
+  --color-cream-subtle: #f7f3ec;
   --color-cream-warm: #f0e8da;
   --color-sand: #e8d5b7;
   --color-amber: #d49a3f;          /* golden hour amber (kept) */
