@@ -4,6 +4,8 @@ import LogoMark from "./LogoMark";
 // Absolute paths so navbar works from /privacy and /thank-you (anchor-only
 // links would break there). Logo + nav use Next Link for SPA navigation.
 export default function Navbar() {
+  const buyUrl = process.env.NEXT_PUBLIC_BUY_URL || "#";
+
   return (
     <header
       className="fixed left-1/2 -translate-x-1/2 z-[100] flex items-center justify-between gap-6 w-[calc(100%-32px)] max-w-[1180px] py-2.5 pl-6 pr-3 rounded-full bg-cream-base/65 backdrop-blur-xl backdrop-saturate-150 border border-black/[0.08]"
@@ -44,13 +46,13 @@ export default function Navbar() {
         </Link>
       </nav>
 
-      <Link
-        href="/#hero"
+      <a
+        href={buyUrl}
         className="inline-flex items-center justify-center h-10 px-5 rounded-full bg-orange text-white text-[13px] font-medium hover:bg-orange-deep hover:-translate-y-px transition-all"
         style={{ boxShadow: "0 8px 24px -8px rgba(255,107,53,0.5)" }}
       >
         Get the Pack
-      </Link>
+      </a>
     </header>
   );
 }
