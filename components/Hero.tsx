@@ -25,14 +25,14 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative pt-[clamp(64px,7vw,96px)] pb-[clamp(40px,5vw,72px)] px-6 md:px-10"
+      className="relative pt-[clamp(48px,5vw,72px)] pb-[clamp(32px,4vw,56px)] px-6 md:px-10"
     >
-      <div className="mx-auto max-w-[1180px] grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <div className="mx-auto max-w-[1100px] grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         {/* LEFT — text content */}
         <div className="lg:col-span-7 flex flex-col gap-5 items-center lg:items-start text-center lg:text-left">
           <h1
             className="fade-up h-display"
-            style={{ fontSize: "clamp(56px, 8vw, 120px)", lineHeight: 0.88 }}
+            style={{ fontSize: "clamp(44px, 6vw, 88px)", lineHeight: 0.9 }}
           >
             <span className="serif-em gradient-text">Sahara</span>
             <span className="text-ink">.</span>
@@ -41,9 +41,9 @@ export default function Hero() {
           <p
             className="fade-up-1 h-display text-ink"
             style={{
-              fontSize: "clamp(20px, 2.4vw, 32px)",
-              letterSpacing: "-0.025em",
-              lineHeight: 1.1,
+              fontSize: "clamp(17px, 1.9vw, 24px)",
+              letterSpacing: "-0.02em",
+              lineHeight: 1.15,
               maxWidth: "20ch",
             }}
           >
@@ -75,12 +75,12 @@ export default function Hero() {
             </span>
           </div>
 
-          <div className="fade-up-3 flex flex-wrap gap-2.5 mt-2 justify-center lg:justify-start">
+          <div className="fade-up-3 flex flex-wrap gap-2 mt-2 justify-center lg:justify-start">
             <a
               href={buyUrl}
-              className="inline-flex items-center justify-center gap-2 h-[56px] px-8 rounded-full bg-orange text-white text-[16px] font-medium hover:bg-orange-deep hover:-translate-y-0.5 transition-all"
+              className="inline-flex items-center justify-center gap-2 h-[46px] px-6 rounded-full bg-orange text-white text-[14px] font-medium hover:bg-orange-deep hover:-translate-y-0.5 transition-all"
               style={{
-                boxShadow: "0 12px 36px -10px rgba(255,107,53,0.55)",
+                boxShadow: "0 10px 28px -10px rgba(255,107,53,0.55)",
               }}
             >
               Get the pack — €27
@@ -88,7 +88,7 @@ export default function Hero() {
             </a>
             <a
               href="#lead-magnet"
-              className="inline-flex items-center justify-center h-[56px] px-8 rounded-full text-ink text-[16px] font-medium border border-black/10 backdrop-blur-md hover:border-black/30 transition-colors"
+              className="inline-flex items-center justify-center h-[46px] px-6 rounded-full text-ink text-[14px] font-medium border border-black/10 backdrop-blur-md hover:border-black/30 transition-colors"
               style={{ background: "rgba(26,26,26,0.04)" }}
             >
               Try it free
@@ -112,7 +112,7 @@ export default function Hero() {
         </div>
 
         {/* RIGHT — cover with floating glass tags */}
-        <div className="lg:col-span-5 relative w-full max-w-[440px] aspect-[4/5] mx-auto lg:mx-0">
+        <div className="lg:col-span-5 relative w-full max-w-[360px] aspect-[4/5] mx-auto lg:mx-0">
           <div
             className="cover-2 relative w-full h-full rounded-[20px] overflow-hidden"
             style={{ boxShadow: COVER_SHADOW }}
