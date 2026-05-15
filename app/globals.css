@@ -4,8 +4,8 @@
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
 
-  /* Original light cream palette — restored per user request */
-  --color-cream-base: #faf7f2;
+  /* Light cream-white palette — barely-warm, leaning toward clean white */
+  --color-cream-base: #fcfaf6;
   --color-cream-subtle: #f5f0e6;
   --color-cream-warm: #f0e8da;
   --color-sand: #e8d5b7;
