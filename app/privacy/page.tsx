@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import SaharaBackdrop from "@/components/SaharaBackdrop";
 
 export const metadata: Metadata = {
   title: "Privacy — Drumzon",
@@ -11,7 +10,6 @@ export const metadata: Metadata = {
 export default function Privacy() {
   return (
     <>
-      <SaharaBackdrop />
       <Navbar />
       <main className="flex-1">
         <div className="mx-auto max-w-[720px] px-6 md:px-12 lg:px-20 pt-[clamp(108px,13vw,160px)] pb-[clamp(64px,9vw,120px)]">

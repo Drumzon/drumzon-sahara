@@ -7,7 +7,6 @@ import Preview from "@/components/Preview";
 import LeadMagnet from "@/components/LeadMagnet";
 import Footer from "@/components/Footer";
 import StickyCTA from "@/components/StickyCTA";
-import SaharaBackdrop from "@/components/SaharaBackdrop";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://drumzon.com";
 
@@ -36,7 +35,6 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
       />
-      <SaharaBackdrop />
       <CountdownStrip />
       <Navbar />
       <main>

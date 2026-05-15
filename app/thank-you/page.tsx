@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import SaharaBackdrop from "@/components/SaharaBackdrop";
 
 const ArrowRight = () => (
   <svg
@@ -29,7 +28,6 @@ export const metadata: Metadata = {
 export default function ThankYou() {
   return (
     <>
-      <SaharaBackdrop />
       <Navbar />
       <main>
         <div className="mx-auto max-w-[720px] px-6 md:px-12 lg:px-20 pt-[clamp(108px,13vw,160px)] pb-[clamp(64px,9vw,120px)] text-center flex flex-col items-center gap-5">
