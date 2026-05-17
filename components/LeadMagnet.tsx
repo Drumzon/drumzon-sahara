@@ -1,3 +1,10 @@
+// Free MIDI Pack lead magnet — separated from any specific drop.
+// Always available, always the same offer. Drives the email funnel.
+//
+// Kit form action URL → tag new subscribers as `free-midi-pack-lead`
+// in Kit (configure that tag on the form's "Settings → Tag subscribers").
+// Then run a Kit automation: tag added → email with the MIDI pack download.
+
 const ArrowRight = () => (
   <svg
     width="14"
@@ -19,7 +26,7 @@ export default function LeadMagnet() {
 
   return (
     <section
-      id="lead-magnet"
+      id="free-midi-pack"
       className="px-6 md:px-10 py-[clamp(48px,6vw,88px)]"
     >
       <div className="mx-auto max-w-[880px]">
@@ -32,7 +39,7 @@ export default function LeadMagnet() {
               "0 30px 60px -20px rgba(26,17,8,0.35), 0 12px 24px -8px rgba(26,17,8,0.18)",
           }}
         >
-          {/* Warm sun glow from top — pronounced on dark bg */}
+          {/* Warm sun glow */}
           <div
             aria-hidden
             className="absolute inset-0 pointer-events-none"
@@ -43,21 +50,27 @@ export default function LeadMagnet() {
           />
 
           <div className="relative flex flex-col items-center gap-5">
+            <p className="text-orange/80 text-[11px] font-semibold tracking-[0.22em] uppercase">
+              Free download · No card needed
+            </p>
+
             <h2
               className="h-display text-cream-base"
               style={{ fontSize: "clamp(30px, 4.4vw, 56px)" }}
             >
-              Try it{" "}
-              <span className="serif-em gradient-text">free</span> first.
+              The{" "}
+              <span className="serif-em gradient-text">Afrohouse MIDI</span>{" "}
+              starter pack.
             </h2>
 
             <p
               className="lede mx-auto"
               style={{ color: "var(--color-text-dark)" }}
             >
-              15 hand-picked samples from the full pack. In your inbox in
-              seconds. If they don’t fit your sound, you’ve lost nothing — and
-              we’ve never had your address.
+              8 chord progressions and 5 lead melodies in MIDI format. Tuned
+              to the keys producers actually use in Afro House — A minor,
+              C minor, G minor. Drop into Ableton, Logic, FL — change the
+              instrument, keep the harmony.
             </p>
 
             <form
@@ -75,7 +88,7 @@ export default function LeadMagnet() {
                 className="lead-input flex-1 min-w-0 h-[52px] px-5 rounded-full text-cream-base placeholder:text-stone text-[15px] focus:outline-none focus:border-orange transition-all"
                 style={{
                   background: "var(--color-ink-lighter)",
-                  border: "1px solid var(--color-border-dark)",
+                  border: "1px solid rgba(255,255,255,0.10)",
                 }}
               />
               <button
@@ -85,7 +98,7 @@ export default function LeadMagnet() {
                   boxShadow: "0 12px 36px -10px rgba(255,107,53,0.55)",
                 }}
               >
-                Send the free pack
+                Send me the MIDIs
                 <ArrowRight />
               </button>
             </form>
@@ -94,7 +107,7 @@ export default function LeadMagnet() {
               className="mt-2 text-[12px]"
               style={{ color: "var(--color-text-dark)", opacity: 0.7 }}
             >
-              No spam. One-click unsubscribe. We only write when Vol. 2 drops.
+              One email per drop. Unsubscribe in one click. No spam, ever.
             </p>
           </div>
         </div>
