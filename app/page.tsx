@@ -6,6 +6,7 @@ import Marquee from "@/components/Marquee";
 import CurrentDrop from "@/components/CurrentDrop";
 import WhatsIncluded from "@/components/WhatsIncluded";
 import Preview from "@/components/Preview";
+import InnerCircle from "@/components/InnerCircle";
 import LeadMagnet from "@/components/LeadMagnet";
 import Footer from "@/components/Footer";
 import StickyCTA from "@/components/StickyCTA";
@@ -59,6 +60,7 @@ export default async function Home() {
         <CurrentDrop currency={currency} />
         <WhatsIncluded />
         <Preview />
+        <InnerCircle currency={currency} />
         <LeadMagnet />
       </main>
       <Footer />
