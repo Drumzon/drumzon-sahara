@@ -1,40 +1,44 @@
-import { getCurrentPrice } from "@/lib/pricing";
+import { getCurrentDrop } from "@/lib/drops";
 
-const ITEMS = [
-  {
-    title: "100+ One-Shots",
-    description:
-      "Kicks, snares, claps, hats, perc, FX. Drag and drop. No layering needed.",
-  },
-  {
-    title: "25 Drum Loops + Stems",
-    description:
-      "120–125 BPM. Each loop split into kick · perc · hats · claps. Mute one and rebuild the groove.",
-  },
-  {
-    title: "15 Melody Loops + MIDI",
-    description:
-      "Marimba, kalimba, plucks, pads. MIDI on every one — change the key, swap the sound, keep the idea.",
-  },
-  {
-    title: "8 Bass Loops + MIDI",
-    description:
-      "Sub and synth bass. MIDI included so you can match it to your kick instead of fighting it.",
-  },
-  {
-    title: "5 Atmospheric Pads",
-    description:
-      "Long pads and textures. The thing that makes a track sound finished.",
-  },
-  {
-    title: "Stems + MIDI · every loop",
-    description:
-      "Every drum and melody loop fully unbundled. Total control without the rendering.",
-  },
-];
+// Interim — this section will be absorbed into <CurrentDrop /> in F2.
+// Patched here to read from the new drops lib and remove the contradictory
+// "€X once · No sub" cell (Inner Circle would contradict that phrasing).
 
 export default function WhatsIncluded() {
-  const currentPrice = getCurrentPrice();
+  const drop = getCurrentDrop();
+  const c = drop.contents;
+
+  const ITEMS = [
+    {
+      title: `${c.oneShots}+ One-Shots`,
+      description:
+        "Kicks, snares, claps, hats, perc, FX. Drag and drop. No layering needed.",
+    },
+    {
+      title: `${c.drumLoops} Drum Loops + Stems`,
+      description: `${drop.bpmRange[0]}–${drop.bpmRange[1]} BPM. Each loop split into kick · perc · hats · claps. Mute one and rebuild the groove.`,
+    },
+    {
+      title: `${c.melodyLoops} Melody Loops + MIDI`,
+      description:
+        "Marimba, kalimba, plucks, pads. MIDI on every one — change the key, swap the sound, keep the idea.",
+    },
+    {
+      title: `${c.bassLoops} Bass Loops + MIDI`,
+      description:
+        "Sub and synth bass. MIDI included so you can match it to your kick instead of fighting it.",
+    },
+    {
+      title: `${c.pads} Atmospheric Pads`,
+      description:
+        "Long pads and textures. The thing that makes a track sound finished.",
+    },
+    {
+      title: "Stems + MIDI · every loop",
+      description:
+        "Every drum and melody loop fully unbundled. Total control without the rendering.",
+    },
+  ];
 
   return (
     <section
@@ -110,10 +114,10 @@ export default function WhatsIncluded() {
               className="block font-serif text-orange-deep leading-none tracking-tight"
               style={{ fontSize: "clamp(22px, 2.4vw, 28px)" }}
             >
-              Yours forever
+              Royalty-free
             </strong>
             <span className="block mt-2 text-[11px] text-ash uppercase tracking-[0.12em] font-medium">
-              €{currentPrice} once · No sub
+              Commercial use
             </span>
           </div>
         </div>

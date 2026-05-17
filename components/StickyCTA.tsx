@@ -1,35 +1,43 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { LAUNCH_END_MS, getCurrentPrice } from "@/lib/pricing";
+import type { Currency } from "@/lib/currency";
+import { formatPrice } from "@/lib/currency";
+import { getCurrentDrop, getDropBuyUrl } from "@/lib/drops";
+import { getDropPrice, splitDuration } from "@/lib/pricing";
 
-function diff(target: number, now: number) {
-  const remaining = Math.max(0, target - now);
-  const days = Math.floor(remaining / 86_400_000);
-  const hours = Math.floor((remaining % 86_400_000) / 3_600_000);
-  const mins = Math.floor((remaining % 3_600_000) / 60_000);
-  return { remaining, days, hours, mins };
-}
-
-export default function StickyCTA() {
-  const buyUrl = process.env.NEXT_PUBLIC_BUY_URL || "#";
+// Interim sticky CTA — wired to new drops + pricing model.
+// Full dual-CTA (drop + Inner Circle) variant ships in F6.
+export default function StickyCTA({ currency }: { currency: Currency }) {
+  const drop = getCurrentDrop();
+  const buyUrl = getDropBuyUrl(drop, currency);
   const [visible, setVisible] = useState(false);
-  const [now, setNow] = useState(LAUNCH_END_MS);
+  const [tick, setTick] = useState(0);
 
   useEffect(() => {
-    setNow(Date.now());
-    const tick = setInterval(() => setNow(Date.now()), 1000);
+    setTick(Date.now());
+    const t = setInterval(() => setTick(Date.now()), 1000);
     const onScroll = () => setVisible(window.scrollY > 700);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => {
-      clearInterval(tick);
+      clearInterval(t);
       window.removeEventListener("scroll", onScroll);
     };
   }, []);
 
-  const { remaining, days, hours, mins } = diff(LAUNCH_END_MS, now);
-  const expired = remaining === 0;
-  const currentPrice = getCurrentPrice(now);
+  const price = getDropPrice(drop, tick || Date.now());
+  const fmt = formatPrice(price.amount, currency);
+
+  let subline: string;
+  if (price.inEarlyBird && price.msUntilNextTier !== null) {
+    const { days, hours, mins } = splitDuration(price.msUntilNextTier);
+    subline = `early bird · ${days}d ${String(hours).padStart(2, "0")}h ${String(mins).padStart(2, "0")}m`;
+  } else if (price.tier === "regular" && price.msUntilNextTier !== null) {
+    const days = Math.max(1, Math.ceil(price.msUntilNextTier / 86_400_000));
+    subline = `going to vault in ${days}d`;
+  } else {
+    subline = "in the Vault";
+  }
 
   return (
     <div
@@ -61,18 +69,11 @@ export default function StickyCTA() {
           />
           <div className="flex flex-col leading-tight min-w-0">
             <span className="text-cream-base text-[11px] sm:text-[12px] font-semibold uppercase tracking-[0.1em]">
-              Sahara · €{currentPrice}
+              {drop.name} · {fmt}
             </span>
-            {expired ? (
-              <span className="text-orange text-[10px] sm:text-[11px] font-medium">
-                Yours forever · No sub
-              </span>
-            ) : (
-              <span className="text-orange text-[10px] sm:text-[11px] font-mono tabular-nums">
-                ends {days}d {String(hours).padStart(2, "0")}h{" "}
-                {String(mins).padStart(2, "0")}m
-              </span>
-            )}
+            <span className="text-orange text-[10px] sm:text-[11px] font-medium">
+              {subline}
+            </span>
           </div>
         </div>
         <a

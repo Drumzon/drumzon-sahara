@@ -1,37 +1,94 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import {
-  LAUNCH_END_MS,
-  LAUNCH_PRICE_EUR,
-  POST_LAUNCH_PRICE_EUR,
-  PROMO_CODE,
-} from "@/lib/pricing";
+import type { Currency } from "@/lib/currency";
+import { formatPrice } from "@/lib/currency";
+import { getCurrentDrop } from "@/lib/drops";
+import { getDropPrice, splitDuration } from "@/lib/pricing";
 
-function diff(target: number, now: number) {
-  const remaining = Math.max(0, target - now);
-  const days = Math.floor(remaining / 86_400_000);
-  const hours = Math.floor((remaining % 86_400_000) / 3_600_000);
-  const mins = Math.floor((remaining % 3_600_000) / 60_000);
-  const secs = Math.floor((remaining % 60_000) / 1000);
-  return { remaining, days, hours, mins, secs };
-}
+// Top announcement strip — content depends on the current drop's tier:
+//   early-bird (day 0-6):  countdown to $37 + early-bird CTA
+//   regular   (day 7-29):  "going to vault on Xd" + drop CTA
+//   vault     (day 30+):   "Sahara is in the Vault — $50 · New drop coming"
+//
+// Currency is detected server-side and passed in to avoid hydration mismatch.
+export default function CountdownStrip({ currency }: { currency: Currency }) {
+  const drop = getCurrentDrop();
+  const initialPrice = getDropPrice(drop);
+  const [tick, setTick] = useState(0);
 
-export default function CountdownStrip() {
-  const [now, setNow] = useState(LAUNCH_END_MS);
   useEffect(() => {
-    setNow(Date.now());
-    const id = setInterval(() => setNow(Date.now()), 1000);
+    setTick(Date.now());
+    const id = setInterval(() => setTick(Date.now()), 1000);
     return () => clearInterval(id);
   }, []);
 
-  const { remaining, days, hours, mins, secs } = diff(LAUNCH_END_MS, now);
-  const expired = remaining === 0;
+  const price = tick === 0 ? initialPrice : getDropPrice(drop, tick);
+
+  const renderBody = () => {
+    // EARLY-BIRD: live countdown to regular price
+    if (price.inEarlyBird && price.msUntilNextTier !== null) {
+      const { days, hours, mins, secs } = splitDuration(price.msUntilNextTier);
+      return (
+        <span className="text-center font-mono tabular-nums text-text-dark">
+          Early bird ends in{" "}
+          <strong className="font-semibold text-cream-base">
+            {days}d {String(hours).padStart(2, "0")}h{" "}
+            {String(mins).padStart(2, "0")}m{" "}
+            {String(secs).padStart(2, "0")}s
+          </strong>{" "}
+          ·{" "}
+          <a
+            href="#hero"
+            className="underline underline-offset-[3px] decoration-[1.5px] font-semibold text-orange"
+          >
+            Get {drop.name} for {formatPrice(price.amount, currency)}
+          </a>
+        </span>
+      );
+    }
+
+    // REGULAR (day 7-29): no countdown, but anchor the vault transition
+    if (price.tier === "regular" && price.nextTierAmount !== null) {
+      const days = Math.max(
+        1,
+        Math.ceil((price.msUntilNextTier ?? 0) / 86_400_000),
+      );
+      return (
+        <span className="text-center text-text-dark">
+          {drop.name} · {formatPrice(price.amount, currency)} —{" "}
+          <span className="text-cream-base font-medium">
+            going to vault in {days}d
+          </span>
+          {" · "}
+          <a
+            href="#hero"
+            className="underline underline-offset-[3px] decoration-[1.5px] font-semibold text-orange"
+          >
+            Get it now →
+          </a>
+        </span>
+      );
+    }
+
+    // VAULT (day 30+): drop has moved to vault
+    return (
+      <span className="text-center text-text-dark">
+        {drop.name} is in the Vault · {formatPrice(price.amount, currency)} ·{" "}
+        <a
+          href="#hero"
+          className="underline underline-offset-[3px] decoration-[1.5px] font-semibold text-orange"
+        >
+          New drop coming →
+        </a>
+      </span>
+    );
+  };
 
   return (
     <div
       role="region"
-      aria-label="Launch announcement"
+      aria-label="Drop status"
       className="fixed top-0 inset-x-0 h-[38px] z-[105] flex items-center justify-center gap-3 px-6 text-cream-base text-[12px] sm:text-[13px] font-medium tracking-tight"
       style={{
         background: "var(--color-ink)",
@@ -46,33 +103,7 @@ export default function CountdownStrip() {
         }}
         aria-hidden
       />
-      {expired ? (
-        <span className="text-center">
-          Sahara is live · €{POST_LAUNCH_PRICE_EUR}.{" "}
-          <a
-            href="#hero"
-            className="underline underline-offset-[3px] decoration-[1.5px] font-semibold text-orange"
-          >
-            Get the pack →
-          </a>
-        </span>
-      ) : (
-        <span className="text-center font-mono tabular-nums text-text-dark">
-          Launch ends in{" "}
-          <strong className="font-semibold text-cream-base">
-            {days}d {String(hours).padStart(2, "0")}h{" "}
-            {String(mins).padStart(2, "0")}m{" "}
-            {String(secs).padStart(2, "0")}s
-          </strong>{" "}
-          ·{" "}
-          <a
-            href="#hero"
-            className="underline underline-offset-[3px] decoration-[1.5px] font-semibold text-orange"
-          >
-            Use {PROMO_CODE} for €{LAUNCH_PRICE_EUR}
-          </a>
-        </span>
-      )}
+      {renderBody()}
     </div>
   );
 }
