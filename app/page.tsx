@@ -8,6 +8,8 @@ import WhatsIncluded from "@/components/WhatsIncluded";
 import Preview from "@/components/Preview";
 import InnerCircle from "@/components/InnerCircle";
 import LeadMagnet from "@/components/LeadMagnet";
+import About from "@/components/About";
+import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import StickyCTA from "@/components/StickyCTA";
 import SaharaBackdrop from "@/components/SaharaBackdrop";
@@ -62,6 +64,8 @@ export default async function Home() {
         <Preview />
         <InnerCircle currency={currency} />
         <LeadMagnet />
+        <About />
+        <FAQ />
       </main>
       <Footer />
       <StickyCTA currency={currency} />
