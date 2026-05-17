@@ -17,8 +17,8 @@ const FAQ_ITEMS = [
     a: "Yes. Full commercial license included with every drop — release on Spotify / Beatport / SoundCloud / labels, monetize on YouTube, sync to film. The only thing you can't do is resell or redistribute the raw samples as a sample pack yourself. Full license terms at /license.",
   },
   {
-    q: "What software do I need for the Serum presets?",
-    a: "Serum 1.3 or higher (the .fxp preset format). The MIDIs are universal — they work in Ableton, FL Studio, Logic, Cubase, Bitwig, Reason, anything that opens a MIDI file. Drum loops and one-shots are 24-bit WAV — universal.",
+    q: "What software do I need?",
+    a: "Drum loops, one-shots, and pads are 24-bit WAV — they work in every DAW. MIDIs are universal — Ableton, FL Studio, Logic, Cubase, Bitwig, Reason, anything that opens a MIDI file. The exclusive Serum presets need Serum 1.3+ (.fxp format). The Inner Circle demo template is an Ableton Live project (.als) — Ableton 11 or higher, Suite recommended for the stock effects. If you don't use Ableton, you still get every other asset; just the demo template won't open for you.",
   },
   {
     q: "How do I download after paying?",
@@ -30,7 +30,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "What's the difference between buying a drop and joining Inner Circle?",
-    a: "Single drop = the WAV samples + MIDI for melodies, paid once. Inner Circle = same monthly drop + 10–15 Serum presets + 5–8 MIDI chord progressions and leads, all exclusive (never sold individually). If you produce in Serum or rely on MIDI ideation, Inner Circle compounds faster. If you just want raw drums and loops, single drops are cheaper at low frequency.",
+    a: "Single drop = the WAV samples + MIDI for melodies, paid once. Inner Circle = same monthly drop + 10–15 Serum presets + 5–8 MIDI chord progressions and leads + the full Ableton project of the demo beat, all exclusive (never sold individually). If you produce in Serum, rely on MIDI ideation, or learn faster by reverse-engineering finished sessions, Inner Circle compounds faster. If you just want raw drums and loops, single drops are cheaper at low frequency.",
   },
   {
     q: "Why one drop a month? Why not weekly or daily?",

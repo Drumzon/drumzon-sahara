@@ -19,6 +19,11 @@ export const INNER_CIRCLE_BENEFITS = [
       "5–8 chord progressions and lead melodies a month. Members only.",
   },
   {
+    title: "Demo track template",
+    description:
+      "The full Ableton project of the drop's demo beat. See exactly how it's built — routing, FX chains, automation. Layer by layer.",
+  },
+  {
     title: "24h early access",
     description:
       "New drops unlock for members a day before the public link goes live.",

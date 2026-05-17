@@ -48,8 +48,9 @@ export default function InnerCircle({ currency }: { currency: Currency }) {
             <span className="serif-em gradient-text">Inner Circle</span>.
           </h2>
           <p className="lede mx-auto">
-            Every drop, plus exclusive Serum presets and MIDIs you can't buy
-            anywhere else. Built for producers shipping a track a week.
+            Every drop, plus exclusive Serum presets, MIDIs, and the full
+            Ableton project of the demo beat. None of it sold separately.
+            Built for producers shipping a track a week.
           </p>
         </div>
 

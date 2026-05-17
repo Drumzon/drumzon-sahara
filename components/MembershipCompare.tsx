@@ -45,6 +45,12 @@ export default function MembershipCompare({
       emphasis: true,
     },
     {
+      feature: "Demo track template (Ableton)",
+      single: false,
+      inner: "Project file + stems",
+      emphasis: true,
+    },
+    {
       feature: "Early access (24h before public)",
       single: false,
       inner: true,
