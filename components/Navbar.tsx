@@ -1,10 +1,16 @@
 import Link from "next/link";
+import { headers } from "next/headers";
 import LogoMark from "./LogoMark";
+import { detectCurrency } from "@/lib/currency";
+import { getCurrentDrop, getDropBuyUrl } from "@/lib/drops";
 
-// Absolute paths so navbar works from /privacy and /thank-you (anchor-only
-// links would break there). Logo + nav use Next Link for SPA navigation.
-export default function Navbar() {
-  const buyUrl = process.env.NEXT_PUBLIC_BUY_URL || "#";
+// Server component — reads currency from request headers to point the
+// "Get the Pack" CTA at the right Stripe Payment Link.
+export default async function Navbar() {
+  const h = await headers();
+  const currency = detectCurrency(h.get("x-vercel-ip-country"));
+  const drop = getCurrentDrop();
+  const buyUrl = getDropBuyUrl(drop, currency);
 
   return (
     <header
@@ -27,10 +33,16 @@ export default function Navbar() {
         className="hidden md:flex items-center gap-1 ml-auto"
       >
         <Link
-          href="/#whats-included"
+          href="/#current-drop"
           className="px-3.5 py-2 rounded-full text-[13px] font-medium text-stone hover:text-ink hover:bg-black/[0.05] transition-colors"
         >
-          Inside
+          {drop.name}
+        </Link>
+        <Link
+          href="/#inner-circle"
+          className="px-3.5 py-2 rounded-full text-[13px] font-medium text-stone hover:text-ink hover:bg-black/[0.05] transition-colors"
+        >
+          Inner Circle
         </Link>
         <Link
           href="/#preview"
@@ -39,10 +51,10 @@ export default function Navbar() {
           Preview
         </Link>
         <Link
-          href="/#lead-magnet"
+          href="/#faq"
           className="px-3.5 py-2 rounded-full text-[13px] font-medium text-stone hover:text-ink hover:bg-black/[0.05] transition-colors"
         >
-          Free Sample
+          FAQ
         </Link>
       </nav>
 

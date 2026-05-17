@@ -20,9 +20,66 @@ const ArrowRight = () => (
 );
 
 export const metadata: Metadata = {
-  title: "Thanks — Drumzon Vol. 1: Sahara",
-  description: "Your Sahara pack is on its way.",
+  title: "Thanks — Drumzon",
+  description: "Your pack is on its way.",
   robots: { index: false, follow: false },
+};
+
+type Variant = "pack" | "inner-circle" | "midi";
+
+const COPY: Record<Variant, { eyebrow: string; title: React.ReactNode; body: React.ReactNode; sub?: string }> = {
+  pack: {
+    eyebrow: "Payment received",
+    title: (
+      <>
+        Welcome to the{" "}
+        <span className="serif-em gradient-text">drop</span>.
+      </>
+    ),
+    body: (
+      <>
+        Your download link is in your inbox — check the Stripe receipt. Drop
+        the WAVs into Ableton, FL, Logic, anything. Stems are pre-routed —
+        solo the kicks, swap the percs, write your own arrangement.
+        Royalty-free. Yours forever.
+      </>
+    ),
+    sub: "Didn't arrive? Check spam or email itsdrumzon@gmail.com.",
+  },
+  "inner-circle": {
+    eyebrow: "You're in",
+    title: (
+      <>
+        Welcome to the{" "}
+        <span className="serif-em gradient-text">Inner Circle</span>.
+      </>
+    ),
+    body: (
+      <>
+        This month's drop, the exclusive Serum presets, and the MIDI pack
+        are all in your inbox. New drops will land automatically on the
+        15th of each month — 24h before public.
+      </>
+    ),
+    sub: "Cancel anytime from your Stripe customer portal. Every pack you've downloaded stays yours.",
+  },
+  midi: {
+    eyebrow: "You're on the list",
+    title: (
+      <>
+        Check your{" "}
+        <span className="serif-em gradient-text">inbox</span>.
+      </>
+    ),
+    body: (
+      <>
+        The Afrohouse MIDI starter pack is heading to you now. If it doesn't
+        arrive in 5 minutes, check spam — and add{" "}
+        <span className="text-ink font-medium">itsdrumzon@gmail.com</span>{" "}
+        to your contacts so the next drop reaches you clean.
+      </>
+    ),
+  },
 };
 
 export default async function ThankYou({
@@ -31,7 +88,13 @@ export default async function ThankYou({
   searchParams: Promise<{ purchase?: string }>;
 }) {
   const params = await searchParams;
-  const isPurchase = params.purchase === "pack";
+  const variant: Variant =
+    params.purchase === "inner-circle"
+      ? "inner-circle"
+      : params.purchase === "pack"
+        ? "pack"
+        : "midi";
+  const copy = COPY[variant];
 
   return (
     <>
@@ -39,56 +102,20 @@ export default async function ThankYou({
       <main>
         <div className="mx-auto max-w-[720px] px-6 md:px-12 lg:px-20 pt-[clamp(108px,13vw,160px)] pb-[clamp(64px,9vw,120px)] text-center flex flex-col items-center gap-5">
           <p className="text-ash text-[11px] font-semibold tracking-[0.2em] uppercase">
-            {isPurchase ? "Payment received" : "You’re in"}
+            {copy.eyebrow}
           </p>
 
-          {isPurchase ? (
-            <>
-              <h1
-                className="h-display text-ink"
-                style={{ fontSize: "clamp(48px, 8vw, 96px)" }}
-              >
-                Welcome to{" "}
-                <span className="serif-em gradient-text">Sahara</span>.
-              </h1>
+          <h1
+            className="h-display text-ink"
+            style={{ fontSize: "clamp(48px, 8vw, 96px)" }}
+          >
+            {copy.title}
+          </h1>
 
-              <p className="lede mx-auto">
-                Your download link is in your inbox — check the receipt from
-                Stripe. If you don’t see it in 5 minutes, check spam or email{" "}
-                <a
-                  href="mailto:itsdrumzon@gmail.com"
-                  className="text-ink font-medium underline decoration-orange/40 hover:decoration-orange"
-                >
-                  itsdrumzon@gmail.com
-                </a>
-                .
-              </p>
+          <p className="lede mx-auto">{copy.body}</p>
 
-              <p className="lede mx-auto text-[14px] text-ash mt-2">
-                Drag the WAVs into Ableton, FL, Logic. Stems are pre-routed —
-                solo the kicks, swap the percs, write your own arrangement.
-                Royalty-free. Yours forever.
-              </p>
-            </>
-          ) : (
-            <>
-              <h1
-                className="h-display text-ink"
-                style={{ fontSize: "clamp(48px, 8vw, 96px)" }}
-              >
-                Check your{" "}
-                <span className="serif-em gradient-text">inbox</span>.
-              </h1>
-
-              <p className="lede mx-auto">
-                Sahara Lite is on its way. If you don’t see it in 5 minutes,
-                check spam — and add{" "}
-                <span className="text-ink font-medium">
-                  itsdrumzon@gmail.com
-                </span>{" "}
-                to your contacts so the next drop lands clean.
-              </p>
-            </>
+          {copy.sub && (
+            <p className="text-[13px] text-ash max-w-[480px]">{copy.sub}</p>
           )}
 
           <Link

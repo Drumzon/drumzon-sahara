@@ -4,13 +4,17 @@ import { useEffect, useState } from "react";
 import type { Currency } from "@/lib/currency";
 import { formatPrice } from "@/lib/currency";
 import { getCurrentDrop, getDropBuyUrl } from "@/lib/drops";
-import { getDropPrice, splitDuration } from "@/lib/pricing";
+import { getDropPrice, getInnerCirclePrice, splitDuration } from "@/lib/pricing";
+import { getInnerCircleBuyUrl } from "@/lib/membership";
 
-// Interim sticky CTA — wired to new drops + pricing model.
-// Full dual-CTA (drop + Inner Circle) variant ships in F6.
+// Dual sticky CTA — drop one-time + Inner Circle subscription side by side.
+// Visible after scroll > 700px. Hidden by default to avoid annoying the
+// reader during initial scan.
 export default function StickyCTA({ currency }: { currency: Currency }) {
   const drop = getCurrentDrop();
   const buyUrl = getDropBuyUrl(drop, currency);
+  const icUrl = getInnerCircleBuyUrl();
+  const icPrice = getInnerCirclePrice(currency);
   const [visible, setVisible] = useState(false);
   const [tick, setTick] = useState(0);
 
@@ -27,6 +31,7 @@ export default function StickyCTA({ currency }: { currency: Currency }) {
 
   const price = getDropPrice(drop, tick || Date.now());
   const fmt = formatPrice(price.amount, currency);
+  const icFmt = formatPrice(icPrice, currency);
 
   let subline: string;
   if (price.inEarlyBird && price.msUntilNextTier !== null) {
@@ -49,10 +54,10 @@ export default function StickyCTA({ currency }: { currency: Currency }) {
           ? "translate-y-0 opacity-100"
           : "translate-y-[200%] opacity-0 pointer-events-none"
       }`}
-      style={{ maxWidth: "min(640px, calc(100% - 24px))" }}
+      style={{ maxWidth: "min(720px, calc(100% - 24px))" }}
     >
       <div
-        className="flex items-center justify-between gap-3 sm:gap-5 pl-4 pr-1 py-1 rounded-full"
+        className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2 sm:gap-3 p-1.5 rounded-[28px] sm:rounded-full"
         style={{
           background: "rgba(26,26,26,0.94)",
           backdropFilter: "blur(20px) saturate(180%)",
@@ -61,7 +66,8 @@ export default function StickyCTA({ currency }: { currency: Currency }) {
             "0 16px 48px -12px rgba(26,17,8,0.5), 0 0 0 4px rgba(255,107,53,0.06)",
         }}
       >
-        <div className="flex items-center gap-2.5 min-w-0">
+        {/* Drop label */}
+        <div className="flex items-center gap-2.5 min-w-0 pl-3 pr-1 sm:pr-0 py-1">
           <span
             className="ab-dot w-1.5 h-1.5 rounded-full bg-orange flex-shrink-0"
             style={{ boxShadow: "0 0 8px rgba(255,107,53,1)" }}
@@ -76,12 +82,22 @@ export default function StickyCTA({ currency }: { currency: Currency }) {
             </span>
           </div>
         </div>
-        <a
-          href={buyUrl}
-          className="inline-flex items-center justify-center h-10 px-5 rounded-full bg-orange text-white text-[13px] font-medium hover:bg-orange-deep transition-colors flex-shrink-0"
-        >
-          Get the pack
-        </a>
+
+        {/* Dual CTA */}
+        <div className="flex items-stretch gap-1.5">
+          <a
+            href={icUrl}
+            className="inline-flex items-center justify-center h-10 px-4 rounded-full text-cream-base text-[12px] sm:text-[13px] font-medium border border-white/15 hover:border-orange hover:text-orange transition-colors flex-shrink-0"
+          >
+            Inner Circle {icFmt}/mo
+          </a>
+          <a
+            href={buyUrl}
+            className="inline-flex items-center justify-center h-10 px-4 sm:px-5 rounded-full bg-orange text-white text-[12px] sm:text-[13px] font-medium hover:bg-orange-deep transition-colors flex-shrink-0"
+          >
+            Get {drop.name}
+          </a>
+        </div>
       </div>
     </div>
   );

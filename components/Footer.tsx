@@ -1,9 +1,11 @@
 import Link from "next/link";
 import LogoMark from "./LogoMark";
+import { getCurrentDrop } from "@/lib/drops";
 
-// Restrained 3-col footer. Brand col with the new Sahara Solar Seal +
-// tagline. Pack/Connect cols use a "slide-in arrow" hover detail and
-// refined letter-spacing. Semi-transparent bg lets SaharaBackdrop bleed.
+// 3-col footer. Brand col reads from current drop. Sections col links
+// to anchors. Connect col includes legal pages + socials + contact.
+// Killed the old "Owned, not subscribed" tagline — contradicts Inner Circle.
+
 const Arrow = () => (
   <span
     aria-hidden
@@ -17,6 +19,8 @@ const linkClass =
   "group inline-flex items-center text-stone hover:text-ink text-[14px] transition-colors w-fit";
 
 export default function Footer() {
+  const drop = getCurrentDrop();
+
   return (
     <footer
       className="relative px-6 md:px-10 pt-16 lg:pt-20 pb-8 mt-[clamp(72px,10vw,140px)] border-t border-black/[0.06]"
@@ -45,39 +49,44 @@ export default function Footer() {
             >
               <LogoMark size="md" />
             </Link>
-            <p className="text-stone text-[14px] leading-relaxed max-w-[34ch]">
-              Afro House sounds, properly mixed. Stems on every loop.{" "}
-              <span className="text-ink">Owned, not subscribed.</span>
+            <p className="text-stone text-[14px] leading-relaxed max-w-[36ch]">
+              Afro House sample packs, one drop a month. Stems on every loop,
+              MIDI on every melody.{" "}
+              <span className="text-ink">Built for producers shipping tracks.</span>
             </p>
           </div>
 
-          {/* The Pack */}
+          {/* Sections */}
           <nav
-            aria-label="The Pack"
+            aria-label="Sections"
             className="md:col-span-3 flex flex-col gap-2.5"
           >
             <h4 className="text-orange-deep text-[11px] font-bold tracking-[0.18em] uppercase mb-3">
-              The Pack
+              Browse
             </h4>
-            <Link className={linkClass} href="/#hero">
-              <span>Vol. 1: Sahara</span>
+            <Link className={linkClass} href="/#current-drop">
+              <span>{drop.name} · {drop.monthLabel}</span>
               <Arrow />
             </Link>
-            <Link className={linkClass} href="/#whats-included">
-              <span>What’s Inside</span>
+            <Link className={linkClass} href="/#inner-circle">
+              <span>Inner Circle</span>
               <Arrow />
             </Link>
             <Link className={linkClass} href="/#preview">
-              <span>Preview</span>
+              <span>Audio preview</span>
               <Arrow />
             </Link>
-            <Link className={linkClass} href="/#lead-magnet">
-              <span>Free Sample</span>
+            <Link className={linkClass} href="/#free-midi-pack">
+              <span>Free MIDI pack</span>
+              <Arrow />
+            </Link>
+            <Link className={linkClass} href="/#faq">
+              <span>FAQ</span>
               <Arrow />
             </Link>
           </nav>
 
-          {/* Connect */}
+          {/* Connect + legal */}
           <div className="md:col-span-4 flex flex-col gap-2.5">
             <h4 className="text-orange-deep text-[11px] font-bold tracking-[0.18em] uppercase mb-3">
               Connect
@@ -104,7 +113,23 @@ export default function Footer() {
               <span>itsdrumzon@gmail.com</span>
               <Arrow />
             </a>
-            <Link href="/privacy" className={`${linkClass} mt-2`}>
+
+            <h4 className="text-orange-deep text-[11px] font-bold tracking-[0.18em] uppercase mt-5 mb-3">
+              Legal
+            </h4>
+            <Link className={linkClass} href="/license">
+              <span>License terms</span>
+              <Arrow />
+            </Link>
+            <Link className={linkClass} href="/refund-policy">
+              <span>Refund policy</span>
+              <Arrow />
+            </Link>
+            <Link className={linkClass} href="/terms">
+              <span>Terms of service</span>
+              <Arrow />
+            </Link>
+            <Link className={linkClass} href="/privacy">
               <span>Privacy</span>
               <Arrow />
             </Link>
@@ -113,7 +138,7 @@ export default function Footer() {
 
         <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-3 pt-5 text-[12px] text-ash">
           <span>© 2026 Drumzon</span>
-          <span>All sounds 100% royalty-free</span>
+          <span>Royalty-free for commercial use</span>
         </div>
       </div>
     </footer>
