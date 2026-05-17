@@ -23,7 +23,7 @@ export default function Privacy() {
             Privacy <span className="serif-em gradient-text">Policy</span>.
           </h1>
           <p className="text-stone text-[13px] mt-4 mb-12 font-mono tracking-wide">
-            Updated 13 May 2026
+            Updated May 2026
           </p>
 
           <div className="flex flex-col gap-10 text-graphite text-[16px] leading-[1.7]">
@@ -32,8 +32,8 @@ export default function Privacy() {
                 Who we are
               </h2>
               <p>
-                Drumzon is an independent sound-design project. You can reach
-                us at{" "}
+                Drumzon is an independent sound-design project based in Spain.
+                You can reach us at{" "}
                 <a
                   href="mailto:itsdrumzon@gmail.com"
                   className="text-orange hover:text-orange-deep underline underline-offset-4"
@@ -49,9 +49,15 @@ export default function Privacy() {
                 What we collect
               </h2>
               <p>
-                When you sign up for the free Sahara Lite pack or buy Vol. 1,
-                we collect your email address. That’s it. No tracking pixels,
-                no behavioural profiling, no third-party data brokers.
+                We collect your email when you sign up for the free Afrohouse
+                MIDI starter pack, buy a monthly drop, or subscribe to Inner
+                Circle. Stripe collects card details for purchases (we never
+                see them — Stripe handles all card data). Inner Circle
+                subscribers' billing data is stored by Stripe. That's it.
+              </p>
+              <p>
+                No tracking pixels. No behavioural profiling. No third-party
+                data brokers. No fingerprinting.
               </p>
             </section>
 
@@ -60,9 +66,15 @@ export default function Privacy() {
                 How we use it
               </h2>
               <p>
-                We use your email to deliver the pack you requested and to let
-                you know when new releases drop (Vol. 2, free packs, occasional
-                discount codes). Two emails a month, max.
+                Your email is used to: deliver what you bought or signed up
+                for, send the monthly drop announcement, occasionally send
+                discount codes or surveys. Inner Circle subscribers get one
+                extra email per month with the exclusive presets, MIDIs, and
+                Ableton template.
+              </p>
+              <p>
+                Maximum cadence: 4 emails a month for IC members, 1–2 a month
+                for everyone else.
               </p>
             </section>
 
@@ -80,8 +92,16 @@ export default function Privacy() {
                 >
                   Kit
                 </a>{" "}
-                (formerly ConvertKit). The website is hosted on Vercel. Both
-                are GDPR-compliant.
+                (formerly ConvertKit). Payments processed by{" "}
+                <a
+                  href="https://stripe.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-orange hover:text-orange-deep underline underline-offset-4"
+                >
+                  Stripe
+                </a>
+                . Website hosted on Vercel. All three are GDPR-compliant.
               </p>
             </section>
 
@@ -90,15 +110,21 @@ export default function Privacy() {
                 Your rights
               </h2>
               <p>
-                You can unsubscribe from any email with one click. You can ask
-                us to delete your data at any time by emailing{" "}
+                Unsubscribe from any email in one click. Ask us to delete your
+                data at any time by emailing{" "}
                 <a
                   href="mailto:itsdrumzon@gmail.com"
                   className="text-orange hover:text-orange-deep underline underline-offset-4"
                 >
                   itsdrumzon@gmail.com
                 </a>{" "}
-                — we’ll do it within 7 days.
+                — we'll do it within 7 days. Inner Circle members can also
+                cancel + request data deletion from their Stripe customer
+                portal.
+              </p>
+              <p>
+                You have the right to access, correct, port, or delete your
+                personal data under the GDPR. Contact us and we'll comply.
               </p>
             </section>
 
@@ -107,8 +133,10 @@ export default function Privacy() {
                 Cookies
               </h2>
               <p>
-                We don’t use tracking cookies. The site uses essential cookies
-                only (session, security).
+                We don't use tracking or marketing cookies. The site uses
+                essential cookies only (session, security). Vercel sets a
+                geolocation header (country only, no IP storage) so we can
+                show you the right currency.
               </p>
             </section>
 
@@ -117,9 +145,9 @@ export default function Privacy() {
                 Changes
               </h2>
               <p>
-                If we change this policy, we’ll update the date at the top.
+                If we change this policy, we'll update the date at the top.
                 Material changes will be announced via email to existing
-                subscribers.
+                subscribers and Inner Circle members.
               </p>
             </section>
           </div>

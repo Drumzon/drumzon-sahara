@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Instrument_Serif, Inter } from "next/font/google";
 import GrainOverlay from "@/components/GrainOverlay";
+import SaharaBackdrop from "@/components/SaharaBackdrop";
 import "./globals.css";
 
 const instrumentSerif = Instrument_Serif({
@@ -23,19 +24,22 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://drumzon.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Drumzon Vol. 1: Sahara — Afro House Sample Pack",
+    default: "Drumzon — Afro House sample packs, one drop a month",
     template: "%s | Drumzon",
   },
   description:
-    "A premium Afro House drums & percussion pack — inspired by Keinemusik, Hugel, and Black Coffee. 160+ royalty-free sounds for producers.",
+    "Premium Afro House sample packs in the palette of Black Coffee, Keinemusik, Hugel & ME. One drop a month, stems on every loop, MIDI on every melody. Royalty-free.",
   keywords: [
     "afro house sample pack",
     "afro house drums",
+    "afro house serum presets",
     "keinemusik sample pack",
     "hugel sample pack",
     "black coffee samples",
     "afro house percussion",
+    "afro house ableton template",
     "royalty-free afro house",
+    "monthly sample pack subscription",
     "drumzon",
   ],
   authors: [{ name: "Drumzon" }],
@@ -49,15 +53,15 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName: "Drumzon",
-    title: "Drumzon Vol. 1: Sahara — Afro House Sample Pack",
+    title: "Drumzon — Afro House sample packs, one drop a month",
     description:
-      "160+ premium Afro House sounds. Inspired by Keinemusik, Hugel, and Black Coffee. Royalty-free, all DAWs.",
+      "Premium Afro House drops every month, plus exclusive Serum presets, MIDIs, and Ableton templates for Inner Circle members. Royalty-free, all DAWs.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Drumzon Vol. 1: Sahara",
+    title: "Drumzon — Afro House, one drop a month",
     description:
-      "160+ premium Afro House sounds. Royalty-free, all DAWs.",
+      "Premium Afro House sample packs in the Keinemusik / Black Coffee / Hugel palette. Royalty-free.",
     creator: "@drumzon",
   },
   robots: {
@@ -90,6 +94,7 @@ export default function RootLayout({
       className={`${instrumentSerif.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans">
+        <SaharaBackdrop />
         {children}
         <GrainOverlay />
       </body>

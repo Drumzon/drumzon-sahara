@@ -12,7 +12,6 @@ import About from "@/components/About";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import StickyCTA from "@/components/StickyCTA";
-import SaharaBackdrop from "@/components/SaharaBackdrop";
 import { detectCurrency } from "@/lib/currency";
 import { getCurrentDrop } from "@/lib/drops";
 import { getDropPrice } from "@/lib/pricing";
@@ -53,7 +52,6 @@ export default async function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
       />
-      <SaharaBackdrop />
       <CountdownStrip currency={currency} />
       <Navbar />
       <main>
