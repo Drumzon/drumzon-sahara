@@ -3,6 +3,7 @@ import CountdownStrip from "@/components/CountdownStrip";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
+import CurrentDrop from "@/components/CurrentDrop";
 import WhatsIncluded from "@/components/WhatsIncluded";
 import Preview from "@/components/Preview";
 import LeadMagnet from "@/components/LeadMagnet";
@@ -55,6 +56,7 @@ export default async function Home() {
       <main>
         <Hero currency={currency} />
         <Marquee />
+        <CurrentDrop currency={currency} />
         <WhatsIncluded />
         <Preview />
         <LeadMagnet />
