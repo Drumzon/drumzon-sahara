@@ -1,10 +1,12 @@
-// Hormozi bonus stack — REWRITTEN to be 100% music assets.
-// Producer makes music; bonuses are curated by-products of that music
-// creation. Zero videos, zero PDFs, zero email replies, zero templates.
-// Everything here is "create music" output, packaged differently.
+// Grand Slam Offer bonus stack — Hormozi $100M Offers rule:
+// "The value of bonuses should eclipse the value of the main offer."
+// AND Decap "Drums That Knock" lesson: build the FREE thing to the
+// same studio quality as the paid thing. People will think "if this
+// is what they GIVE AWAY, the paid stuff must be insane."
 //
-// Per $100M Leads: even free / bonus offers must be Grand Slam quality.
-// "Make your lead magnet so insanely good people feel stupid saying no."
+// 100% music assets — every bonus is a curated by-product of the
+// producer's monthly drop creation. Zero videos, zero PDFs, zero
+// email replies, zero templates.
 
 export type Bonus = {
   name: string;
@@ -15,34 +17,28 @@ export type Bonus = {
 
 export const BONUS_STACK: Bonus[] = [
   {
-    name: "The Quick-Start Pack",
-    what: "5 hand-picked loops, 1 melody MIDI and 1 Serum preset from the producer's vault. Delivered instantly on signup so you can build a track within the first hour.",
-    solves: "I want to start producing the moment I subscribe, not wait for the next drop.",
-    value: 30,
+    name: "The MIDI Lab",
+    what: "50+ MIDI files: chord progressions, basslines, lead melodies, plus 10 song-starter templates in the 5 keys producers actually use in the genre (A, C, G, F, D minor).",
+    solves: "I run out of melodic ideas. I need starting points I can take in any direction.",
+    value: 80,
   },
   {
-    name: "The MIDI Vault",
-    what: "30+ MIDI files of chord progressions, basslines and lead melodies in the keys producers actually use in the genre (A min, C min, G min, F min, D min).",
-    solves: "I run out of melodic ideas. I need a starting point I can take in any direction.",
-    value: 40,
+    name: "The Preset Lab",
+    what: "50+ Serum, Vital, Diva and Massive presets curated from past drop kits — log drums, marimbas, plucks, pads, bass synths, FX. Plug, tweak, ship.",
+    solves: "I want a full synth palette without designing patches from scratch.",
+    value: 100,
   },
   {
-    name: "The Preset Vault",
-    what: "25+ Serum, Vital and Diva presets curated from past monthly drops — log drums, marimbas, plucks, pads, bass synths. Plug in, tweak, ship.",
-    solves: "I want more synth palette without designing patches from scratch.",
-    value: 50,
-  },
-  {
-    name: "The B-Sides Drop",
-    what: "Quarterly bonus pack of ~30 loops and one-shots that didn't make the monthly cut — same studio-grade quality, different aesthetic angles.",
-    solves: "I want extra material between monthly drops, not just one batch per month.",
-    value: 120,
+    name: "The Quarterly Vault Drop",
+    what: "Four times a year, a bonus mega-pack of ~150 loops + one-shots that didn't make the monthly cut. Same studio quality, different aesthetic angles. Members-only — never sold separately.",
+    solves: "One drop a month isn't enough — I want extra material between releases.",
+    value: 240,
   },
   {
     name: "The Sahara Vault",
-    what: "The Month 1 drop (4 kits + ~80 sounds) added permanently to your library — only for members joining May 31 – June 30.",
+    what: "The Month 1 drop (4 kits + ~80 sounds + presets + MIDIs) added permanently to your library. Only for members joining May 31 – June 30.",
     solves: "I want the launch drop even if I subscribe after it released.",
-    value: 35,
+    value: 40,
   },
 ];
 
@@ -50,14 +46,29 @@ export function totalBonusValue(): number {
   return BONUS_STACK.reduce((sum, b) => sum + b.value, 0);
 }
 
-// The Quick-Start Pack is ALSO usable as a standalone free lead magnet
-// (separate path: capture email via Kit → free download → nurture to
-// subscription). Export the spec separately so the LeadMagnet
-// component can reference it.
+// THE LEAD MAGNET — separate from member bonuses. Free in exchange
+// for email. Built to Decap-quality so prospects think "if the FREE
+// version is this good, the paid must be insane."
+//
+// "The First Drop" = one full construction kit + 20 isolated samples
+// + 5 MIDIs + 3 presets. A complete starting point — the producer
+// can write a track using ONLY this. Standalone value comparable to
+// a small standalone pack on PML/Loopmasters (€25-35).
+//
+// Per Hormozi $100M Leads: "Your lead magnet should be valuable
+// enough on its own that you could charge for it."
 export const LEAD_MAGNET = {
-  name: "The Quick-Start Pack",
-  tagline: "5 loops · 1 MIDI · 1 preset — instant download",
+  name: "The First Drop",
+  tagline:
+    "A complete construction kit + 20 samples + 5 MIDIs + 3 presets — instant download",
   description:
-    "A genuine taste of the monthly drop quality. No watermarks, no time limits, no card required. Use them in a track today.",
-  perceived_value: 30,
+    "Not a teaser. Not a watermarked clip. One full construction kit pulled directly from the producer's vault — same studio-grade quality as the monthly drops, free for the asking. Write a finished track using only this pack.",
+  inclusions: [
+    "1 complete construction kit (stems + arrangement)",
+    "20 individual samples (kicks, percs, hats, marimba, perc loops)",
+    "5 MIDI files (chord progressions, basslines, melodies)",
+    "3 Serum / Vital presets used in the kit",
+    "24-bit / 44.1 kHz WAV · royalty-free for personal use",
+  ],
+  perceived_value: 40,
 };

@@ -1,13 +1,15 @@
-// Hormozi $100M Leads — lead magnet section. Free Quick-Start Pack
-// captured via Kit (ConvertKit) form. Sits between value-build sections
-// and pricing as a "low-friction alternative path" for prospects not
-// ready to subscribe yet. The free pack is the same Quick-Start Pack
-// included as a bonus for paying members — but here it's standalone
-// free in exchange for an email.
+// Grand Slam lead magnet section — Decap "Drums That Knock" lesson
+// applied: the FREE pack is built to the same quality as the paid
+// product. Not a teaser, not a watermarked clip — a full complete
+// construction kit the producer can ship a track with.
 //
-// $100M Leads core principle: "Engaged leads are the true output of
-// advertising. Make your lead magnet so insanely good people feel
-// stupid saying no."
+// Per Hormozi $100M Leads: lead magnets must be valuable enough that
+// you could charge for them. This one is anchored at €40 standalone
+// value, given free in exchange for an email.
+//
+// Form captures via Kit (ConvertKit) → incentive email autoresponder
+// delivers download link → subscriber lands in nurture sequence for
+// later subscription upsell.
 
 import { LEAD_MAGNET } from "@/lib/bonuses";
 
@@ -27,6 +29,23 @@ const ArrowRight = () => (
   </svg>
 );
 
+const Check = () => (
+  <svg
+    width="14"
+    height="14"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className="shrink-0 mt-0.5 text-orange"
+    aria-hidden
+  >
+    <polyline points="20 6 9 17 4 12" />
+  </svg>
+);
+
 export default function LeadMagnet() {
   const formAction = process.env.NEXT_PUBLIC_KIT_FORM_ACTION || "";
 
@@ -40,27 +59,28 @@ export default function LeadMagnet() {
           Not ready to subscribe?
         </p>
         <h2 className="display-2 text-ink mx-auto">
-          Get a real{" "}
-          <span className="text-chroma">taste</span> first. Free.
+          Try{" "}
+          <span className="text-chroma">The First Drop</span>{" "}
+          free. Use it like a paid pack.
         </h2>
         <p className="display-subhead mx-auto mt-5">
           {LEAD_MAGNET.description}
         </p>
 
-        {/* The free pack card — visual anchor */}
+        {/* The free pack card — anchors at €40 → FREE for visual impact */}
         <div
-          className="mt-10 mx-auto max-w-[560px] p-7 sm:p-8 rounded-[20px] text-left"
+          className="mt-10 mx-auto max-w-[620px] p-7 sm:p-8 rounded-[20px] text-left"
           style={{
             background:
-              "linear-gradient(135deg, rgba(255,107,53,0.07) 0%, rgba(255,140,66,0.03) 100%)",
-            border: "1px solid rgba(255,107,53,0.20)",
+              "linear-gradient(135deg, rgba(255,107,53,0.08) 0%, rgba(255,140,66,0.04) 100%)",
+            border: "1px solid rgba(255,107,53,0.22)",
           }}
         >
-          <div className="flex items-baseline justify-between gap-4 mb-3">
-            <h3 className="text-ink text-[17px] font-semibold tracking-[-0.015em]">
+          <div className="flex items-baseline justify-between gap-4 mb-4">
+            <h3 className="text-ink text-[20px] font-semibold tracking-[-0.018em]">
               {LEAD_MAGNET.name}
             </h3>
-            <span className="shrink-0 text-stone text-[13px] font-mono tabular-nums">
+            <span className="shrink-0 text-stone text-[14px] font-mono tabular-nums">
               <span className="line-through opacity-50">
                 €{LEAD_MAGNET.perceived_value}
               </span>
@@ -69,9 +89,18 @@ export default function LeadMagnet() {
               </span>
             </span>
           </div>
-          <p className="text-stone text-[14px] leading-[1.6] mb-5">
-            {LEAD_MAGNET.tagline}
-          </p>
+
+          <ul className="flex flex-col gap-2.5 mb-6">
+            {LEAD_MAGNET.inclusions.map((line) => (
+              <li
+                key={line}
+                className="flex items-start gap-2.5 text-ink text-[14px] leading-[1.5]"
+              >
+                <Check />
+                <span>{line}</span>
+              </li>
+            ))}
+          </ul>
 
           <form
             action={formAction}
@@ -95,21 +124,22 @@ export default function LeadMagnet() {
               type="submit"
               className="inline-flex items-center justify-center gap-2 h-[48px] px-6 rounded-full bg-orange text-white text-[14px] font-medium hover:bg-orange-deep transition-colors whitespace-nowrap"
             >
-              Get the free pack
+              Send The First Drop
               <ArrowRight />
             </button>
           </form>
 
           <p className="text-ash text-[12px] mt-4 leading-[1.5]">
-            Instant download. One email after, then nothing unless you ask.
-            Unsubscribe in one click.
+            Instant download. One email after explaining what&apos;s next.
+            Unsubscribe in one click. Yours to keep regardless.
           </p>
         </div>
 
-        {/* Subtle nudge back to subscription */}
-        <p className="text-stone text-[13px] mt-8 max-w-[520px] mx-auto">
-          Free pack lives in your archive forever. When you&apos;re ready for
-          a full curated drop every month, the membership&apos;s right below.
+        {/* Decap-style framing */}
+        <p className="text-stone text-[14px] mt-10 max-w-[560px] mx-auto leading-[1.6]">
+          If this is what we give away free, imagine what lands in your DAW
+          every month as a member. The membership&apos;s right below — same
+          quality, every month, locked for life.
         </p>
       </div>
     </section>

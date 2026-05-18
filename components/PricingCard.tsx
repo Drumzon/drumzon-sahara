@@ -22,13 +22,14 @@ import {
 
 // Same benefits both tiers (per Carlos's directive). The differentiator
 // is the locked lifetime price. All bonuses are 100% music assets —
-// curated by-products of the producer's monthly drop creation.
+// curated by-products of the producer's monthly drop creation. Decap
+// quality bar (each piece built like a record).
 const MEMBER_BENEFITS = [
   "Monthly drop: 4 kits + ~80 samples + ~12 presets + ~8 MIDIs",
-  "Quick-Start Pack at signup (€30 value)",
-  "The MIDI Vault · 30+ files (€40 value)",
-  "The Preset Vault · 25+ Serum/Vital/Diva (€50 value)",
-  "The B-Sides Drop · quarterly bonus pack (€120/yr value)",
+  "The First Drop at signup · full kit (€40 value)",
+  "The MIDI Lab · 50+ files in 5 keys (€80 value)",
+  "The Preset Lab · 50+ Serum/Vital/Diva (€100 value)",
+  "The Quarterly Vault Drop · 4× bonus mega-packs (€240/yr value)",
   "Royalty-free · cancel anytime · keep every file",
 ];
 

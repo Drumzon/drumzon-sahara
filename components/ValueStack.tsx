@@ -1,18 +1,20 @@
-// Hormozi Grand Slam value-stack — now anchored against REAL market
-// prices AND a 100% music-only bonus stack (rewritten per Carlos:
-// no videos, no PDFs, no email replies — everything here is a
-// curated by-product of the producer's monthly music creation).
+// Grand Slam value-stack — Hormozi rule #10: "value of bonuses should
+// eclipse the value of the main offer." + Decap "Drums That Knock"
+// quality bar (curated, studio-grade, by the producer for himself).
 //
 // Honest math:
-//   Monthly drop standalone value:  €35 × 12 = €420/yr
-//   + Quick-Start Pack (€30) + MIDI Vault (€40) + Preset Vault (€50)
-//   + B-Sides Drop yearly (€120) + Sahara Vault (€35) = €275
-//   = TOTAL annual perceived value: €695
+//   Monthly drop standalone value:  €35 × 12     = €420/yr
+//   + MIDI Lab (€80) + Preset Lab (€100) + Quarterly Vault Drop
+//     (€240/yr) + Sahara Vault (€40)              = €460
+//   = TOTAL annual perceived value:                €880
 //
-//   Founding price: €190/yr  → 3.66× value ratio
-//   Standard price: €290/yr  → 2.40× value ratio
+//   Founding price: €190/yr  → 4.63× value ratio  (Grand Slam ✓)
+//   Standard price: €290/yr  → 3.03× value ratio  (Strong ✓)
 //
-// Both ratios clear Hormozi's 2× "no-brainer" floor.
+// Bonus stack (€460) now ECLIPSES the monthly drop value (€420),
+// which per Hormozi creates the psychological effect that the main
+// offer itself must be even more valuable than what's already been
+// shown. This is the Grand Slam Offer floor.
 
 import {
   MARKET_PACK_PRICE_MIN,

@@ -130,7 +130,7 @@ export default function Hero({
               href="#free-pack"
               className="text-stone hover:text-ink font-medium transition-colors inline-flex items-center gap-1.5"
             >
-              Try 5 free samples first <ArrowRight />
+              Or get The First Drop free <ArrowRight />
             </a>
             <span aria-hidden className="text-ash/40">·</span>
             <a
