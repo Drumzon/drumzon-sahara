@@ -16,45 +16,43 @@ export default function RefundPolicy() {
           <LogoMark size="sm" />
         </Link>
       </header>
+
       <main className="flex-1 px-6 md:px-10">
         <div className="max-w-[720px] mx-auto pt-16 lg:pt-24 pb-20">
-          <p className="eyebrow mb-3">Legal</p>
+          <p className="text-ash text-[11px] font-semibold tracking-[0.22em] uppercase mb-3">
+            Legal
+          </p>
           <h1
-            className="h-display-bold text-text mb-2"
-            style={{ fontSize: "clamp(40px, 6vw, 64px)" }}
+            className="h-display text-ink mb-2"
+            style={{ fontSize: "clamp(40px, 6vw, 72px)" }}
           >
-            Refund{" "}
-            <span className="serif-em" style={{ color: "var(--color-accent)" }}>
-              policy
-            </span>
-            .
+            <span className="serif-em gradient-text">Refund</span> policy.
           </h1>
-          <p className="text-text-subtle text-[12px] font-mono uppercase tracking-[0.14em] mb-12">
+          <p className="text-ash text-[12px] font-mono uppercase tracking-[0.14em] mb-12">
             Updated May 2026
           </p>
 
-          <div className="flex flex-col gap-8 text-text-muted text-[15px] leading-[1.75]">
+          <div className="flex flex-col gap-8 text-stone text-[15px] leading-[1.75]">
             <p
-              className="h-display text-text"
-              style={{ fontSize: "clamp(24px, 3vw, 32px)" }}
+              className="h-display text-ink"
+              style={{ fontSize: "clamp(28px, 4vw, 44px)" }}
             >
-              No refunds.
+              <span className="serif-em gradient-text">No refunds.</span>
             </p>
 
-            <p>
-              Drumzon Pro does not offer refunds. Here's why:
-            </p>
+            <p>Drumzon Pro does not offer refunds. Here&apos;s why:</p>
 
             <p>
               The Sahara demo on the landing page is the entire product
               experience compressed into 60–90 seconds. You can hear the
-              quality, the sound design, the mix, the genre. You know
-              exactly what you're getting before you click subscribe.
+              quality, the sound design, the mix, the genre. You know exactly
+              what you&apos;re getting before you click subscribe.
             </p>
 
             <p>
-              If the sound on the demo is what you want, join. If it isn't,
-              don't. No need for refund policies when you can listen first.
+              If the sound on the demo is what you want, join. If it
+              isn&apos;t, don&apos;t. No need for refund policies when you
+              can listen first.
             </p>
 
             <Section title="Cancel anytime">
@@ -64,19 +62,18 @@ export default function RefundPolicy() {
                 in your welcome email). Your access continues until the end
                 of the current billing period — you receive the value you
                 paid for. After that, billing stops and you keep every file
-                you've downloaded.
+                you&apos;ve downloaded.
               </p>
             </Section>
 
             <Section title="Disputed charges">
               <p>
-                If something legitimately went wrong (e.g. you were charged
-                after canceling, or a drop wasn't delivered while you were
+                If something legitimately went wrong (you were charged after
+                canceling, or a drop wasn&apos;t delivered while you were
                 active), email{" "}
                 <a
                   href="mailto:contact@drumzon.com"
-                  className="text-text underline"
-                  style={{ textDecorationColor: "rgba(224,122,60,0.4)" }}
+                  className="text-ink underline decoration-orange/40 hover:decoration-orange"
                 >
                   contact@drumzon.com
                 </a>{" "}
@@ -86,7 +83,7 @@ export default function RefundPolicy() {
               </p>
             </Section>
 
-            <Section title="EU consumer law note">
+            <Section title="EU consumer law">
               <p>
                 Under EU consumer law, digital goods that have been
                 downloaded technically lose refund rights. By subscribing,
@@ -100,13 +97,14 @@ export default function RefundPolicy() {
               <p>
                 Drumzon Pro commits to at least one drop per active member
                 month. In rare cases of unavoidable delay, your subscription
-                pauses (no charge) until delivery resumes. You're never
-                charged for content you don't receive.
+                pauses (no charge) until delivery resumes. You&apos;re never
+                charged for content you don&apos;t receive.
               </p>
             </Section>
           </div>
         </div>
       </main>
+
       <Footer />
     </>
   );
@@ -121,7 +119,7 @@ function Section({
 }) {
   return (
     <section className="flex flex-col gap-3">
-      <h2 className="text-text text-[14px] font-semibold uppercase tracking-[0.16em]">
+      <h2 className="text-ink text-[14px] font-semibold uppercase tracking-[0.16em]">
         {title}
       </h2>
       {children}

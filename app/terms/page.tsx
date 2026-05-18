@@ -16,36 +16,32 @@ export default function Terms() {
           <LogoMark size="sm" />
         </Link>
       </header>
+
       <main className="flex-1 px-6 md:px-10">
         <div className="max-w-[720px] mx-auto pt-16 lg:pt-24 pb-20">
-          <p className="eyebrow mb-3">Legal</p>
+          <p className="text-ash text-[11px] font-semibold tracking-[0.22em] uppercase mb-3">
+            Legal
+          </p>
           <h1
-            className="h-display-bold text-text mb-2"
-            style={{ fontSize: "clamp(40px, 6vw, 64px)" }}
+            className="h-display text-ink mb-2"
+            style={{ fontSize: "clamp(40px, 6vw, 72px)" }}
           >
-            Terms of <span className="serif-em" style={{ color: "var(--color-accent)" }}>service</span>.
+            <span className="serif-em gradient-text">Terms</span> of service.
           </h1>
-          <p className="text-text-subtle text-[12px] font-mono uppercase tracking-[0.14em] mb-12">
+          <p className="text-ash text-[12px] font-mono uppercase tracking-[0.14em] mb-12">
             Updated May 2026
           </p>
 
-          <div className="flex flex-col gap-8 text-text-muted text-[15px] leading-[1.75]">
-            <p>
-              By subscribing to Drumzon Pro you agree to these terms.
-            </p>
+          <div className="flex flex-col gap-8 text-stone text-[15px] leading-[1.75]">
+            <p>By subscribing to Drumzon Pro you agree to these terms.</p>
 
             <Section title="1. About us">
               <p>
                 Drumzon Pro is operated by an independent producer based in
                 Barcelona, Spain. Contact:{" "}
-                <a
-                  href="mailto:contact@drumzon.com"
-                  className="text-text underline"
-                  style={{ textDecorationColor: "rgba(224,122,60,0.4)" }}
-                >
+                <a href="mailto:contact@drumzon.com" className="text-ink underline decoration-orange/40 hover:decoration-orange">
                   contact@drumzon.com
-                </a>
-                .
+                </a>.
               </p>
             </Section>
 
@@ -54,21 +50,19 @@ export default function Terms() {
                 A monthly subscription to receive curated Afro House
                 construction kits, samples, presets, and MIDIs. You receive
                 only drops released DURING your active subscription period.
-                You don't get drops released before you joined. This is the
-                core mechanic of Drumzon Pro and is explained on the landing
-                page. See our{" "}
-                <Link href="/#how-it-works" className="text-text underline" style={{ textDecorationColor: "rgba(224,122,60,0.4)" }}>
+                You don&apos;t get drops released before you joined. See the{" "}
+                <Link href="/#how-it-works" className="text-ink underline decoration-orange/40 hover:decoration-orange">
                   How It Works
                 </Link>{" "}
-                section.
+                section on the landing.
               </p>
             </Section>
 
             <Section title="3. License">
               <p>
-                Every file you download under an active subscription is
-                yours under a perpetual, non-exclusive, royalty-free license
-                for commercial music use. You keep what you've downloaded
+                Every file you download under an active subscription is yours
+                under a perpetual, non-exclusive, royalty-free license for
+                commercial music use. You keep what you&apos;ve downloaded
                 even after cancellation. You may not resell or redistribute
                 the raw files. You may not use them in AI training datasets.
               </p>
@@ -81,20 +75,20 @@ export default function Terms() {
                 your card on the recurring schedule until you cancel.
               </p>
               <p>
-                Cancel anytime from your Stripe customer portal (link in
-                your welcome email). Access continues until the end of the
-                paid period, then stops. You keep files already downloaded.
+                Cancel anytime from your Stripe customer portal (link in your
+                welcome email). Access continues until the end of the paid
+                period, then stops. You keep files already downloaded.
               </p>
             </Section>
 
             <Section title="5. Founding tier">
               <p>
                 Limited to the first 100 paying subscribers. Slots are
-                enforced atomically server-side — even simultaneous
-                checkouts will only ever fill 100 total Founding spots.
-                Founding members lock in €7/month for life provided they
-                maintain active subscription. If a Founding member cancels
-                and resubscribes within 90 days, the €7 price is preserved.
+                enforced atomically server-side — even simultaneous checkouts
+                will only ever fill 100 total Founding spots. Founding
+                members lock in €7/month for life provided they maintain
+                active subscription. If a Founding member cancels and
+                resubscribes within 90 days, the €7 price is preserved.
                 After 90 days inactive, Founding status expires and they
                 rejoin at Standard pricing.
               </p>
@@ -102,38 +96,38 @@ export default function Terms() {
 
             <Section title="6. Failed payments">
               <p>
-                Stripe Smart Retries handles 3 attempts over 7 days. After
-                7 days of failed payment, the subscription is canceled
-                automatically and portal access ends. Files downloaded
-                prior remain on your device.
+                Stripe Smart Retries handles 3 attempts over 7 days. After 7
+                days of failed payment, the subscription is canceled
+                automatically and portal access ends. Files downloaded prior
+                remain on your device.
               </p>
             </Section>
 
             <Section title="7. Refunds">
               <p>
-                <span className="text-text font-medium">No refunds.</span> You
+                <span className="text-ink font-medium">No refunds.</span> You
                 can hear the full Sahara demo on the landing page before
-                deciding. Listen first; if it's the sound, join. If not,
-                don't. See{" "}
-                <Link href="/refund-policy" className="text-text underline" style={{ textDecorationColor: "rgba(224,122,60,0.4)" }}>
+                deciding. Listen first; if it&apos;s the sound, join. If not,
+                don&apos;t. See{" "}
+                <Link href="/refund-policy" className="text-ink underline decoration-orange/40 hover:decoration-orange">
                   refund policy
-                </Link>
-                .
+                </Link>.
               </p>
             </Section>
 
             <Section title="8. Prohibited use">
               <p>
-                Don't share your download links or files. Don't resell as
-                your own sample pack. Don't use in AI training datasets.
-                Violations terminate your subscription without refund.
+                Don&apos;t share your download links or files. Don&apos;t
+                resell as your own sample pack. Don&apos;t use in AI training
+                datasets. Violations terminate your subscription without
+                refund.
               </p>
             </Section>
 
             <Section title="9. Liability">
               <p>
-                Service provided "as-is". Total liability capped at what
-                you paid us in the last 12 months.
+                Service provided &quot;as-is&quot;. Total liability capped at
+                what you paid us in the last 12 months.
               </p>
             </Section>
 
@@ -151,6 +145,7 @@ export default function Terms() {
           </div>
         </div>
       </main>
+
       <Footer />
     </>
   );
@@ -165,7 +160,7 @@ function Section({
 }) {
   return (
     <section className="flex flex-col gap-3">
-      <h2 className="text-text text-[14px] font-semibold uppercase tracking-[0.16em]">
+      <h2 className="text-ink text-[14px] font-semibold uppercase tracking-[0.16em]">
         {title}
       </h2>
       {children}

@@ -16,28 +16,30 @@ export default function Privacy() {
           <LogoMark size="sm" />
         </Link>
       </header>
+
       <main className="flex-1 px-6 md:px-10">
         <div className="max-w-[720px] mx-auto pt-16 lg:pt-24 pb-20">
-          <p className="eyebrow mb-3">Legal</p>
+          <p className="text-ash text-[11px] font-semibold tracking-[0.22em] uppercase mb-3">
+            Legal
+          </p>
           <h1
-            className="h-display-bold text-text mb-2"
-            style={{ fontSize: "clamp(40px, 6vw, 64px)" }}
+            className="h-display text-ink mb-2"
+            style={{ fontSize: "clamp(40px, 6vw, 72px)" }}
           >
-            Privacy <span className="serif-em" style={{ color: "var(--color-accent)" }}>policy</span>.
+            <span className="serif-em gradient-text">Privacy</span> policy.
           </h1>
-          <p className="text-text-subtle text-[12px] font-mono uppercase tracking-[0.14em] mb-12">
+          <p className="text-ash text-[12px] font-mono uppercase tracking-[0.14em] mb-12">
             Updated May 2026
           </p>
 
-          <div className="flex flex-col gap-10 text-text-muted text-[15px] leading-[1.75]">
+          <div className="flex flex-col gap-10 text-stone text-[15px] leading-[1.75]">
             <Section title="Who we are">
               <p>
                 Drumzon Pro is operated by a Barcelona-based independent
                 producer. Contact:{" "}
                 <a
                   href="mailto:contact@drumzon.com"
-                  className="text-text underline decoration-accent/40 hover:decoration-accent"
-                  style={{ textDecorationColor: "rgba(224,122,60,0.4)" }}
+                  className="text-ink underline decoration-orange/40 hover:decoration-orange"
                 >
                   contact@drumzon.com
                 </a>
@@ -50,7 +52,7 @@ export default function Privacy() {
                 When you subscribe to Drumzon Pro: your email address and
                 billing details (the latter handled and stored by Stripe — we
                 never see your card data). Country (via Vercel geo header) for
-                tax calculation. That's it.
+                tax calculation. That&apos;s it.
               </p>
               <p>
                 No tracking pixels. No behavioural profiling. No third-party
@@ -61,7 +63,7 @@ export default function Privacy() {
 
             <Section title="How we use it">
               <p>
-                Your email is used to: deliver each monthly drop, send
+                Your email is used to deliver each monthly drop, send
                 membership notifications (renewal receipts, failed payment
                 alerts, drop delays), and occasionally send broadcasts about
                 upcoming releases or Founding member updates.
@@ -79,8 +81,7 @@ export default function Privacy() {
                   href="https://kit.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-text underline"
-                  style={{ textDecorationColor: "rgba(224,122,60,0.4)" }}
+                  className="text-ink underline decoration-orange/40 hover:decoration-orange"
                 >
                   Kit
                 </a>{" "}
@@ -89,14 +90,12 @@ export default function Privacy() {
                   href="https://stripe.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-text underline"
-                  style={{ textDecorationColor: "rgba(224,122,60,0.4)" }}
+                  className="text-ink underline decoration-orange/40 hover:decoration-orange"
                 >
                   Stripe
                 </a>
-                . Membership records and file delivery via Supabase + Cloudflare
-                R2. Website hosted on Vercel. All four are GDPR-compliant
-                processors.
+                . Membership records via Supabase + file delivery via
+                Cloudflare R2. Website hosted on Vercel. All GDPR-compliant.
               </p>
             </Section>
 
@@ -107,8 +106,7 @@ export default function Privacy() {
                 email). Request data deletion by emailing{" "}
                 <a
                   href="mailto:contact@drumzon.com"
-                  className="text-text underline"
-                  style={{ textDecorationColor: "rgba(224,122,60,0.4)" }}
+                  className="text-ink underline decoration-orange/40 hover:decoration-orange"
                 >
                   contact@drumzon.com
                 </a>{" "}
@@ -116,7 +114,7 @@ export default function Privacy() {
               </p>
               <p>
                 Under GDPR you have the right to access, correct, port, or
-                delete your personal data. Contact us and we'll comply.
+                delete your personal data. Contact us and we&apos;ll comply.
               </p>
             </Section>
 
@@ -137,6 +135,7 @@ export default function Privacy() {
           </div>
         </div>
       </main>
+
       <Footer />
     </>
   );
@@ -151,7 +150,7 @@ function Section({
 }) {
   return (
     <section className="flex flex-col gap-3">
-      <h2 className="text-text text-[14px] font-semibold uppercase tracking-[0.16em]">
+      <h2 className="text-ink text-[14px] font-semibold uppercase tracking-[0.16em]">
         {title}
       </h2>
       {children}

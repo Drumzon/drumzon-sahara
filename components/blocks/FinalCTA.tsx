@@ -8,8 +8,8 @@ import {
 } from "@/lib/pricing";
 
 // BLOCK 9 — FINAL CTA
-// Repeat conversion block. Minimal version. Same dynamic Founding/Standard
-// logic but the parent passes isFoundingOpen as a prop.
+// Repeat conversion block on cream. Minimal — just one more chance to
+// hear the demo + a definitive CTA.
 
 const ArrowRight = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden>
@@ -53,14 +53,14 @@ export default function FinalCTA({
   return (
     <section
       id="final-cta"
-      className="section-pad px-6 md:px-10"
+      className="px-6 md:px-10 py-[clamp(64px,9vw,128px)]"
     >
-      <div className="max-w-[680px] mx-auto text-center flex flex-col items-center gap-8">
+      <div className="max-w-[700px] mx-auto text-center flex flex-col items-center gap-8">
         <h2
-          className="h-display-bold text-text"
-          style={{ fontSize: "clamp(40px, 6vw, 72px)" }}
+          className="h-display text-ink"
+          style={{ fontSize: "clamp(56px, 8vw, 96px)" }}
         >
-          Ready?
+          <span className="serif-em gradient-text">Ready?</span>
         </h2>
 
         <AudioPlayer src={audioSrc} label="One more listen — Sahara demo" />
@@ -69,7 +69,8 @@ export default function FinalCTA({
           type="button"
           onClick={handleCheckout}
           disabled={isLoading}
-          className="btn-primary btn-primary-large disabled:opacity-60 disabled:cursor-wait"
+          className="inline-flex items-center justify-center gap-2 h-[56px] px-8 rounded-full bg-orange text-white text-[15px] font-semibold hover:bg-orange-deep hover:-translate-y-0.5 transition-all disabled:opacity-60 disabled:cursor-wait"
+          style={{ boxShadow: "0 16px 40px -12px rgba(255,107,53,0.55)" }}
         >
           {isLoading
             ? "Opening checkout..."
@@ -79,7 +80,7 @@ export default function FinalCTA({
           {!isLoading && <ArrowRight />}
         </button>
 
-        <p className="text-text-subtle text-[12px] leading-[1.6]">
+        <p className="text-ash text-[12px] tracking-wide">
           Cancel anytime. No refunds. Listen first, then decide.
         </p>
       </div>

@@ -3,18 +3,17 @@
 import { useEffect, useRef, useState } from "react";
 import WaveSurfer from "wavesurfer.js";
 
-// Custom audio player using WaveSurfer.js — single most important UI on
-// the page. Plays the 60-90s Sahara demo. If NEXT_PUBLIC_SAHARA_DEMO_URL
-// is not set, renders a placeholder card with the same dimensions so the
-// layout doesn't shift when audio lands.
+// Custom audio player using WaveSurfer.js. Cream/warm aesthetic, glass-card
+// container. When NEXT_PUBLIC_SAHARA_DEMO_URL is empty, renders placeholder
+// to preserve layout.
 
-const PlayIcon = ({ size = 22 }: { size?: number }) => (
+const PlayIcon = ({ size = 18 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden>
     <path d="M8 5v14l11-7z" />
   </svg>
 );
 
-const PauseIcon = ({ size = 22 }: { size?: number }) => (
+const PauseIcon = ({ size = 18 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden>
     <path d="M6 5h4v14H6zM14 5h4v14h-4z" />
   </svg>
@@ -29,7 +28,7 @@ function formatTime(seconds: number): string {
 
 export default function AudioPlayer({
   src,
-  label = "Listen to \"Sahara\" — Month 1 drop",
+  label = "Listen to Sahara — May 31 drop",
 }: {
   src?: string;
   label?: string;
@@ -46,14 +45,14 @@ export default function AudioPlayer({
 
     const ws = WaveSurfer.create({
       container: containerRef.current,
-      waveColor: "rgba(245,245,240,0.28)",
-      progressColor: "#e07a3c",
-      cursorColor: "rgba(245,245,240,0.6)",
+      waveColor: "rgba(26,26,26,0.18)",
+      progressColor: "#ff6b35",
+      cursorColor: "rgba(26,26,26,0.4)",
       cursorWidth: 1,
       barWidth: 2,
       barGap: 2,
       barRadius: 1,
-      height: 72,
+      height: 64,
       normalize: true,
       backend: "MediaElement",
       url: src,
@@ -77,23 +76,36 @@ export default function AudioPlayer({
     };
   }, [src]);
 
-  const togglePlay = () => {
-    if (!wavesurferRef.current) return;
-    wavesurferRef.current.playPause();
+  const togglePlay = () => wavesurferRef.current?.playPause();
+
+  const containerClass =
+    "w-full max-w-[560px] mx-auto rounded-[20px] overflow-hidden";
+  const containerStyle = {
+    background: "rgba(255,255,255,0.7)",
+    backdropFilter: "blur(20px) saturate(160%)",
+    WebkitBackdropFilter: "blur(20px) saturate(160%)",
+    border: "1px solid rgba(26,26,26,0.08)",
+    boxShadow:
+      "0 20px 40px -12px rgba(26,17,8,0.10), 0 4px 12px -4px rgba(26,17,8,0.06)",
   };
 
-  // Placeholder state — no audio URL provided yet
+  // Placeholder state
   if (!src) {
     return (
-      <div className="w-full max-w-[640px] mx-auto card-elev p-6 sm:p-7">
-        <p className="eyebrow mb-3">{label}</p>
-        <div
-          className="h-[72px] w-full rounded flex items-center justify-center text-text-subtle text-[13px]"
-          style={{ background: "rgba(255,255,255,0.03)" }}
-        >
-          Audio drops May 31 · Set NEXT_PUBLIC_SAHARA_DEMO_URL when ready
+      <div className={containerClass + " p-6"} style={containerStyle}>
+        <div className="flex items-center justify-between gap-3 mb-3">
+          <p className="text-stone text-[13px] font-medium">{label}</p>
+          <span className="text-ash text-[10px] uppercase tracking-[0.14em] font-semibold">
+            Demo
+          </span>
         </div>
-        <div className="flex items-center justify-between mt-3 text-text-subtle text-[11px] font-mono uppercase tracking-[0.12em]">
+        <div
+          className="h-[64px] w-full rounded flex items-center justify-center text-ash text-[12px]"
+          style={{ background: "rgba(26,26,26,0.03)" }}
+        >
+          Audio drops May 31 · placeholder
+        </div>
+        <div className="flex items-center justify-between mt-3 text-ash text-[10px] font-mono uppercase tracking-[0.14em]">
           <span>0:00</span>
           <span>—:—</span>
         </div>
@@ -102,12 +114,12 @@ export default function AudioPlayer({
   }
 
   return (
-    <div className="w-full max-w-[640px] mx-auto card-elev p-6 sm:p-7">
-      <div className="flex items-center justify-between gap-4 mb-4">
-        <p className="text-text text-[13px] sm:text-[14px] font-medium leading-snug">
-          {label}
-        </p>
-        <span className="eyebrow shrink-0">Demo</span>
+    <div className={containerClass + " p-6"} style={containerStyle}>
+      <div className="flex items-center justify-between gap-3 mb-4">
+        <p className="text-stone text-[13px] font-medium leading-snug">{label}</p>
+        <span className="text-ash text-[10px] uppercase tracking-[0.14em] font-semibold shrink-0">
+          Demo · 60–90s
+        </span>
       </div>
 
       <div className="flex items-center gap-4">
@@ -116,20 +128,19 @@ export default function AudioPlayer({
           onClick={togglePlay}
           disabled={!isReady}
           aria-label={isPlaying ? "Pause" : "Play"}
-          className="shrink-0 w-12 h-12 rounded-full bg-accent text-bg grid place-items-center transition-all hover:scale-105 hover:bg-accent-bright disabled:opacity-40 disabled:cursor-wait"
+          className="shrink-0 w-11 h-11 rounded-full grid place-items-center text-white transition-all hover:scale-105 disabled:opacity-40 disabled:cursor-wait"
           style={{
-            background: "var(--color-accent)",
-            color: "var(--color-bg)",
-            boxShadow: "0 0 0 0 rgba(224,122,60,0.4)",
+            background: "linear-gradient(135deg, #ff6b35 0%, #e55a2b 100%)",
+            boxShadow: "0 6px 16px -4px rgba(255,107,53,0.5)",
           }}
         >
           {isPlaying ? <PauseIcon /> : <PlayIcon />}
         </button>
 
-        <div ref={containerRef} className="waveform-canvas flex-1 min-w-0" />
+        <div ref={containerRef} className="flex-1 min-w-0" />
       </div>
 
-      <div className="flex items-center justify-between mt-3 text-text-subtle text-[11px] font-mono uppercase tracking-[0.12em] tabular-nums">
+      <div className="flex items-center justify-between mt-3 text-ash text-[10px] font-mono uppercase tracking-[0.14em] tabular-nums">
         <span>{formatTime(currentTime)}</span>
         <span>{formatTime(duration)}</span>
       </div>

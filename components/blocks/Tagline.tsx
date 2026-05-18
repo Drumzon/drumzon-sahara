@@ -1,30 +1,27 @@
-// BLOCK 2 — THE PROMISE (component renamed Promise → Tagline to avoid
-// shadowing the JavaScript built-in `Promise` class).
-// Brief transition. Three short lines max. No card, no decoration.
+// BLOCK 2 — THE PROMISE (renamed Promise → Tagline to avoid shadowing
+// the JS built-in). Brief editorial transition. Three lines, breathing.
 
 export default function Tagline() {
   return (
-    <section className="section-pad-tight px-6 md:px-10">
-      <div className="max-w-[760px] mx-auto text-center flex flex-col gap-3">
+    <section className="px-6 md:px-10 py-[clamp(48px,7vw,96px)]">
+      <div className="max-w-[820px] mx-auto text-center flex flex-col gap-4">
         <p
-          className="h-display text-text"
-          style={{ fontSize: "clamp(22px, 2.6vw, 32px)" }}
+          className="h-display text-stone"
+          style={{ fontSize: "clamp(24px, 2.8vw, 36px)" }}
         >
-          This isn't a sample pack subscription.
+          This isn&apos;t a sample pack subscription.
         </p>
         <p
-          className="h-display text-text"
-          style={{ fontSize: "clamp(22px, 2.6vw, 32px)" }}
+          className="h-display text-ink"
+          style={{ fontSize: "clamp(26px, 3.2vw, 42px)" }}
         >
           This is a curated{" "}
-          <span className="serif-em" style={{ color: "var(--color-accent)" }}>
-            label drop
-          </span>
-          , every month.
+          <span className="serif-em gradient-text">label drop</span>,
+          every month.
         </p>
         <p
-          className="h-display text-text-muted"
-          style={{ fontSize: "clamp(22px, 2.6vw, 32px)" }}
+          className="h-display text-stone"
+          style={{ fontSize: "clamp(20px, 2.4vw, 28px)" }}
         >
           Built by a 20-year producer. Made for the next wave.
         </p>

@@ -1,6 +1,6 @@
 // BLOCK 8 — FAQ
-// Native <details> for accordion behavior. Zero JS, zero a11y issues.
-// 8 questions per brief, verbatim copy.
+// Native <details> accordion with cream styling. 8 questions verbatim per
+// brief.
 
 const FAQ_ITEMS = [
   {
@@ -41,19 +41,19 @@ export default function FAQ() {
   return (
     <section
       id="faq"
-      className="section-pad px-6 md:px-10"
+      className="px-6 md:px-10 py-[clamp(64px,9vw,128px)]"
     >
-      <div className="max-w-[820px] mx-auto">
-        <div className="text-center mb-12 lg:mb-16">
-          <p className="eyebrow">Questions</p>
+      <div className="mx-auto max-w-[820px]">
+        <div className="flex flex-col items-center text-center gap-3 mb-12 lg:mb-16">
+          <p className="text-ash text-[11px] font-semibold tracking-[0.22em] uppercase">
+            Questions
+          </p>
           <h2
-            className="h-display-bold text-text mt-3"
-            style={{ fontSize: "clamp(28px, 4.2vw, 48px)" }}
+            className="h-display text-ink"
+            style={{ fontSize: "clamp(30px, 4.4vw, 56px)" }}
           >
-            What you might be{" "}
-            <span className="serif-em" style={{ color: "var(--color-accent)" }}>
-              wondering
-            </span>
+            The{" "}
+            <span className="serif-em gradient-text">honest</span> answers.
           </h2>
         </div>
 
@@ -61,23 +61,22 @@ export default function FAQ() {
           {FAQ_ITEMS.map((item, i) => (
             <li
               key={i}
-              className="card-elev overflow-hidden"
+              className="rounded-2xl border border-black/[0.08] bg-black/[0.015] overflow-hidden"
             >
               <details className="group">
-                <summary className="cursor-pointer list-none p-5 sm:p-6 flex items-start justify-between gap-4 hover:bg-bg-elev-2 transition-colors">
-                  <span className="text-text text-[15px] sm:text-[16px] font-semibold leading-snug">
+                <summary className="cursor-pointer list-none p-5 sm:p-6 flex items-start justify-between gap-4 hover:bg-black/[0.025] transition-colors">
+                  <span className="text-ink text-[15px] sm:text-[16px] font-semibold leading-snug">
                     {item.q}
                   </span>
                   <span
                     aria-hidden
-                    className="shrink-0 w-6 h-6 grid place-items-center text-[18px] font-bold transition-transform group-open:rotate-45 select-none"
-                    style={{ color: "var(--color-accent)" }}
+                    className="flex-shrink-0 w-6 h-6 grid place-items-center text-orange-deep text-[18px] font-bold transition-transform group-open:rotate-45 select-none"
                   >
                     +
                   </span>
                 </summary>
                 <div className="px-5 sm:px-6 pb-5 sm:pb-6">
-                  <p className="text-text-muted text-[14px] sm:text-[15px] leading-[1.7]">
+                  <p className="text-stone text-[14px] sm:text-[15px] leading-[1.65]">
                     {item.a}
                   </p>
                 </div>
@@ -85,6 +84,17 @@ export default function FAQ() {
             </li>
           ))}
         </ul>
+
+        <p className="mt-10 text-center text-[12px] text-ash">
+          Still unsure? Email{" "}
+          <a
+            href="mailto:contact@drumzon.com"
+            className="text-ink underline decoration-orange/40 hover:decoration-orange transition-colors font-medium"
+          >
+            contact@drumzon.com
+          </a>
+          {" "}— I read every message.
+        </p>
       </div>
     </section>
   );

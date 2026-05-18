@@ -1,6 +1,4 @@
 import { createClient } from "@/lib/supabase/server";
-import SaharaBackdrop from "@/components/SaharaBackdrop";
-import GrainOverlay from "@/components/GrainOverlay";
 import Hero from "@/components/blocks/Hero";
 import Tagline from "@/components/blocks/Tagline";
 import WhatYouGet from "@/components/blocks/WhatYouGet";
@@ -93,7 +91,6 @@ export default async function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
       />
-      <SaharaBackdrop />
       <main>
         <Hero isFoundingOpen={isFoundingOpen} />
         <Tagline />
@@ -109,7 +106,6 @@ export default async function Home() {
         <FinalCTA isFoundingOpen={isFoundingOpen} />
       </main>
       <Footer />
-      <GrainOverlay />
     </>
   );
 }

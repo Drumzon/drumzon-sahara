@@ -35,6 +35,13 @@ async function loadSessionDetails(sessionId: string | undefined) {
   }
 }
 
+const ArrowRight = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden>
+    <line x1="5" y1="12" x2="19" y2="12" />
+    <polyline points="12 5 19 12 12 19" />
+  </svg>
+);
+
 export default async function Welcome({
   searchParams,
 }: {
@@ -55,57 +62,52 @@ export default async function Welcome({
       </header>
 
       <main className="flex-1 px-6 md:px-10">
-        <div className="max-w-[680px] mx-auto pt-20 lg:pt-32 pb-20 text-center flex flex-col items-center gap-6">
-          <p className="eyebrow" style={{ color: "var(--color-accent)" }}>
-            You're in
+        <div className="max-w-[680px] mx-auto pt-16 lg:pt-24 pb-20 text-center flex flex-col items-center gap-6">
+          <p className="text-ash text-[11px] font-semibold tracking-[0.22em] uppercase">
+            You&apos;re in
           </p>
 
           <h1
-            className="h-display text-text"
-            style={{ fontSize: "clamp(40px, 6vw, 80px)", lineHeight: 1.05 }}
+            className="h-display text-ink"
+            style={{ fontSize: "clamp(48px, 7vw, 88px)", lineHeight: 1.02 }}
           >
             Welcome to{" "}
-            <span className="serif-em" style={{ color: "var(--color-accent)" }}>
-              Drumzon Pro
-            </span>
-            .
+            <span className="serif-em gradient-text">Drumzon Pro</span>.
           </h1>
 
           {isFounding && (
-            <p
-              className="text-text-muted text-[14px] uppercase tracking-[0.2em] font-semibold mt-2"
-            >
-              Founding member · #{/* slot number could be displayed if we expand the session */}
+            <p className="text-orange-deep text-[11px] uppercase tracking-[0.22em] font-semibold mt-1">
+              ✦ Founding member ✦
             </p>
           )}
 
-          <p className="text-text-muted text-[16px] sm:text-[17px] leading-[1.7] max-w-[52ch]">
-            Your subscription is active. Check your inbox{email ? <>{" "}at <span className="text-text font-medium">{email}</span></> : ""} —
-            you'll receive portal access shortly. Sahara drops May 31. Each
-            following drop lands on the 1st of the month, available to all
-            active members.
+          <p className="lede mx-auto">
+            Your subscription is active. Check your inbox{email ? <>{" "}at <span className="text-ink font-medium">{email}</span></> : ""} —
+            you&apos;ll receive portal access shortly. Sahara drops May 31.
+            Each following drop lands on the 1st of the month for all active
+            members.
           </p>
 
           <div
-            className="mt-4 text-left p-6 rounded-lg max-w-[520px] w-full"
+            className="mt-4 text-left p-7 rounded-2xl max-w-[540px] w-full"
             style={{
-              background: "rgba(224,122,60,0.05)",
-              border: "1px solid rgba(224,122,60,0.18)",
+              background:
+                "linear-gradient(135deg, rgba(255,107,53,0.05) 0%, rgba(255,107,53,0.02) 100%)",
+              border: "1px solid rgba(255,107,53,0.18)",
             }}
           >
-            <p className="eyebrow mb-3" style={{ color: "var(--color-accent)" }}>
+            <p className="text-orange-deep text-[11px] font-semibold tracking-[0.22em] uppercase mb-4">
               Next steps
             </p>
-            <ol className="flex flex-col gap-3 text-text text-[14px] leading-[1.65]">
+            <ol className="flex flex-col gap-3 text-stone text-[14px] leading-[1.65]">
               <li className="flex gap-3">
-                <span className="shrink-0 font-mono tabular-nums text-text-subtle">01</span>
+                <span className="shrink-0 font-mono tabular-nums text-ash">01</span>
                 <span>
                   Check your inbox for the welcome email (within 5 min). If it
-                  doesn't arrive, check spam or email{" "}
+                  doesn&apos;t arrive, check spam or email{" "}
                   <a
                     href="mailto:contact@drumzon.com"
-                    className="text-accent underline"
-                    style={{ color: "var(--color-accent)" }}
+                    className="text-ink underline decoration-orange/40 hover:decoration-orange"
                   >
                     contact@drumzon.com
                   </a>
@@ -113,39 +115,44 @@ export default async function Welcome({
                 </span>
               </li>
               <li className="flex gap-3">
-                <span className="shrink-0 font-mono tabular-nums text-text-subtle">02</span>
+                <span className="shrink-0 font-mono tabular-nums text-ash">02</span>
                 <span>
-                  Sahara unlocks in your portal on May 31. We'll email you the
-                  moment it's live.
+                  Sahara unlocks in your portal on May 31. We&apos;ll email
+                  you the moment it&apos;s live.
                 </span>
               </li>
               <li className="flex gap-3">
-                <span className="shrink-0 font-mono tabular-nums text-text-subtle">03</span>
+                <span className="shrink-0 font-mono tabular-nums text-ash">03</span>
                 <span>
-                  Manage your subscription anytime via the Stripe customer
-                  portal — link in your welcome email.
+                  Manage your subscription via the Stripe customer portal —
+                  link in your welcome email.
                 </span>
               </li>
               {isFounding && (
                 <li className="flex gap-3">
-                  <span className="shrink-0 font-mono tabular-nums" style={{ color: "var(--color-accent)" }}>
+                  <span className="shrink-0 text-orange" aria-hidden>
                     ✦
                   </span>
-                  <span>
-                    As a Founding member, you also get: quarterly track
-                    feedback, Yearly Compilation credit, Vault drop access,
-                    and Sahara forever. Details in your welcome email.
+                  <span className="text-ink">
+                    As a Founding member you also get quarterly track feedback,
+                    Yearly Compilation credit, Vault drop access, and Sahara
+                    forever. Details in your welcome email.
                   </span>
                 </li>
               )}
             </ol>
           </div>
 
-          <Link href="/" className="btn-ghost mt-2">
+          <Link
+            href="/"
+            className="mt-2 inline-flex items-center justify-center gap-2 h-[44px] px-6 rounded-full text-stone hover:text-ink border border-black/10 hover:border-black/30 text-[14px] font-medium transition-colors"
+          >
             Back to Drumzon
+            <ArrowRight />
           </Link>
         </div>
       </main>
+
       <Footer />
     </>
   );

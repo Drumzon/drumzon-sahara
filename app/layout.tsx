@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Instrument_Serif, Inter } from "next/font/google";
+import SaharaBackdrop from "@/components/SaharaBackdrop";
+import GrainOverlay from "@/components/GrainOverlay";
 import "./globals.css";
 
 const instrumentSerif = Instrument_Serif({
@@ -81,7 +83,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0a0a0b",
+  themeColor: "#ffffff",
   width: "device-width",
   initialScale: 1,
 };
@@ -96,7 +98,11 @@ export default function RootLayout({
       lang="en"
       className={`${instrumentSerif.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans">{children}</body>
+      <body className="min-h-full flex flex-col font-sans">
+        <SaharaBackdrop />
+        {children}
+        <GrainOverlay />
+      </body>
     </html>
   );
 }
