@@ -50,10 +50,8 @@ export default function Footer() {
           </a>
         </nav>
 
-        <div className="flex flex-col sm:flex-row sm:items-center sm:gap-4 gap-2 text-[12px] text-ash">
+        <div className="text-[12px] text-ash">
           <span>© Drumzon 2026</span>
-          <span className="hidden sm:inline text-ash/40">·</span>
-          <span>Curated Afro House label · Barcelona</span>
         </div>
 
         <div className="flex flex-wrap justify-center gap-x-4 gap-y-1 text-[12px] text-ash">

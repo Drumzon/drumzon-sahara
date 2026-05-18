@@ -75,14 +75,18 @@ export default function Hero({
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* LEFT — copy + CTA. Centered on mobile, left-aligned on lg+ */}
           <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left gap-6 lg:gap-7">
-            <h1 className="display-1 text-ink">
-              A curated <span className="text-chroma">Afro House</span>{" "}
-              drop. Every month. In your DAW.
+            <h1 className="text-ink font-semibold tracking-[-0.028em] leading-[1.08] text-[clamp(28px,3.4vw,46px)]">
+              A curated <span className="text-chroma">Afro House</span> drop.
+              <br />
+              Every month.
+              <br />
+              In your DAW.
             </h1>
 
-            <p className="display-subhead max-w-[44ch]">
-              Four construction kits, samples, presets, MIDIs. Curated
-              by Drumzon. Yours to keep.
+            <p className="display-subhead">
+              Four construction kits, samples, presets, MIDIs.
+              <br className="hidden sm:block" />
+              Curated by Drumzon. Yours to keep.
             </p>
 
             <div className="flex flex-col items-center lg:items-start gap-3 mt-1">
