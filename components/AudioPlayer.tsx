@@ -95,17 +95,15 @@ export default function AudioPlayer({
       <div className={containerClass + " p-6"} style={containerStyle}>
         <div className="flex items-center justify-between gap-3 mb-3">
           <p className="text-stone text-[13px] font-medium">{label}</p>
-          <span className="text-ash text-[10px] uppercase tracking-[0.14em] font-semibold">
-            Demo
-          </span>
+          <span className="text-ash text-[12px]">Demo</span>
         </div>
         <div
           className="h-[64px] w-full rounded flex items-center justify-center text-ash text-[12px]"
           style={{ background: "rgba(26,26,26,0.03)" }}
         >
-          Audio drops May 31 · placeholder
+          Audio drops May 31
         </div>
-        <div className="flex items-center justify-between mt-3 text-ash text-[10px] font-mono uppercase tracking-[0.14em]">
+        <div className="flex items-center justify-between mt-3 text-ash text-[12px] tabular-nums">
           <span>0:00</span>
           <span>—:—</span>
         </div>
@@ -117,9 +115,7 @@ export default function AudioPlayer({
     <div className={containerClass + " p-6"} style={containerStyle}>
       <div className="flex items-center justify-between gap-3 mb-4">
         <p className="text-stone text-[13px] font-medium leading-snug">{label}</p>
-        <span className="text-ash text-[10px] uppercase tracking-[0.14em] font-semibold shrink-0">
-          Demo · 60–90s
-        </span>
+        <span className="text-ash text-[12px] shrink-0">Demo</span>
       </div>
 
       <div className="flex items-center gap-4">
@@ -140,7 +136,7 @@ export default function AudioPlayer({
         <div ref={containerRef} className="flex-1 min-w-0" />
       </div>
 
-      <div className="flex items-center justify-between mt-3 text-ash text-[10px] font-mono uppercase tracking-[0.14em] tabular-nums">
+      <div className="flex items-center justify-between mt-3 text-ash text-[12px] tabular-nums">
         <span>{formatTime(currentTime)}</span>
         <span>{formatTime(duration)}</span>
       </div>

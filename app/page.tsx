@@ -4,7 +4,6 @@ import Hero from "@/components/Hero";
 import HowItWorks from "@/components/HowItWorks";
 import LeadMagnet from "@/components/LeadMagnet";
 import PricingCard from "@/components/PricingCard";
-import About from "@/components/About";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import { FOUNDING_MAX_SLOTS } from "@/lib/pricing";
@@ -91,7 +90,6 @@ export default async function Home() {
           slotsClaimed={slotsClaimed}
           isFoundingOpen={isFoundingOpen}
         />
-        <About />
         <FAQ />
       </main>
 
