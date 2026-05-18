@@ -11,7 +11,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "What if I cancel and resubscribe later?",
-    a: "You keep everything you downloaded. If you're a Founding member and resubscribe within 90 days, your lifetime €7/month price is preserved. After 90 days inactive, Founding status expires and you'd rejoin at Standard pricing.",
+    a: "You keep everything you downloaded. If you're a Founding member and resubscribe within 90 days, your lifetime €19/month price is preserved. After 90 days inactive, Founding status expires and you'd rejoin at Standard pricing.",
   },
   {
     q: "Can I get drops from before I joined?",

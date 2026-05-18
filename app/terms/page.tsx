@@ -70,8 +70,8 @@ export default function Terms() {
 
             <Section title="4. Payment, renewal, cancellation">
               <p>
-                Billed monthly or annually via Stripe at €7/month (Founding)
-                or €14.95/month (Standard). You authorize Stripe to charge
+                Billed monthly or annually via Stripe at €19/month (Founding)
+                or €29/month (Standard). You authorize Stripe to charge
                 your card on the recurring schedule until you cancel.
               </p>
               <p>
@@ -86,9 +86,9 @@ export default function Terms() {
                 Limited to the first 100 paying subscribers. Slots are
                 enforced atomically server-side — even simultaneous checkouts
                 will only ever fill 100 total Founding spots. Founding
-                members lock in €7/month for life provided they maintain
+                members lock in €19/month for life provided they maintain
                 active subscription. If a Founding member cancels and
-                resubscribes within 90 days, the €7 price is preserved.
+                resubscribes within 90 days, the €19 price is preserved.
                 After 90 days inactive, Founding status expires and they
                 rejoin at Standard pricing.
               </p>

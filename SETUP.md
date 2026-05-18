@@ -66,10 +66,10 @@ Total time: ~90 min if you have the accounts already; ~3h fresh.
    - Description: paste from `lib/pricing.ts` description constant
    - Image: upload Sahara cover
 2. Add **4 recurring prices** to the same product:
-   - €7.00 EUR / Monthly recurring → **Founding monthly** → copy price ID → `STRIPE_PRICE_FOUNDING_MONTHLY`
-   - €70.00 EUR / Yearly recurring → **Founding yearly** → `STRIPE_PRICE_FOUNDING_YEARLY`
-   - €14.95 EUR / Monthly recurring → **Standard monthly** → `STRIPE_PRICE_STANDARD_MONTHLY`
-   - €149.00 EUR / Yearly recurring → **Standard yearly** → `STRIPE_PRICE_STANDARD_YEARLY`
+   - €19.00 EUR / Monthly recurring → **Founding monthly** → copy price ID → `STRIPE_PRICE_FOUNDING_MONTHLY`
+   - €190.00 EUR / Yearly recurring → **Founding yearly** → `STRIPE_PRICE_FOUNDING_YEARLY`
+   - €29.00 EUR / Monthly recurring → **Standard monthly** → `STRIPE_PRICE_STANDARD_MONTHLY`
+   - €290.00 EUR / Yearly recurring → **Standard yearly** → `STRIPE_PRICE_STANDARD_YEARLY`
 
 ### 3c. Customer Portal
 Settings → Billing → Customer portal:
@@ -118,7 +118,7 @@ Developers → API keys → reveal `Secret key` → `STRIPE_SECRET_KEY` (use tes
 ## 6. Test the full flow (15 min)
 
 ### In Test mode:
-1. Open `https://drumzon.com` → click "Claim Founding spot — €7/month"
+1. Open `https://drumzon.com` → click "Claim Founding spot — €19/month"
 2. Stripe checkout opens → use test card `4242 4242 4242 4242`, any future date, any CVC, any postal.
 3. Complete payment → redirected to `/welcome?session_id=...`
 4. Verify:
@@ -130,7 +130,7 @@ Developers → API keys → reveal `Secret key` → `STRIPE_SECRET_KEY` (use tes
 ### Stress test the cap:
 1. Manually set `founding_counter.slots_claimed = 99` in Supabase SQL Editor.
 2. Buy as Founding → success → slots_claimed becomes 100, closed_at set.
-3. Refresh landing → entire pricing block now shows Standard tier €14.95.
+3. Refresh landing → entire pricing block now shows Standard tier €29.
 4. Try to buy Founding via direct API call (should 409 with "Founding tier is closed").
 
 ### Sahara window test:
@@ -144,7 +144,7 @@ Developers → API keys → reveal `Secret key` → `STRIPE_SECRET_KEY` (use tes
 3. Repeat step 3d (Webhook in Live mode) — get new live webhook secret.
 4. Update Vercel env vars with live values.
 5. Redeploy.
-6. Smoke test with a real €7 purchase (refund yourself afterward via Stripe Dashboard).
+6. Smoke test with a real €19 purchase (refund yourself afterward via Stripe Dashboard).
 
 ---
 
@@ -173,7 +173,7 @@ Developers → API keys → reveal `Secret key` → `STRIPE_SECRET_KEY` (use tes
 - For refund-policy edge cases (legit issues, not buyer's remorse): refund via Stripe Dashboard → also `release_founding_slot()` if Founding.
 
 ### Founding reactivation logic (manual for now):
-If someone canceled and emails wanting back in at Founding €7:
+If someone canceled and emails wanting back in at Founding €19:
 - Check Supabase: `SELECT canceled_at FROM members WHERE email = '...'` → if within 90 days, create a new Founding subscription manually via Stripe → tag in Kit.
 - If past 90 days, point them to standard subscription URL.
 

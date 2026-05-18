@@ -25,7 +25,7 @@ export default function HowItWorks() {
             {
               n: "01",
               title: "Subscribe",
-              body: "Pick Founding (€7/mo, first 100) or Standard (€14.95/mo). Price locked for life either way.",
+              body: "Pick Founding (€19/mo, first 100) or Standard (€29/mo). Price locked for life either way.",
             },
             {
               n: "02",

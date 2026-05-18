@@ -21,7 +21,7 @@ export default function Guarantee() {
           No refunds — because there&apos;s nothing to risk.
         </p>
 
-        <div className="mt-10 max-w-[600px] mx-auto flex flex-col gap-5 text-stone text-[16px] leading-[1.7] text-left">
+        <div className="mt-10 max-w-[620px] mx-auto flex flex-col gap-5 text-stone text-[16px] leading-[1.7] text-left">
           <p>
             Most subscriptions ask you to pay first and find out later. We
             flipped it.
@@ -33,13 +33,37 @@ export default function Guarantee() {
             trailer, not a teaser, not a curated highlight. The product.
           </p>
           <p>
-            If that sound is what you want, subscribe. You already know
-            what&apos;s landing in your DAW. If it isn&apos;t, don&apos;t
-            subscribe — no friction to walk away.
+            If that sound is what you want, subscribe. If it isn&apos;t,
+            don&apos;t — no friction to walk away.
           </p>
           <p className="text-ink font-medium">
             No risk because no blind purchases. That&apos;s a stronger
             guarantee than money back, because nothing is back to give.
+          </p>
+        </div>
+
+        {/* Secondary results-oriented promise — Hormozi conditional
+            "better than money back" guarantee */}
+        <div
+          className="mt-10 mx-auto max-w-[640px] p-7 rounded-[20px] text-left"
+          style={{
+            background:
+              "linear-gradient(135deg, rgba(255,107,53,0.07) 0%, rgba(255,140,66,0.03) 100%)",
+            border: "1px solid rgba(255,107,53,0.20)",
+          }}
+        >
+          <p className="text-orange-deep text-[11px] font-semibold tracking-[0.22em] uppercase mb-3">
+            The Producer&apos;s Pact
+          </p>
+          <p className="text-ink text-[16px] leading-[1.6] mb-3 font-medium">
+            If you don&apos;t use a single sample from your first drop in a
+            track within 30 days — email us.
+          </p>
+          <p className="text-stone text-[14px] leading-[1.6]">
+            We&apos;ll personally help you find what&apos;s blocking you,
+            AND extend your subscription one full month free. Because the
+            real goal isn&apos;t the subscription. It&apos;s the track you
+            ship.
           </p>
         </div>
 

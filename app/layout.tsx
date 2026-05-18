@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     siteName: "Drumzon Pro",
     title: "Drumzon Pro — Curated Afro House label, every month",
     description:
-      "Every month: one drop. Four complete construction kits. Drag, drop, you're inside the track. Founding tier €7/month — limited to 100 producers.",
+      "Every month: one drop. Four complete construction kits, samples, presets, MIDIs, plus five named bonuses. Founding tier €19/month locked for life — limited to 100 producers.",
     images: [
       {
         url: "/images/sahara-cover.png",

@@ -20,12 +20,16 @@ import {
   STANDARD_EFFECTIVE_MONTHLY,
 } from "@/lib/value-stack";
 
+// Same benefits both tiers (per Carlos's directive). The differentiator
+// is the locked lifetime price, not the included content.
 const MEMBER_BENEFITS = [
-  "4 construction kits, every month",
-  "~80 samples · ~12 presets · ~8 MIDIs",
-  "Stems + MIDI on every loop",
-  "Royalty-free, commercial use",
-  "Cancel anytime, keep every file",
+  "Monthly drop: 4 kits + ~80 samples + ~12 presets + ~8 MIDIs",
+  "60-Second Setup Guide (€67 value)",
+  "Afro House Reference Library (€37 value)",
+  "Quick-Start Pack at signup (€47 value)",
+  "Drumzon Ableton Template (€97 value)",
+  "Founder's Inbox · 48h reply (€197 value)",
+  "Royalty-free · cancel anytime · keep every file",
 ];
 
 const ArrowRight = () => (

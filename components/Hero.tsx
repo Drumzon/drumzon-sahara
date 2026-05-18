@@ -78,15 +78,15 @@ export default function Hero({
     >
       <div className="mx-auto max-w-[920px] flex flex-col items-center text-center gap-7 lg:gap-9">
         <h1 className="display-1 text-ink">
-          Stop searching for{" "}
+          Ship a finished{" "}
           <span className="text-chroma">Afro House</span>{" "}
-          sounds. Start shipping tracks.
+          track every month. Without scrolling samples for hours.
         </h1>
 
         <p className="display-subhead mx-auto">
-          Every month, one curated drop lands in your DAW: four complete
-          construction kits, samples, presets, MIDIs. Drag, drop, you&apos;re
-          inside the track.
+          One curated drop a month — four construction kits, samples,
+          presets, MIDIs — plus five bonuses that get you producing
+          within 60 seconds of subscribing.
         </p>
 
         {/* Cover — sits between subhead and audio on mobile, anchored above CTA */}
