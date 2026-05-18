@@ -38,10 +38,10 @@ export default function WhatsIncluded() {
   return (
     <section
       id="whats-included"
-      className="px-6 md:px-10 py-[clamp(80px,12vw,160px)]"
+      className="px-6 md:px-10 py-[clamp(56px,8vw,110px)]"
     >
       <div className="mx-auto max-w-[1180px]">
-        <div className="max-w-[760px] mb-16 lg:mb-20">
+        <div className="max-w-[760px] mb-10 lg:mb-14">
           <h2 className="display-2 text-ink">
             Everything that lands in your DAW, every month.
           </h2>
@@ -52,11 +52,23 @@ export default function WhatsIncluded() {
         </div>
 
         <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4">
-          {ITEMS.map((item) => (
+          {ITEMS.map((item, i) => (
             <li
               key={item.title}
-              className="p-7 lg:p-8 rounded-[18px] bg-cream-warm/60 hover:bg-cream-warm transition-colors"
+              className="group p-7 lg:p-8 rounded-[18px] bg-cream-warm/60 hover:bg-white hover:-translate-y-0.5 transition-all duration-200 border border-transparent hover:border-orange/25"
             >
+              <div className="flex items-baseline justify-between mb-3">
+                <span
+                  className="text-ash text-[12px] font-mono tabular-nums"
+                  aria-hidden
+                >
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span
+                  className="w-1.5 h-1.5 rounded-full bg-orange/0 group-hover:bg-orange transition-colors"
+                  aria-hidden
+                />
+              </div>
               <h3 className="text-ink text-[18px] font-semibold leading-snug mb-2 tracking-[-0.015em]">
                 {item.title}
               </h3>

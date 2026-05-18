@@ -90,10 +90,40 @@
   .display-1 {
     font-family: var(--font-sans);
     font-weight: 700;
-    font-size: clamp(40px, 5.6vw, 80px);
-    line-height: 1.05;
-    letter-spacing: -0.04em;
+    font-size: clamp(36px, 4.4vw, 64px);
+    line-height: 1.06;
+    letter-spacing: -0.035em;
     text-wrap: balance;
+  }
+
+  /* ─── Modern chromatic accent ─── */
+  /* Animated gradient on a single accent word. Sans-only (no italic),
+     warm sunset palette to stay on-brand with the Sahara cover.
+     Apply selectively: usually one accent word per major section. */
+  .text-chroma {
+    background: linear-gradient(
+      100deg,
+      #ff6b35 0%,
+      #ff8c42 25%,
+      #ff5e7e 50%,
+      #ff8c42 75%,
+      #e55a2b 100%
+    );
+    background-size: 220% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: chroma-shift 8s ease-in-out infinite;
+    /* Inline-block + slight padding prevents glyph clipping on bold sans */
+    display: inline-block;
+    padding-right: 0.08em;
+    margin-right: -0.04em;
+  }
+
+  @keyframes chroma-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50%      { background-position: 100% 50%; }
   }
   .display-2 {
     font-family: var(--font-sans);

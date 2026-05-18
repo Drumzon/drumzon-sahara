@@ -14,12 +14,13 @@ export default function Preview() {
   return (
     <section
       id="preview"
-      className="px-6 md:px-10 py-[clamp(80px,12vw,160px)]"
+      className="px-6 md:px-10 py-[clamp(56px,8vw,110px)]"
     >
       <div className="mx-auto max-w-[880px]">
         <div className="max-w-[640px] mb-12 lg:mb-14">
           <h2 className="display-2 text-ink">
-            Six bites from inside Sahara.
+            Six bites from inside{" "}
+            <span className="text-chroma">Sahara</span>.
           </h2>
           <p className="display-subhead mt-5">
             A taste of what lands in your DAW within seconds of subscribing.

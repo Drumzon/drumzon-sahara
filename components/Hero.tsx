@@ -72,13 +72,14 @@ export default function Hero({
   return (
     <section
       id="hero"
-      className="relative pt-[clamp(96px,12vw,160px)] pb-[clamp(48px,7vw,96px)] px-6 md:px-10"
+      className="relative pt-[clamp(72px,9vw,120px)] pb-[clamp(40px,5vw,72px)] px-6 md:px-10"
     >
-      <div className="mx-auto max-w-[1180px] grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <div className="mx-auto max-w-[1180px] grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
         {/* LEFT — text + audio + CTAs */}
-        <div className="lg:col-span-7 flex flex-col gap-7 lg:gap-8 items-start">
+        <div className="lg:col-span-7 flex flex-col gap-6 lg:gap-7 items-start">
           <h1 className="display-1 text-ink">
-            The first curated label for Afro House
+            The first curated label for{" "}
+            <span className="text-chroma">Afro House</span>{" "}
             producers who want the sound, not the search.
           </h1>
 

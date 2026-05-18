@@ -5,11 +5,11 @@ export default function HowItWorks() {
   return (
     <section
       id="how-it-works"
-      className="px-6 md:px-10 py-[clamp(80px,12vw,160px)]"
+      className="px-6 md:px-10 py-[clamp(56px,8vw,110px)]"
       style={{ background: "var(--color-cream-subtle)" }}
     >
       <div className="mx-auto max-w-[1100px]">
-        <div className="max-w-[760px] mb-16 lg:mb-20">
+        <div className="max-w-[760px] mb-10 lg:mb-14">
           <h2 className="display-2 text-ink">
             One drop a month. Active members receive it. Forever.
           </h2>
@@ -19,7 +19,7 @@ export default function HowItWorks() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-3 gap-3 lg:gap-4 mb-16 lg:mb-20">
+        <div className="grid sm:grid-cols-3 gap-3 lg:gap-4 mb-10 lg:mb-14">
           {[
             {
               n: "1",
@@ -54,8 +54,9 @@ export default function HowItWorks() {
           ))}
         </div>
 
-        <p className="display-3 text-ink max-w-[20ch]">
-          Time in the club equals the size of your library.
+        <p className="display-3 text-ink max-w-[22ch]">
+          Time in the club equals the{" "}
+          <span className="text-chroma">size of your library</span>.
         </p>
       </div>
     </section>

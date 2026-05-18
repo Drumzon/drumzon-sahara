@@ -40,7 +40,7 @@ export default function FAQ() {
   return (
     <section
       id="faq"
-      className="px-6 md:px-10 py-[clamp(80px,12vw,160px)]"
+      className="px-6 md:px-10 py-[clamp(56px,8vw,110px)]"
     >
       <div className="mx-auto max-w-[880px]">
         <div className="max-w-[680px] mb-12 lg:mb-14">

@@ -5,10 +5,10 @@ export default function About() {
   return (
     <section
       id="about"
-      className="px-6 md:px-10 py-[clamp(80px,12vw,160px)]"
+      className="px-6 md:px-10 py-[clamp(56px,8vw,110px)]"
     >
       <div className="mx-auto max-w-[1100px]">
-        <div className="max-w-[760px] mb-16 lg:mb-20">
+        <div className="max-w-[760px] mb-10 lg:mb-14">
           <h2 className="display-2 text-ink">
             One genre. Done with depth.
           </h2>

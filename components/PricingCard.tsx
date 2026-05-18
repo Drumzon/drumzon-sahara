@@ -90,7 +90,7 @@ export default function PricingCard({
     : FOUNDING_EXTRAS;
 
   return (
-    <section id="pricing" className="px-6 md:px-10 py-[clamp(80px,12vw,160px)]">
+    <section id="pricing" className="px-6 md:px-10 py-[clamp(56px,8vw,110px)]">
       <div className="mx-auto max-w-[1100px]">
         <div className="max-w-[760px] mb-12 lg:mb-14">
           <h2 className="display-2 text-ink">
