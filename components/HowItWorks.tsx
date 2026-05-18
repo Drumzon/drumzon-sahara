@@ -24,10 +24,10 @@ export default function HowItWorks() {
             { title: "Keep forever", body: "Cancel and what you downloaded stays yours. What you missed stays missed." },
           ].map((step) => (
             <div key={step.title} className="flex flex-col gap-2.5 items-center text-center">
-              <h3 className="text-ink text-[16px] font-semibold tracking-[-0.015em]">
+              <h3 className="text-ink text-[17px] font-semibold tracking-[-0.015em]">
                 {step.title}
               </h3>
-              <p className="text-stone text-[14px] leading-[1.55] max-w-[32ch]">
+              <p className="text-stone text-[15px] leading-[1.6] max-w-[32ch]">
                 {step.body}
               </p>
             </div>

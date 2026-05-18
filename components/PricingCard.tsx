@@ -147,7 +147,7 @@ export default function PricingCard({
             )}
 
             <header className="flex flex-col gap-1.5">
-              <h3 className="text-ink text-[20px] font-semibold tracking-[-0.018em]">
+              <h3 className="text-ink text-[18px] font-semibold tracking-[-0.018em]">
                 Founding
               </h3>
               <p className="text-stone text-[14px] leading-[1.5] max-w-[36ch]">
@@ -158,7 +158,7 @@ export default function PricingCard({
 
             <div className="flex flex-col gap-1">
               <div className="flex items-baseline gap-2">
-                <span className="text-ink text-[48px] font-semibold tracking-[-0.04em] leading-none">
+                <span className="text-ink text-[40px] font-semibold tracking-[-0.035em] leading-none">
                   <span className="text-chroma">€{foundingPrice}</span>
                 </span>
                 <span className="text-stone text-[15px]">{priceUnit}</span>
@@ -203,7 +203,7 @@ export default function PricingCard({
           {/* STANDARD */}
           <article className="relative p-8 lg:p-10 rounded-[20px] flex flex-col gap-7 bg-white border border-black/[0.10]">
             <header className="flex flex-col gap-1.5">
-              <h3 className="text-ink text-[20px] font-semibold tracking-[-0.018em]">
+              <h3 className="text-ink text-[18px] font-semibold tracking-[-0.018em]">
                 Standard
               </h3>
               <p className="text-stone text-[14px] leading-[1.5] max-w-[36ch]">
@@ -214,7 +214,7 @@ export default function PricingCard({
 
             <div className="flex flex-col gap-1">
               <div className="flex items-baseline gap-2">
-                <span className="text-ink text-[48px] font-semibold tracking-[-0.04em] leading-none">
+                <span className="text-ink text-[40px] font-semibold tracking-[-0.035em] leading-none">
                   €{standardPrice}
                 </span>
                 <span className="text-stone text-[15px]">{priceUnit}</span>

@@ -45,7 +45,7 @@ export default function FAQ() {
             >
               <details className="group">
                 <summary className="cursor-pointer list-none py-5 flex items-start justify-between gap-6 hover:opacity-80 transition-opacity">
-                  <span className="text-ink text-[16px] sm:text-[17px] font-medium leading-snug tracking-[-0.012em]">
+                  <span className="text-ink text-[17px] sm:text-[18px] font-medium leading-snug tracking-[-0.014em]">
                     {item.q}
                   </span>
                   <span
@@ -56,7 +56,7 @@ export default function FAQ() {
                   </span>
                 </summary>
                 <div className="pb-5 pr-10">
-                  <p className="text-stone text-[15px] leading-[1.65]">
+                  <p className="text-stone text-[15px] sm:text-[16px] leading-[1.65]">
                     {item.a}
                   </p>
                 </div>

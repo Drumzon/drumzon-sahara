@@ -95,9 +95,9 @@
   .display-2 {
     font-family: var(--font-sans);
     font-weight: 600;
-    font-size: clamp(28px, 3.4vw, 44px);
-    line-height: 1.14;
-    letter-spacing: -0.028em;
+    font-size: clamp(26px, 3.0vw, 38px);
+    line-height: 1.16;
+    letter-spacing: -0.026em;
     text-wrap: balance;
   }
   .display-3 {

@@ -73,10 +73,10 @@ export default function LeadMagnet() {
           }}
         >
           <div className="flex items-baseline justify-between gap-4 mb-4">
-            <h3 className="text-ink text-[20px] font-semibold tracking-[-0.018em]">
+            <h3 className="text-ink text-[18px] font-semibold tracking-[-0.018em]">
               {LEAD_MAGNET.name}
             </h3>
-            <span className="shrink-0 text-orange-deep text-[14px] font-semibold tracking-[-0.011em]">
+            <span className="shrink-0 text-orange-deep text-[16px] font-semibold tracking-[-0.013em]">
               Free
             </span>
           </div>
