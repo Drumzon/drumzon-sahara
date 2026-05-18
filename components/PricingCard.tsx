@@ -21,14 +21,14 @@ import {
 } from "@/lib/value-stack";
 
 // Same benefits both tiers (per Carlos's directive). The differentiator
-// is the locked lifetime price, not the included content.
+// is the locked lifetime price. All bonuses are 100% music assets —
+// curated by-products of the producer's monthly drop creation.
 const MEMBER_BENEFITS = [
   "Monthly drop: 4 kits + ~80 samples + ~12 presets + ~8 MIDIs",
-  "60-Second Setup Guide (€67 value)",
-  "Afro House Reference Library (€37 value)",
-  "Quick-Start Pack at signup (€47 value)",
-  "Drumzon Ableton Template (€97 value)",
-  "Founder's Inbox · 48h reply (€197 value)",
+  "Quick-Start Pack at signup (€30 value)",
+  "The MIDI Vault · 30+ files (€40 value)",
+  "The Preset Vault · 25+ Serum/Vital/Diva (€50 value)",
+  "The B-Sides Drop · quarterly bonus pack (€120/yr value)",
   "Royalty-free · cancel anytime · keep every file",
 ];
 

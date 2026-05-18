@@ -113,7 +113,8 @@ export default function Hero({
           <AudioPlayer src={audioSrc} />
         </div>
 
-        {/* CTA stack — primary button, then text-link */}
+        {/* CTA stack — primary subscribe, then dual text-links to
+            "try free first" and "how it works" */}
         <div className="flex flex-col items-center gap-3 mt-2">
           <button
             type="button"
@@ -124,12 +125,21 @@ export default function Hero({
             {isLoading ? "Opening checkout…" : primaryCta}
             {!isLoading && <ArrowRight />}
           </button>
-          <a
-            href="#how-it-works"
-            className="text-stone hover:text-ink text-[13px] font-medium transition-colors inline-flex items-center gap-1.5"
-          >
-            How it works <ArrowRight />
-          </a>
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[13px]">
+            <a
+              href="#free-pack"
+              className="text-stone hover:text-ink font-medium transition-colors inline-flex items-center gap-1.5"
+            >
+              Try 5 free samples first <ArrowRight />
+            </a>
+            <span aria-hidden className="text-ash/40">·</span>
+            <a
+              href="#how-it-works"
+              className="text-stone hover:text-ink font-medium transition-colors inline-flex items-center gap-1.5"
+            >
+              How it works <ArrowRight />
+            </a>
+          </div>
         </div>
 
         {/* Trust line — anchored against real market pack pricing */}

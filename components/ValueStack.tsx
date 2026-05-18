@@ -1,18 +1,18 @@
-// Hormozi Grand Slam value-stack: anchored against REAL market prices
-// + bonus stack that eclipses the main offer value (Hormozi rule #10:
-// "the value of bonuses should eclipse the value of the main offer").
+// Hormozi Grand Slam value-stack — now anchored against REAL market
+// prices AND a 100% music-only bonus stack (rewritten per Carlos:
+// no videos, no PDFs, no email replies — everything here is a
+// curated by-product of the producer's monthly music creation).
 //
 // Honest math:
 //   Monthly drop standalone value:  €35 × 12 = €420/yr
-//   + 5 bonuses (Setup Guide €67, Reference Library €37, Quick-Start
-//     Pack €47, Ableton Template €97, Founder's Inbox €197)  = €445
-//   = TOTAL annual perceived value: €865
+//   + Quick-Start Pack (€30) + MIDI Vault (€40) + Preset Vault (€50)
+//   + B-Sides Drop yearly (€120) + Sahara Vault (€35) = €275
+//   = TOTAL annual perceived value: €695
 //
-//   Founding price: €190/yr  → 4.55× value ratio
-//   Standard price: €290/yr  → 2.98× value ratio
+//   Founding price: €190/yr  → 3.66× value ratio
+//   Standard price: €290/yr  → 2.40× value ratio
 //
-// Both ratios are well above 2× which is the floor for a "no-brainer"
-// per Hormozi. Founding at 4.55× is a true Grand Slam.
+// Both ratios clear Hormozi's 2× "no-brainer" floor.
 
 import {
   MARKET_PACK_PRICE_MIN,

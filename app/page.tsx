@@ -5,6 +5,7 @@ import Problem from "@/components/Problem";
 import ValueStack from "@/components/ValueStack";
 import HowItWorks from "@/components/HowItWorks";
 import Preview from "@/components/Preview";
+import LeadMagnet from "@/components/LeadMagnet";
 import PricingCard from "@/components/PricingCard";
 import Guarantee from "@/components/Guarantee";
 import About from "@/components/About";
@@ -84,13 +85,16 @@ export default async function Home() {
       <Navbar />
 
       <main>
-        {/* Hormozi flow: hero → problem → mechanism → value stack →
-            social proof (preview) → offer + guarantee → about → FAQ */}
+        {/* Hormozi $100M Leads + $100M Offers flow:
+              hero → problem → mechanism → value stack → social proof
+              → low-friction lead magnet (free pack) → core offer (pricing)
+              → guarantee → about → FAQ */}
         <Hero isFoundingOpen={isFoundingOpen} slotsClaimed={slotsClaimed} />
         <Problem />
         <HowItWorks />
         <ValueStack />
         <Preview />
+        <LeadMagnet />
         <PricingCard
           slotsClaimed={slotsClaimed}
           isFoundingOpen={isFoundingOpen}
