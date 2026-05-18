@@ -45,6 +45,8 @@
     letter-spacing: -0.011em;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    /* 38px reserves space for the fixed CountdownStrip at top */
+    padding-top: 38px;
     overflow-x: hidden;
   }
 

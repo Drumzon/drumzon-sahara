@@ -1,6 +1,5 @@
-// BLOCK 8 — FAQ
-// Native <details> accordion with cream styling. 8 questions verbatim per
-// brief.
+// Literal FAQ accordion from previous landing — native <details> with
+// orange rotating "+" marker. 8 questions from Drumzon Pro brief verbatim.
 
 const FAQ_ITEMS = [
   {
@@ -33,7 +32,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Can I share files with other producers?",
-    a: "The license is personal. The files are tagged with subtle watermarking in metadata. We trust you — but please respect the work.",
+    a: "The license is personal. Files include subtle metadata watermarks. We trust you — but please respect the work.",
   },
 ];
 
@@ -41,10 +40,10 @@ export default function FAQ() {
   return (
     <section
       id="faq"
-      className="px-6 md:px-10 py-[clamp(64px,9vw,128px)]"
+      className="px-6 md:px-10 py-[clamp(56px,7vw,104px)]"
     >
-      <div className="mx-auto max-w-[820px]">
-        <div className="flex flex-col items-center text-center gap-3 mb-12 lg:mb-16">
+      <div className="mx-auto max-w-[860px]">
+        <div className="flex flex-col items-center text-center gap-3 mb-12 max-w-[720px] mx-auto">
           <p className="text-ash text-[11px] font-semibold tracking-[0.22em] uppercase">
             Questions
           </p>
@@ -64,7 +63,7 @@ export default function FAQ() {
               className="rounded-2xl border border-black/[0.08] bg-black/[0.015] overflow-hidden"
             >
               <details className="group">
-                <summary className="cursor-pointer list-none p-5 sm:p-6 flex items-start justify-between gap-4 hover:bg-black/[0.025] transition-colors">
+                <summary className="cursor-pointer list-none p-5 sm:p-6 flex items-start justify-between gap-4 hover:bg-black/[0.02] transition-colors">
                   <span className="text-ink text-[15px] sm:text-[16px] font-semibold leading-snug">
                     {item.q}
                   </span>
@@ -92,8 +91,8 @@ export default function FAQ() {
             className="text-ink underline decoration-orange/40 hover:decoration-orange transition-colors font-medium"
           >
             contact@drumzon.com
-          </a>
-          {" "}— I read every message.
+          </a>{" "}
+          — I read every message.
         </p>
       </div>
     </section>

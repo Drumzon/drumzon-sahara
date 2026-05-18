@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import LogoMark from "@/components/LogoMark";
-import Footer from "@/components/blocks/Footer";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Refund policy — Drumzon Pro",
