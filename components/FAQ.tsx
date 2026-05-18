@@ -1,5 +1,4 @@
-// Apple-refined FAQ — native <details> accordion, no eyebrow, clean
-// sans typography, minimal "+" toggle.
+// Refined FAQ — tighter rows, lighter question type, smaller toggle.
 
 const FAQ_ITEMS = [
   {
@@ -16,11 +15,11 @@ const FAQ_ITEMS = [
   },
   {
     q: "Can I get drops from before I joined?",
-    a: "No. This is the core rule of Drumzon Pro. Each month's drop is delivered only to members active that month. The members who were there own that drop forever. New members start their library from the month they join.",
+    a: "No. Each month's drop is delivered only to members active that month. The members who were there own that drop forever. New members start their library from the month they join.",
   },
   {
     q: "Why no refunds?",
-    a: "Because there's a full demo above. You can hear exactly what you're getting before you decide. If the sound is what you want, join. If not, don't. No need for refund policies when you can listen first.",
+    a: "Because there's a full demo above. You can hear exactly what you're getting before you decide. If the sound is what you want, join. If not, don't.",
   },
   {
     q: "How do I download the drops?",
@@ -28,7 +27,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "What if a month's drop is delayed?",
-    a: "Drumzon Pro commits to at least one drop per active member month. In rare cases of unavoidable delay, your subscription pauses (no charge) until delivery resumes. You're never charged for content you don't receive.",
+    a: "Drumzon Pro commits to at least one drop per active member month. In rare cases of unavoidable delay, your subscription pauses (no charge) until delivery resumes.",
   },
   {
     q: "Can I share files with other producers?",
@@ -42,8 +41,8 @@ export default function FAQ() {
       id="faq"
       className="px-6 md:px-10 py-[clamp(56px,8vw,110px)]"
     >
-      <div className="mx-auto max-w-[880px]">
-        <div className="max-w-[680px] mb-12 lg:mb-14">
+      <div className="mx-auto max-w-[820px]">
+        <div className="mb-10 lg:mb-12">
           <h2 className="display-2 text-ink">
             Frequently asked.
           </h2>
@@ -53,22 +52,22 @@ export default function FAQ() {
           {FAQ_ITEMS.map((item, i) => (
             <li
               key={i}
-              className={`${i === 0 ? "border-t" : ""} border-b border-black/[0.08]`}
+              className={`${i === 0 ? "border-t" : ""} border-b border-black/[0.06]`}
             >
               <details className="group">
-                <summary className="cursor-pointer list-none py-6 flex items-start justify-between gap-6 hover:opacity-80 transition-opacity">
-                  <span className="text-ink text-[17px] sm:text-[18px] font-medium leading-snug tracking-[-0.015em]">
+                <summary className="cursor-pointer list-none py-5 flex items-start justify-between gap-6 hover:opacity-80 transition-opacity">
+                  <span className="text-ink text-[16px] sm:text-[17px] font-medium leading-snug tracking-[-0.012em]">
                     {item.q}
                   </span>
                   <span
                     aria-hidden
-                    className="flex-shrink-0 w-5 h-5 grid place-items-center text-stone text-[18px] transition-transform group-open:rotate-45 select-none"
+                    className="flex-shrink-0 w-4 h-4 grid place-items-center text-stone text-[16px] transition-transform group-open:rotate-45 select-none"
                   >
                     +
                   </span>
                 </summary>
-                <div className="pb-6 pr-12">
-                  <p className="text-stone text-[15px] sm:text-[16px] leading-[1.6]">
+                <div className="pb-5 pr-10">
+                  <p className="text-stone text-[15px] leading-[1.65]">
                     {item.a}
                   </p>
                 </div>
@@ -77,7 +76,7 @@ export default function FAQ() {
           ))}
         </ul>
 
-        <p className="mt-12 text-stone text-[14px]">
+        <p className="mt-10 text-stone text-[13px]">
           Still unsure? Email{" "}
           <a
             href="mailto:contact@drumzon.com"

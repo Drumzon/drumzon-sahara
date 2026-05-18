@@ -1,5 +1,4 @@
 import { createClient } from "@/lib/supabase/server";
-import CountdownStrip from "@/components/CountdownStrip";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import WhatsIncluded from "@/components/WhatsIncluded";
@@ -9,7 +8,6 @@ import PricingCard from "@/components/PricingCard";
 import About from "@/components/About";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
-import StickyCTA from "@/components/StickyCTA";
 import { FOUNDING_MAX_SLOTS } from "@/lib/pricing";
 
 // Revalidate every 30s so the live Founding counter stays fresh.
@@ -81,7 +79,6 @@ export default async function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
       />
 
-      <CountdownStrip slotsClaimed={slotsClaimed} />
       <Navbar />
 
       <main>
@@ -98,10 +95,6 @@ export default async function Home() {
       </main>
 
       <Footer />
-      <StickyCTA
-        isFoundingOpen={isFoundingOpen}
-        slotsClaimed={slotsClaimed}
-      />
     </>
   );
 }

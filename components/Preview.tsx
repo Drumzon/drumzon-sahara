@@ -1,5 +1,5 @@
-// Apple-refined Preview list — minimal headline, clean sample rows with
-// play buttons. No tinted backdrop, no eyebrow.
+// Refined sample rows. Smaller play buttons. No background fill on
+// hover — just opacity transition + subtle bg shift on the row.
 
 const PREVIEWS = [
   { num: "01", file: "Sahara_Kick_Deep_03.wav", meta: "Kick · One-shot", duration: "0:02" },
@@ -16,13 +16,13 @@ export default function Preview() {
       id="preview"
       className="px-6 md:px-10 py-[clamp(56px,8vw,110px)]"
     >
-      <div className="mx-auto max-w-[880px]">
-        <div className="max-w-[640px] mb-12 lg:mb-14">
+      <div className="mx-auto max-w-[840px]">
+        <div className="max-w-[560px] mb-10 lg:mb-12">
           <h2 className="display-2 text-ink">
             Six bites from inside{" "}
             <span className="text-chroma">Sahara</span>.
           </h2>
-          <p className="display-subhead mt-5">
+          <p className="display-subhead mt-4">
             A taste of what lands in your DAW within seconds of subscribing.
           </p>
         </div>
@@ -31,36 +31,38 @@ export default function Preview() {
           {PREVIEWS.map((p, i) => (
             <li
               key={p.file}
-              className={`group grid items-center gap-4 py-5 px-2 cursor-pointer transition-colors hover:bg-cream-warm/50 ${
+              className={`group grid items-center gap-4 py-4 cursor-pointer transition-opacity hover:opacity-100 opacity-90 ${
                 i === 0 ? "border-t" : ""
-              } border-b border-black/[0.08]`}
-              style={{ gridTemplateColumns: "32px 44px 1fr auto" }}
+              } border-b border-black/[0.06]`}
+              style={{ gridTemplateColumns: "28px 36px 1fr auto" }}
               tabIndex={0}
             >
-              <span className="font-mono text-[12px] text-ash">{p.num}</span>
+              <span className="font-mono text-[11px] text-ash tabular-nums">
+                {p.num}
+              </span>
               <button
                 type="button"
                 aria-label={`Play ${p.file}`}
-                className="w-11 h-11 rounded-full bg-white border border-black/[0.12] text-ink grid place-items-center text-[12px] transition-all group-hover:bg-orange group-hover:text-white group-hover:border-orange"
+                className="w-9 h-9 rounded-full bg-white border border-black/[0.12] text-ink grid place-items-center text-[10px] transition-all group-hover:bg-ink group-hover:text-white group-hover:border-ink"
               >
                 ▶
               </button>
               <div className="min-w-0">
-                <div className="text-ink text-[15px] sm:text-[16px] font-medium leading-tight truncate tracking-[-0.011em]">
+                <div className="text-ink text-[15px] font-medium leading-tight truncate tracking-[-0.011em]">
                   {p.file}
                 </div>
-                <div className="text-stone text-[12px] mt-1">
+                <div className="text-stone text-[12px] mt-0.5">
                   {p.meta}
                 </div>
               </div>
-              <span className="font-mono text-[13px] text-stone font-medium tabular-nums">
+              <span className="font-mono text-[12px] text-stone tabular-nums">
                 {p.duration}
               </span>
             </li>
           ))}
         </ul>
 
-        <p className="mt-8 text-stone text-[14px]">
+        <p className="mt-8 text-ash text-[13px]">
           6 of 100+. The full kit opens after subscribing.
         </p>
       </div>

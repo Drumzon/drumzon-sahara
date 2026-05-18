@@ -8,9 +8,9 @@ import {
   FOUNDING_MAX_SLOTS,
 } from "@/lib/pricing";
 
-// Apple-refined Hero — no eyebrow, no glass tags, no italic gradient.
-// Heavy sans headline + descriptive subhead + audio + dual CTA.
-// Cover sits on the right as clean product imagery.
+// Refined Hero — Apple/Linear restraint. Lighter type weights, no
+// decoration around the cover, single primary CTA + small text-only
+// secondary. Cover sits cleanly without caption or floating tags.
 
 const ArrowRight = () => (
   <svg
@@ -19,7 +19,7 @@ const ArrowRight = () => (
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    strokeWidth="2.5"
+    strokeWidth="2"
     strokeLinecap="round"
     aria-hidden
   >
@@ -27,9 +27,6 @@ const ArrowRight = () => (
     <polyline points="12 5 19 12 12 19" />
   </svg>
 );
-
-const COVER_SHADOW =
-  "0 30px 60px -10px rgba(26,17,8,0.30), 0 8px 16px -4px rgba(26,17,8,0.18)";
 
 export default function Hero({
   isFoundingOpen,
@@ -72,73 +69,70 @@ export default function Hero({
   return (
     <section
       id="hero"
-      className="relative pt-[clamp(72px,9vw,120px)] pb-[clamp(40px,5vw,72px)] px-6 md:px-10"
+      className="relative pt-[clamp(80px,10vw,128px)] pb-[clamp(48px,6vw,80px)] px-6 md:px-10"
     >
-      <div className="mx-auto max-w-[1180px] grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+      <div className="mx-auto max-w-[1180px] grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         {/* LEFT — text + audio + CTAs */}
-        <div className="lg:col-span-7 flex flex-col gap-6 lg:gap-7 items-start">
+        <div className="lg:col-span-7 flex flex-col gap-8 lg:gap-9 items-start">
           <h1 className="display-1 text-ink">
             The first curated label for{" "}
             <span className="text-chroma">Afro House</span>{" "}
             producers who want the sound, not the search.
           </h1>
 
-          <p className="display-subhead max-w-[46ch]">
-            Every month: one drop. Four complete construction kits, stems,
-            samples, presets, MIDIs. Drag, drop, you&apos;re inside the
-            track.
+          <p className="display-subhead">
+            Every month: one drop. Four complete construction kits.
+            Drag, drop, you&apos;re inside the track.
           </p>
 
           <div className="w-full max-w-[560px]">
             <AudioPlayer src={audioSrc} />
           </div>
 
-          <div className="flex flex-wrap gap-3 items-center">
+          <div className="flex flex-wrap items-center gap-5">
             <button
               type="button"
               onClick={handleCheckout}
               disabled={isLoading}
-              className="inline-flex items-center justify-center gap-2 h-[48px] px-6 rounded-full bg-orange text-white text-[15px] font-semibold hover:bg-orange-deep transition-colors disabled:opacity-60 disabled:cursor-wait"
-              style={{ boxShadow: "0 6px 20px -8px rgba(255,107,53,0.5)" }}
+              className="inline-flex items-center justify-center gap-2 h-[46px] px-6 rounded-full bg-orange text-white text-[14px] font-medium hover:bg-orange-deep transition-colors disabled:opacity-60 disabled:cursor-wait"
             >
               {isLoading ? "Opening checkout…" : primaryCta}
               {!isLoading && <ArrowRight />}
             </button>
             <a
               href="#how-it-works"
-              className="inline-flex items-center gap-1.5 h-[48px] px-2 text-ink text-[15px] font-medium hover:text-orange-deep transition-colors"
+              className="text-stone hover:text-ink text-[14px] font-medium transition-colors inline-flex items-center gap-1.5"
             >
               How it works <ArrowRight />
             </a>
           </div>
 
           {isFoundingOpen && remaining > 0 && (
-            <p className="text-stone text-[14px]">
+            <p className="text-stone text-[13px]">
               <span className="text-ink font-medium">{remaining}</span> of{" "}
-              {FOUNDING_MAX_SLOTS} Founding spots remaining. €
-              {FOUNDING_PRICE_MONTHLY}/month locked for life.
+              {FOUNDING_MAX_SLOTS} Founding spots remaining · price locked
+              for life.
             </p>
           )}
         </div>
 
-        {/* RIGHT — Sahara cover */}
-        <div className="lg:col-span-5 w-full max-w-[360px] mx-auto lg:mx-0">
+        {/* RIGHT — Sahara cover, no caption, no floating tags */}
+        <div className="lg:col-span-5 w-full max-w-[340px] mx-auto lg:mx-0">
           <div
-            className="cover-2 relative w-full aspect-[4/5] rounded-[22px] overflow-hidden"
-            style={{ boxShadow: COVER_SHADOW }}
+            className="relative w-full aspect-[4/5] rounded-[20px] overflow-hidden"
+            style={{
+              boxShadow:
+                "0 24px 50px -16px rgba(26,17,8,0.18), 0 6px 14px -4px rgba(26,17,8,0.10)",
+            }}
           >
             <img
               src="/images/sahara-cover.png"
-              alt="Drumzon Pro — Sahara, May 31 drop"
+              alt="Drumzon Pro — Sahara"
               width="1080"
               height="1350"
               className="w-full h-full object-cover block"
             />
           </div>
-          <p className="mt-5 text-center lg:text-left text-stone text-[13px]">
-            <span className="text-ink font-medium">Sahara</span> · DRZ-001 ·
-            Available May 31
-          </p>
         </div>
       </div>
     </section>

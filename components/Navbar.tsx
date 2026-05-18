@@ -1,16 +1,15 @@
 import Link from "next/link";
 import LogoMark from "./LogoMark";
 
-// Fixed glass-pill navbar — literal restoration from previous landing.
-// Server component, no per-request logic needed in Pro model.
+// Refined navbar — subtle glass pill, no thick shadow, sits closer to
+// the top now that the CountdownStrip is gone.
 export default function Navbar() {
   return (
     <header
-      className="fixed left-1/2 -translate-x-1/2 z-[100] flex items-center justify-between gap-6 w-[calc(100%-32px)] max-w-[1180px] py-2.5 pl-6 pr-3 rounded-full bg-cream-base/65 backdrop-blur-xl backdrop-saturate-150 border border-black/[0.08]"
+      className="fixed left-1/2 -translate-x-1/2 z-[100] flex items-center justify-between gap-6 w-[calc(100%-32px)] max-w-[1180px] py-2 pl-5 pr-2 rounded-full bg-cream-base/70 backdrop-blur-xl backdrop-saturate-150 border border-black/[0.06]"
       style={{
-        top: "calc(38px + 12px)",
-        boxShadow:
-          "0 1px 2px rgba(26,26,26,0.05), 0 8px 28px rgba(26,26,26,0.07)",
+        top: "14px",
+        boxShadow: "0 1px 2px rgba(26,26,26,0.04), 0 8px 24px rgba(26,26,26,0.05)",
       }}
     >
       <Link
@@ -26,25 +25,25 @@ export default function Navbar() {
       >
         <Link
           href="/#whats-included"
-          className="px-3.5 py-2 rounded-full text-[13px] font-medium text-stone hover:text-ink hover:bg-black/[0.05] transition-colors"
+          className="px-3 py-1.5 rounded-full text-[13px] font-medium text-stone hover:text-ink transition-colors"
         >
           Inside
         </Link>
         <Link
           href="/#how-it-works"
-          className="px-3.5 py-2 rounded-full text-[13px] font-medium text-stone hover:text-ink hover:bg-black/[0.05] transition-colors"
+          className="px-3 py-1.5 rounded-full text-[13px] font-medium text-stone hover:text-ink transition-colors"
         >
           How it works
         </Link>
         <Link
-          href="/#preview"
-          className="px-3.5 py-2 rounded-full text-[13px] font-medium text-stone hover:text-ink hover:bg-black/[0.05] transition-colors"
+          href="/#pricing"
+          className="px-3 py-1.5 rounded-full text-[13px] font-medium text-stone hover:text-ink transition-colors"
         >
-          Preview
+          Pricing
         </Link>
         <Link
           href="/#faq"
-          className="px-3.5 py-2 rounded-full text-[13px] font-medium text-stone hover:text-ink hover:bg-black/[0.05] transition-colors"
+          className="px-3 py-1.5 rounded-full text-[13px] font-medium text-stone hover:text-ink transition-colors"
         >
           FAQ
         </Link>
@@ -52,10 +51,9 @@ export default function Navbar() {
 
       <Link
         href="/#pricing"
-        className="inline-flex items-center justify-center h-10 px-5 rounded-full bg-orange text-white text-[13px] font-medium hover:bg-orange-deep hover:-translate-y-px transition-all"
-        style={{ boxShadow: "0 8px 24px -8px rgba(255,107,53,0.5)" }}
+        className="inline-flex items-center justify-center h-9 px-4 rounded-full bg-ink text-white text-[13px] font-medium hover:bg-graphite transition-colors"
       >
-        Claim Founding
+        Subscribe
       </Link>
     </header>
   );
