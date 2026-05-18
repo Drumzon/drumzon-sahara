@@ -2,6 +2,10 @@
 
 import { useState } from "react";
 import AudioPlayer from "../AudioPlayer";
+import {
+  FOUNDING_PRICE_MONTHLY,
+  STANDARD_PRICE_MONTHLY,
+} from "@/lib/pricing";
 
 // BLOCK 9 — FINAL CTA
 // Repeat conversion block. Minimal version. Same dynamic Founding/Standard
@@ -70,8 +74,8 @@ export default function FinalCTA({
           {isLoading
             ? "Opening checkout..."
             : isFoundingOpen
-              ? "Claim your Founding spot — €7/month"
-              : "Join Drumzon Pro — €14.95/month"}
+              ? `Claim your Founding spot — €${FOUNDING_PRICE_MONTHLY}/month`
+              : `Join Drumzon Pro — €${STANDARD_PRICE_MONTHLY}/month`}
           {!isLoading && <ArrowRight />}
         </button>
 

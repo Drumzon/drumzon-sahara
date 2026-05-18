@@ -48,8 +48,9 @@ const productJsonLd = {
 };
 
 async function getFoundingCounter() {
-  // Until Supabase is wired (env vars set), return mocked counter so the
-  // landing renders without crashing in local dev.
+  // Local dev mock — until Supabase is wired (env vars set), show the
+  // landing in its Founding-open state with a teaser counter so designers
+  // and copywriters can iterate without spinning up a real DB.
   if (
     !process.env.NEXT_PUBLIC_SUPABASE_URL ||
     !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
@@ -64,16 +65,22 @@ async function getFoundingCounter() {
       .select("slots_claimed, max_slots")
       .single();
 
-    if (!data) return { slotsClaimed: 0, isFoundingOpen: true };
+    if (!data) {
+      // Counter row missing — DB partially seeded. Treat as closed (safer
+      // than letting checkouts proceed without atomic protection).
+      return { slotsClaimed: FOUNDING_MAX_SLOTS, isFoundingOpen: false };
+    }
 
     return {
       slotsClaimed: data.slots_claimed,
       isFoundingOpen: data.slots_claimed < data.max_slots,
     };
-  } catch {
-    // Failsoft to Founding open if DB unreachable, so checkout still attempts
-    // and the API route validates again before Stripe call.
-    return { slotsClaimed: 0, isFoundingOpen: true };
+  } catch (err) {
+    // DB unreachable — failsoft to CLOSED. Showing Founding as available
+    // would risk charging users then refunding them when the webhook
+    // can't reserve a slot. Better to under-promise.
+    console.error("[page] founding_counter read failed:", err);
+    return { slotsClaimed: FOUNDING_MAX_SLOTS, isFoundingOpen: false };
   }
 }
 
@@ -88,7 +95,7 @@ export default async function Home() {
       />
       <SaharaBackdrop />
       <main>
-        <Hero />
+        <Hero isFoundingOpen={isFoundingOpen} />
         <Promise />
         <WhatYouGet />
         <HowItWorks />

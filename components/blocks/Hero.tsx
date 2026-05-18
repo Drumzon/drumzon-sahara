@@ -1,13 +1,27 @@
 import LogoMark from "../LogoMark";
 import AudioPlayer from "../AudioPlayer";
+import {
+  FOUNDING_PRICE_MONTHLY,
+  STANDARD_PRICE_MONTHLY,
+} from "@/lib/pricing";
 
 // BLOCK 1 — HERO (above the fold)
 // Full viewport, dark, centered with breathing room.
 // No nav header (per brief: "the entire page is the funnel").
 // The audio player is the single most important UI on the page.
 
-export default function Hero() {
+export default function Hero({
+  isFoundingOpen,
+}: {
+  isFoundingOpen: boolean;
+}) {
   const audioSrc = process.env.NEXT_PUBLIC_SAHARA_DEMO_URL || undefined;
+  const ctaText = isFoundingOpen
+    ? `Claim your Founding spot — €${FOUNDING_PRICE_MONTHLY}/month`
+    : `Join Drumzon Pro — €${STANDARD_PRICE_MONTHLY}/month`;
+  const ctaMicro = isFoundingOpen
+    ? "Lifetime price lock · Cancel anytime · No refunds, just listen first"
+    : "Cancel anytime · No refunds, just listen first";
 
   return (
     <section
@@ -59,10 +73,10 @@ export default function Hero() {
 
         <div className="flex flex-col items-center gap-3 mt-2">
           <a href="#pricing" className="btn-primary btn-primary-large">
-            Claim your Founding spot — €7/month
+            {ctaText}
           </a>
           <p className="text-text-subtle text-[12px] tracking-wide">
-            Lifetime price lock · Cancel anytime · No refunds, just listen first
+            {ctaMicro}
           </p>
         </div>
       </div>

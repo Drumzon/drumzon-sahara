@@ -8,6 +8,7 @@ import {
   STANDARD_PRICE_MONTHLY,
   STANDARD_PRICE_YEARLY,
   FOUNDING_MAX_SLOTS,
+  isSaharaWindow,
 } from "@/lib/pricing";
 
 // BLOCK 5 — FOUNDING MEMBERS BLOCK (THE CONVERSION ENGINE)
@@ -16,14 +17,19 @@ import {
 //   - Founding closed: shows €14.95/month Standard tier (no bonuses)
 //
 // Yearly toggle: subtle switch between monthly and yearly billing.
+//
+// The Sahara bonus is conditional on isSaharaWindow() — if Founding is
+// still open AFTER June 30 (Sahara window closed), we don't list it as
+// a bonus (would be a false promise — the webhook won't grant sahara_access).
 
-const FOUNDING_BONUSES = [
-  "Lifetime €7/month — your price never rises",
+const BASE_FOUNDING_BONUSES = [
+  `Lifetime €${FOUNDING_PRICE_MONTHLY}/month — your price never rises`,
   "Quarterly track feedback — submit 1 track per quarter, get personal feedback from me",
   "Credits in the Drumzon Yearly Compilation (releases Month 12)",
   "Vault access — yearly experimental bonus drop, Founding members only",
-  "Sahara (Month 1) — yours forever, even after cancellation",
 ];
+
+const SAHARA_BONUS = "Sahara (Month 1) — yours forever, even after cancellation";
 
 const ArrowRight = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden>
@@ -39,19 +45,28 @@ export default function PricingCard({
   slotsClaimed: number;
   isFoundingOpen: boolean;
 }) {
-  const [interval, setInterval] = useState<"monthly" | "yearly">("monthly");
+  // Renamed from `interval` to avoid shadowing the global `setInterval()` function.
+  const [billingInterval, setBillingInterval] = useState<"monthly" | "yearly">(
+    "monthly",
+  );
   const [isLoading, setIsLoading] = useState(false);
 
   const tier = isFoundingOpen ? "founding" : "standard";
   const monthly = isFoundingOpen ? FOUNDING_PRICE_MONTHLY : STANDARD_PRICE_MONTHLY;
   const yearly = isFoundingOpen ? FOUNDING_PRICE_YEARLY : STANDARD_PRICE_YEARLY;
 
-  const displayPrice = interval === "monthly" ? monthly : yearly;
-  const displayUnit = interval === "monthly" ? "/month" : "/year";
+  const displayPrice = billingInterval === "monthly" ? monthly : yearly;
+  const displayUnit = billingInterval === "monthly" ? "/month" : "/year";
   const altDisplay =
-    interval === "monthly"
+    billingInterval === "monthly"
       ? `or €${yearly}/year (2 months free)`
       : `or €${monthly}/month`;
+
+  // Sahara bonus only listed if subscribing during the Sahara window —
+  // otherwise we'd promise something the webhook won't deliver.
+  const foundingBonuses = isSaharaWindow()
+    ? [...BASE_FOUNDING_BONUSES, SAHARA_BONUS]
+    : BASE_FOUNDING_BONUSES;
 
   const handleCheckout = async () => {
     setIsLoading(true);
@@ -59,7 +74,7 @@ export default function PricingCard({
       const res = await fetch("/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ tier, interval }),
+        body: JSON.stringify({ tier, interval: billingInterval }),
       });
       const data = await res.json();
       if (data.url) {
@@ -110,25 +125,25 @@ export default function PricingCard({
               >
                 <button
                   type="button"
-                  onClick={() => setInterval("monthly")}
+                  onClick={() => setBillingInterval("monthly")}
                   className={`px-4 py-1.5 rounded-full text-[12px] font-semibold tracking-wide transition-colors ${
-                    interval === "monthly"
+                    billingInterval === "monthly"
                       ? "text-bg"
                       : "text-text-muted hover:text-text"
                   }`}
-                  style={interval === "monthly" ? { background: "var(--color-accent)" } : {}}
+                  style={billingInterval === "monthly" ? { background: "var(--color-accent)" } : {}}
                 >
                   Monthly
                 </button>
                 <button
                   type="button"
-                  onClick={() => setInterval("yearly")}
+                  onClick={() => setBillingInterval("yearly")}
                   className={`px-4 py-1.5 rounded-full text-[12px] font-semibold tracking-wide transition-colors ${
-                    interval === "yearly"
+                    billingInterval === "yearly"
                       ? "text-bg"
                       : "text-text-muted hover:text-text"
                   }`}
-                  style={interval === "yearly" ? { background: "var(--color-accent)" } : {}}
+                  style={billingInterval === "yearly" ? { background: "var(--color-accent)" } : {}}
                 >
                   Yearly · 2 mo free
                 </button>
@@ -149,7 +164,7 @@ export default function PricingCard({
                   What Founding members get that Standard members never will:
                 </p>
                 <ul className="flex flex-col gap-3">
-                  {FOUNDING_BONUSES.map((bonus) => (
+                  {foundingBonuses.map((bonus) => (
                     <li
                       key={bonus}
                       className="flex items-start gap-3 text-text text-[14px] leading-[1.55]"
@@ -219,21 +234,21 @@ export default function PricingCard({
                 >
                   <button
                     type="button"
-                    onClick={() => setInterval("monthly")}
+                    onClick={() => setBillingInterval("monthly")}
                     className={`px-4 py-1.5 rounded-full text-[12px] font-semibold tracking-wide transition-colors ${
-                      interval === "monthly" ? "text-bg" : "text-text-muted hover:text-text"
+                      billingInterval === "monthly" ? "text-bg" : "text-text-muted hover:text-text"
                     }`}
-                    style={interval === "monthly" ? { background: "var(--color-accent)" } : {}}
+                    style={billingInterval === "monthly" ? { background: "var(--color-accent)" } : {}}
                   >
                     Monthly
                   </button>
                   <button
                     type="button"
-                    onClick={() => setInterval("yearly")}
+                    onClick={() => setBillingInterval("yearly")}
                     className={`px-4 py-1.5 rounded-full text-[12px] font-semibold tracking-wide transition-colors ${
-                      interval === "yearly" ? "text-bg" : "text-text-muted hover:text-text"
+                      billingInterval === "yearly" ? "text-bg" : "text-text-muted hover:text-text"
                     }`}
-                    style={interval === "yearly" ? { background: "var(--color-accent)" } : {}}
+                    style={billingInterval === "yearly" ? { background: "var(--color-accent)" } : {}}
                   >
                     Yearly · 2 mo free
                   </button>
