@@ -1,131 +1,160 @@
 import type { Metadata } from "next";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Link from "next/link";
+import LogoMark from "@/components/LogoMark";
+import Footer from "@/components/blocks/Footer";
 
 export const metadata: Metadata = {
-  title: "Privacy — Drumzon",
-  description: "How Drumzon collects, uses, and protects your data.",
+  title: "Privacy — Drumzon Pro",
+  description: "How Drumzon Pro collects, uses, and protects your data.",
 };
 
 export default function Privacy() {
   return (
     <>
-      <Navbar />
-      <main className="flex-1">
-        <div className="mx-auto max-w-[720px] px-6 md:px-12 lg:px-20 pt-[clamp(108px,13vw,160px)] pb-[clamp(64px,9vw,120px)]">
-          <p className="text-ash text-[11px] font-semibold tracking-[0.2em] uppercase mb-4">
-            Privacy
-          </p>
+      <header className="px-6 md:px-10 pt-6 md:pt-8 max-w-[1200px] mx-auto w-full">
+        <Link href="/" className="inline-flex hover:opacity-85 transition-opacity">
+          <LogoMark size="sm" />
+        </Link>
+      </header>
+      <main className="flex-1 px-6 md:px-10">
+        <div className="max-w-[720px] mx-auto pt-16 lg:pt-24 pb-20">
+          <p className="eyebrow mb-3">Legal</p>
           <h1
-            className="h-display text-ink"
-            style={{ fontSize: "clamp(40px, 6vw, 72px)" }}
+            className="h-display-bold text-text mb-2"
+            style={{ fontSize: "clamp(40px, 6vw, 64px)" }}
           >
-            Privacy <span className="serif-em gradient-text">Policy</span>.
+            Privacy <span className="serif-em" style={{ color: "var(--color-accent)" }}>policy</span>.
           </h1>
-          <p className="text-stone text-[13px] mt-4 mb-12 font-mono tracking-wide">
-            Updated 13 May 2026
+          <p className="text-text-subtle text-[12px] font-mono uppercase tracking-[0.14em] mb-12">
+            Updated May 2026
           </p>
 
-          <div className="flex flex-col gap-10 text-graphite text-[16px] leading-[1.7]">
-            <section className="flex flex-col gap-3">
-              <h2 className="font-serif text-ink text-[28px] leading-[1.2]">
-                Who we are
-              </h2>
+          <div className="flex flex-col gap-10 text-text-muted text-[15px] leading-[1.75]">
+            <Section title="Who we are">
               <p>
-                Drumzon is an independent sound-design project. You can reach
-                us at{" "}
+                Drumzon Pro is operated by a Barcelona-based independent
+                producer. Contact:{" "}
                 <a
-                  href="mailto:itsdrumzon@gmail.com"
-                  className="text-orange hover:text-orange-deep underline underline-offset-4"
+                  href="mailto:contact@drumzon.com"
+                  className="text-text underline decoration-accent/40 hover:decoration-accent"
+                  style={{ textDecorationColor: "rgba(224,122,60,0.4)" }}
                 >
-                  itsdrumzon@gmail.com
+                  contact@drumzon.com
                 </a>
                 .
               </p>
-            </section>
+            </Section>
 
-            <section className="flex flex-col gap-3">
-              <h2 className="font-serif text-ink text-[28px] leading-[1.2]">
-                What we collect
-              </h2>
+            <Section title="What we collect">
               <p>
-                When you sign up for the free Sahara Lite pack or buy Vol. 1,
-                we collect your email address. That’s it. No tracking pixels,
-                no behavioural profiling, no third-party data brokers.
+                When you subscribe to Drumzon Pro: your email address and
+                billing details (the latter handled and stored by Stripe — we
+                never see your card data). Country (via Vercel geo header) for
+                tax calculation. That's it.
               </p>
-            </section>
-
-            <section className="flex flex-col gap-3">
-              <h2 className="font-serif text-ink text-[28px] leading-[1.2]">
-                How we use it
-              </h2>
               <p>
-                We use your email to deliver the pack you requested and to let
-                you know when new releases drop (Vol. 2, free packs, occasional
-                discount codes). Two emails a month, max.
+                No tracking pixels. No behavioural profiling. No third-party
+                data brokers. No fingerprinting. No analytics scripts that
+                follow you around the internet.
               </p>
-            </section>
+            </Section>
 
-            <section className="flex flex-col gap-3">
-              <h2 className="font-serif text-ink text-[28px] leading-[1.2]">
-                Where it lives
-              </h2>
+            <Section title="How we use it">
               <p>
-                Email lists are managed by{" "}
+                Your email is used to: deliver each monthly drop, send
+                membership notifications (renewal receipts, failed payment
+                alerts, drop delays), and occasionally send broadcasts about
+                upcoming releases or Founding member updates.
+              </p>
+              <p>
+                Maximum cadence: 4–6 emails per month for active members
+                (drop arrival + membership ops). No marketing spam.
+              </p>
+            </Section>
+
+            <Section title="Where it lives">
+              <p>
+                Email lists managed by{" "}
                 <a
                   href="https://kit.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-orange hover:text-orange-deep underline underline-offset-4"
+                  className="text-text underline"
+                  style={{ textDecorationColor: "rgba(224,122,60,0.4)" }}
                 >
                   Kit
                 </a>{" "}
-                (formerly ConvertKit). The website is hosted on Vercel. Both
-                are GDPR-compliant.
-              </p>
-            </section>
-
-            <section className="flex flex-col gap-3">
-              <h2 className="font-serif text-ink text-[28px] leading-[1.2]">
-                Your rights
-              </h2>
-              <p>
-                You can unsubscribe from any email with one click. You can ask
-                us to delete your data at any time by emailing{" "}
+                (formerly ConvertKit). Payments processed by{" "}
                 <a
-                  href="mailto:itsdrumzon@gmail.com"
-                  className="text-orange hover:text-orange-deep underline underline-offset-4"
+                  href="https://stripe.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-text underline"
+                  style={{ textDecorationColor: "rgba(224,122,60,0.4)" }}
                 >
-                  itsdrumzon@gmail.com
+                  Stripe
+                </a>
+                . Membership records and file delivery via Supabase + Cloudflare
+                R2. Website hosted on Vercel. All four are GDPR-compliant
+                processors.
+              </p>
+            </Section>
+
+            <Section title="Your rights">
+              <p>
+                Unsubscribe from emails in one click. Cancel your subscription
+                anytime from the Stripe customer portal (link in your welcome
+                email). Request data deletion by emailing{" "}
+                <a
+                  href="mailto:contact@drumzon.com"
+                  className="text-text underline"
+                  style={{ textDecorationColor: "rgba(224,122,60,0.4)" }}
+                >
+                  contact@drumzon.com
                 </a>{" "}
-                — we’ll do it within 7 days.
+                — we comply within 7 days.
               </p>
-            </section>
-
-            <section className="flex flex-col gap-3">
-              <h2 className="font-serif text-ink text-[28px] leading-[1.2]">
-                Cookies
-              </h2>
               <p>
-                We don’t use tracking cookies. The site uses essential cookies
-                only (session, security).
+                Under GDPR you have the right to access, correct, port, or
+                delete your personal data. Contact us and we'll comply.
               </p>
-            </section>
+            </Section>
 
-            <section className="flex flex-col gap-3">
-              <h2 className="font-serif text-ink text-[28px] leading-[1.2]">
-                Changes
-              </h2>
+            <Section title="Cookies">
               <p>
-                If we change this policy, we’ll update the date at the top.
-                Material changes will be announced via email to existing
-                subscribers.
+                No tracking or marketing cookies. Essential cookies only
+                (session, security). Vercel sets a geolocation header
+                (country only, no IP storage) for currency display.
               </p>
-            </section>
+            </Section>
+
+            <Section title="Changes">
+              <p>
+                If we update this policy, the date at the top changes.
+                Material changes are announced via email to active members.
+              </p>
+            </Section>
           </div>
         </div>
       </main>
       <Footer />
     </>
+  );
+}
+
+function Section({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <section className="flex flex-col gap-3">
+      <h2 className="text-text text-[14px] font-semibold uppercase tracking-[0.16em]">
+        {title}
+      </h2>
+      {children}
+    </section>
   );
 }

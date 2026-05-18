@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Instrument_Serif, Inter } from "next/font/google";
-import GrainOverlay from "@/components/GrainOverlay";
 import "./globals.css";
 
 const instrumentSerif = Instrument_Serif({
@@ -14,7 +13,7 @@ const instrumentSerif = Instrument_Serif({
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -23,41 +22,40 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://drumzon.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Drumzon Vol. 1: Sahara — Afro House Sample Pack",
-    template: "%s | Drumzon",
+    default: "Drumzon Pro — Curated Afro House label, every month",
+    template: "%s | Drumzon Pro",
   },
   description:
-    "A premium Afro House drums & percussion pack — inspired by Keinemusik, Hugel, and Black Coffee. 160+ royalty-free sounds for producers.",
+    "The first curated digital label for Afro House producers who want the sound, not the search. Every month: one drop. Four complete construction kits. Drag, drop, you're inside the track.",
   keywords: [
-    "afro house sample pack",
-    "afro house drums",
-    "keinemusik sample pack",
-    "hugel sample pack",
-    "black coffee samples",
-    "afro house percussion",
-    "royalty-free afro house",
+    "afro house construction kits",
+    "afro house subscription",
+    "afro house sample label",
+    "afro house drum kits",
+    "afro house producer subscription",
+    "underground afro house",
+    "european afro house",
+    "drumzon pro",
     "drumzon",
   ],
   authors: [{ name: "Drumzon" }],
   creator: "Drumzon",
   publisher: "Drumzon",
-  alternates: {
-    canonical: "/",
-  },
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "en_US",
     url: siteUrl,
-    siteName: "Drumzon",
-    title: "Drumzon Vol. 1: Sahara — Afro House Sample Pack",
+    siteName: "Drumzon Pro",
+    title: "Drumzon Pro — Curated Afro House label, every month",
     description:
-      "160+ premium Afro House sounds. Inspired by Keinemusik, Hugel, and Black Coffee. Royalty-free, all DAWs.",
+      "Every month: one drop. Four complete construction kits. Drag, drop, you're inside the track. Founding tier €7/month — limited to 100 producers.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Drumzon Vol. 1: Sahara",
+    title: "Drumzon Pro — Curated Afro House label",
     description:
-      "160+ premium Afro House sounds. Royalty-free, all DAWs.",
+      "One drop a month. Four construction kits. Drag, drop, you're inside the track.",
     creator: "@drumzon",
   },
   robots: {
@@ -74,7 +72,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#FAF7F2",
+  themeColor: "#0a0a0b",
   width: "device-width",
   initialScale: 1,
 };
@@ -89,10 +87,7 @@ export default function RootLayout({
       lang="en"
       className={`${instrumentSerif.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans">
-        {children}
-        <GrainOverlay />
-      </body>
+      <body className="min-h-full flex flex-col font-sans">{children}</body>
     </html>
   );
 }
