@@ -50,6 +50,14 @@ export const metadata: Metadata = {
     title: "Drumzon Pro — Curated Afro House label, every month",
     description:
       "Every month: one drop. Four complete construction kits. Drag, drop, you're inside the track. Founding tier €7/month — limited to 100 producers.",
+    images: [
+      {
+        url: "/images/sahara-cover.png",
+        width: 1080,
+        height: 1350,
+        alt: "Drumzon Pro — Sahara, the May 31 drop",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -57,6 +65,7 @@ export const metadata: Metadata = {
     description:
       "One drop a month. Four construction kits. Drag, drop, you're inside the track.",
     creator: "@drumzon",
+    images: ["/images/sahara-cover.png"],
   },
   robots: {
     index: true,

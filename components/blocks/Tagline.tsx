@@ -1,7 +1,8 @@
-// BLOCK 2 — THE PROMISE
+// BLOCK 2 — THE PROMISE (component renamed Promise → Tagline to avoid
+// shadowing the JavaScript built-in `Promise` class).
 // Brief transition. Three short lines max. No card, no decoration.
 
-export default function Promise() {
+export default function Tagline() {
   return (
     <section className="section-pad-tight px-6 md:px-10">
       <div className="max-w-[760px] mx-auto text-center flex flex-col gap-3">

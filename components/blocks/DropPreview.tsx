@@ -1,7 +1,8 @@
+import Image from "next/image";
 import AudioPlayer from "../AudioPlayer";
 
 // BLOCK 6 — THE DROP PREVIEW
-// Second audio player + Sahara expiration urgency text.
+// Sahara cover + second audio player + expiration urgency text.
 
 export default function DropPreview() {
   const audioSrc = process.env.NEXT_PUBLIC_SAHARA_DEMO_URL || undefined;
@@ -22,6 +23,26 @@ export default function DropPreview() {
             Sahara
           </span>
         </h2>
+
+        {/* Cover art — anchors the drop visually before the audio. Portrait
+            4:5 ratio, modest max-width so it doesn't dominate. */}
+        <div
+          className="mx-auto mb-10 relative aspect-[4/5] w-full max-w-[280px] rounded-xl overflow-hidden"
+          style={{
+            border: "1px solid var(--color-border)",
+            boxShadow:
+              "0 30px 60px -15px rgba(224,122,60,0.18), 0 12px 24px -8px rgba(0,0,0,0.5)",
+          }}
+        >
+          <Image
+            src="/images/sahara-cover.png"
+            alt="Sahara — Drumzon Pro Month 1 drop cover art"
+            fill
+            sizes="(max-width: 768px) 80vw, 280px"
+            className="object-cover"
+            priority={false}
+          />
+        </div>
 
         <AudioPlayer
           src={audioSrc}

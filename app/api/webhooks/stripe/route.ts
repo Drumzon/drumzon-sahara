@@ -89,6 +89,23 @@ async function handleSubscriptionCreated(
 ) {
   const tier = (subscription.metadata?.tier as "founding" | "standard") ?? "standard";
 
+  // IDEMPOTENCY GUARD — Stripe replays webhook events on retries
+  // (network blip, timeout, slow ack). Without this check we'd reserve
+  // a Founding slot twice and oscillate the counter, plus throw on the
+  // UNIQUE constraint and trigger an infinite retry loop.
+  const { data: existing } = await supabase
+    .from("members")
+    .select("id")
+    .eq("stripe_subscription_id", subscription.id)
+    .maybeSingle();
+
+  if (existing) {
+    console.log(
+      `[webhook] subscription.created replayed for ${subscription.id} — already processed, skipping`,
+    );
+    return;
+  }
+
   // Fetch customer for email
   const customer = (await stripe.customers.retrieve(
     subscription.customer as string,

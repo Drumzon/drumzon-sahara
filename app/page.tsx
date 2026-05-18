@@ -2,7 +2,7 @@ import { createClient } from "@/lib/supabase/server";
 import SaharaBackdrop from "@/components/SaharaBackdrop";
 import GrainOverlay from "@/components/GrainOverlay";
 import Hero from "@/components/blocks/Hero";
-import Promise from "@/components/blocks/Promise";
+import Tagline from "@/components/blocks/Tagline";
 import WhatYouGet from "@/components/blocks/WhatYouGet";
 import HowItWorks from "@/components/blocks/HowItWorks";
 import PricingCard from "@/components/blocks/PricingCard";
@@ -96,7 +96,7 @@ export default async function Home() {
       <SaharaBackdrop />
       <main>
         <Hero isFoundingOpen={isFoundingOpen} />
-        <Promise />
+        <Tagline />
         <WhatYouGet />
         <HowItWorks />
         <PricingCard
