@@ -69,7 +69,7 @@ export default function Hero({
   return (
     <section
       id="hero"
-      className="relative pt-[clamp(88px,10vw,128px)] pb-[clamp(40px,6vw,72px)] px-6 md:px-10"
+      className="relative pt-[clamp(80px,9vw,120px)] pb-[clamp(28px,5vw,56px)] px-6 md:px-10"
     >
       <div className="mx-auto max-w-[1180px]">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">

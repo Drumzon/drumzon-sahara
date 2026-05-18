@@ -80,16 +80,11 @@ export default function PricingCard({
   const priceUnit = billingInterval === "monthly" ? "/month" : "/year";
 
   return (
-    <section id="pricing" className="px-6 md:px-10 py-[clamp(40px,6vw,80px)]">
-      <div className="mx-auto max-w-[1080px]">
-        <div className="max-w-[680px] mx-auto text-center mb-10 lg:mb-14">
-          <h2 className="display-2 text-ink mx-auto">
-            Pricing.
-          </h2>
-        </div>
-
-        {/* Interval toggle — centered, with yearly nudge */}
-        <div className="flex flex-col items-center gap-2 mb-10">
+    <section id="pricing" className="px-6 md:px-10 py-[clamp(32px,5vw,64px)]">
+      <div className="mx-auto max-w-[980px]">
+        {/* Interval toggle — replaces the "Pricing." head; toggle is the
+            section's reason for being and self-evident */}
+        <div className="flex flex-col items-center gap-2 mb-8 lg:mb-10">
           <div
             className="inline-flex p-1 rounded-full"
             style={{

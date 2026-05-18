@@ -52,20 +52,20 @@ export default function LeadMagnet() {
   return (
     <section
       id="free-pack"
-      className="px-6 md:px-10 py-[clamp(40px,6vw,80px)]"
+      className="px-6 md:px-10 py-[clamp(32px,5vw,64px)]"
     >
-      <div className="mx-auto max-w-[760px] text-center">
+      <div className="mx-auto max-w-[660px] text-center">
         <h2 className="display-2 text-ink mx-auto">
           <span className="text-chroma">The First Drop.</span>{" "}
           Free.
         </h2>
-        <p className="display-subhead mx-auto mt-5">
+        <p className="display-subhead mx-auto mt-4">
           A full construction kit. Same studio quality as the monthly drops.
         </p>
 
         {/* The free pack card — anchors at €40 → FREE for visual impact */}
         <div
-          className="mt-10 mx-auto max-w-[620px] p-7 sm:p-8 rounded-[20px] text-left"
+          className="mt-8 mx-auto max-w-[580px] p-7 sm:p-8 rounded-[20px] text-left"
           style={{
             background:
               "linear-gradient(135deg, rgba(255,107,53,0.08) 0%, rgba(255,140,66,0.04) 100%)",

@@ -6,18 +6,17 @@ export default function HowItWorks() {
   return (
     <section
       id="how-it-works"
-      className="px-6 md:px-10 py-[clamp(40px,6vw,80px)]"
+      className="px-6 md:px-10 py-[clamp(32px,5vw,64px)]"
     >
-      <div className="mx-auto max-w-[860px] text-center">
+      <div className="mx-auto max-w-[760px] text-center">
         <h2 className="display-2 text-ink mx-auto">
-          One drop a month. Active members receive it.{" "}
-          <span className="text-chroma">Forever.</span>
+          One drop a month. Yours forever.
         </h2>
-        <p className="display-subhead mx-auto mt-5">
+        <p className="display-subhead mx-auto mt-4">
           Cancel anytime. Keep every file you downloaded.
         </p>
 
-        <div className="grid sm:grid-cols-3 gap-x-8 gap-y-10 mt-12">
+        <div className="grid sm:grid-cols-3 gap-x-8 gap-y-8 mt-10">
           {[
             { title: "Subscribe", body: "Pick Founding (€19/mo, first 100) or Standard (€29/mo). Price locked for life." },
             { title: "Receive every drop", body: "Each release lands in your portal automatically while you're active." },
