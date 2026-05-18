@@ -7,7 +7,10 @@ import {
   STANDARD_PRICE_MONTHLY,
   FOUNDING_MAX_SLOTS,
 } from "@/lib/pricing";
-import { totalPerceivedValue } from "@/lib/value-stack";
+import {
+  MARKET_PACK_PRICE_MIN,
+  MARKET_PACK_PRICE_MAX,
+} from "@/lib/value-stack";
 
 // Hormozi-structured Hero on Apple-minimal canvas.
 // Mobile-first centered: stacked single column on small screens, opens
@@ -40,7 +43,6 @@ export default function Hero({
   const audioSrc = process.env.NEXT_PUBLIC_SAHARA_DEMO_URL || undefined;
   const [isLoading, setIsLoading] = useState(false);
   const remaining = Math.max(0, FOUNDING_MAX_SLOTS - slotsClaimed);
-  const perceivedValue = totalPerceivedValue();
 
   const handleCheckout = async () => {
     setIsLoading(true);
@@ -130,14 +132,16 @@ export default function Hero({
           </a>
         </div>
 
-        {/* Trust line — Hormozi value anchor + risk reversal */}
+        {/* Trust line — anchored against real market pack pricing */}
         <div className="flex flex-col items-center gap-1.5 mt-2 text-[13px]">
-          <p className="text-stone">
-            <span className="text-ink font-medium">€{perceivedValue}/mo of value</span> for{" "}
+          <p className="text-stone max-w-[52ch]">
+            Curated Afro House packs of this depth list at{" "}
+            <span className="text-ink font-medium">€{MARKET_PACK_PRICE_MIN}–{MARKET_PACK_PRICE_MAX}</span>{" "}
+            standalone. Get one every month for{" "}
             <span className="text-ink font-medium">
               €{isFoundingOpen ? FOUNDING_PRICE_MONTHLY : STANDARD_PRICE_MONTHLY}
             </span>
-            . Locked for life. Cancel anytime, keep every file.
+            , locked for life.
           </p>
           {isFoundingOpen && remaining > 0 && (
             <p className="text-ash text-[12px]">

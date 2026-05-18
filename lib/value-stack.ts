@@ -1,62 +1,91 @@
-// Hormozi value-stack anchoring. Each item in the monthly drop has a
-// market-comparable perceived value. The price the user pays is
-// presented AGAINST this total, not in absolute terms.
+// Hormozi value-stack — anchored against REAL market prices for
+// comparable curated Afro House packs (researched May 2026 from
+// PML, Loopmasters, Cymatics, Splice individual pack listings).
 //
-// Source comparisons:
-// - Construction kit: top labels charge $40-60 per kit (Production Music
-//   Live, Cymatics premium tiers, Splice exclusives).
-// - Sample pack of ~80 sounds: $25-40 standalone on Loopmasters/Splice.
-// - Serum preset pack 10-15 patches: $15-30 on Reveal Sound store etc.
-// - MIDI pack: $10-20 standalone (Hooky, Equinox).
-// Conservatively rounded to keep the math honest, not inflated.
+// The market reality: a single premium curated Afro House pack
+// (similar depth: ~100 sounds + kits + MIDIs + presets) lists at
+// €25-40 standalone. PML's "Sounds From The Cape" lists €37 (sale
+// €25.90). Loopmasters' "3 Step Afro House" lists £29.95 (~€35).
+//
+// Drumzon Pro delivers ONE such pack EVERY MONTH for €7-14.95
+// (subscription). The math is the value stack — not arbitrary $$
+// totals, but real market comparison.
 
+import {
+  FOUNDING_PRICE_MONTHLY,
+  STANDARD_PRICE_MONTHLY,
+  FOUNDING_PRICE_YEARLY,
+  STANDARD_PRICE_YEARLY,
+} from "./pricing";
+
+// Per-pack market reference (researched from active competitor
+// listings). Used to anchor the membership offer against the cost
+// of buying a single comparable pack standalone.
+export const MARKET_PACK_PRICE_MIN = 30; // €30 (lower-end standalone)
+export const MARKET_PACK_PRICE_MAX = 40; // €40 (upper-end standalone)
+export const MARKET_PACK_PRICE_MID = 35; // €35 (median for math)
+
+// Per-month value breakdown — kept for the itemized Hormozi list
+// view, but the headline anchor uses MARKET_PACK_PRICE.
 export type StackItem = {
   title: string;
-  what: string;        // 1-line description
-  solves: string;      // pain the item removes
-  value: number;       // perceived market value in EUR
+  what: string;
+  value: number;
 };
 
 export const VALUE_STACK: StackItem[] = [
   {
     title: "4 Construction kits",
     what: "Full track stems, pre-mixed and key-compatible.",
-    solves: "Hours wasted starting tracks from scratch.",
-    value: 180,
+    value: 18,
   },
   {
     title: "~80 Individual samples",
-    what: "Every kick, perc, vocal chop and one-shot isolated. BPM/key tagged.",
-    solves: "Endless Splice scrolling for the right sound.",
-    value: 80,
+    what: "Every kick, perc, vocal chop and one-shot isolated.",
+    value: 8,
   },
   {
     title: "~12 Synth presets",
-    what: "The exact Serum, Vital and Diva patches used in the kits.",
-    solves: "Sound design from a blank patch.",
-    value: 60,
+    what: "Serum, Vital and Diva patches used in the kits.",
+    value: 5,
   },
   {
     title: "~8 MIDI files",
     what: "Melodies, basslines, chord progressions ready to drop in.",
-    solves: "Writer's block at 2 AM.",
-    value: 40,
-  },
-  {
-    title: "Lifetime download access",
-    what: "Every file you've downloaded stays in your library forever.",
-    solves: "Subscription fatigue — paying to keep access.",
-    value: 60,
-  },
-  {
-    title: "Royalty-free commercial license",
-    what: "Release on Spotify, Beatport, sync to anything.",
-    solves: "Legal risk on every release.",
-    value: 40,
+    value: 4,
   },
 ];
 
-// Total perceived value of the monthly stack.
-export function totalPerceivedValue(): number {
+export function totalStackValue(): number {
   return VALUE_STACK.reduce((sum, item) => sum + item.value, 0);
 }
+
+// Yearly math helpers — used to make the value tangible.
+export function yearlyMarketValue(midPrice = MARKET_PACK_PRICE_MID): number {
+  return midPrice * 12;
+}
+
+export function yearlySavingsFounding(): number {
+  return yearlyMarketValue() - FOUNDING_PRICE_YEARLY;
+}
+
+export function yearlySavingsStandard(): number {
+  return yearlyMarketValue() - STANDARD_PRICE_YEARLY;
+}
+
+export function monthlyEffectiveFromYearly(yearly: number): string {
+  return (yearly / 12).toFixed(2);
+}
+
+export const FOUNDING_EFFECTIVE_MONTHLY = monthlyEffectiveFromYearly(
+  FOUNDING_PRICE_YEARLY,
+);
+export const STANDARD_EFFECTIVE_MONTHLY = monthlyEffectiveFromYearly(
+  STANDARD_PRICE_YEARLY,
+);
+
+// Suppress unused-warning helper exports — they're consumed by components.
+export const _PRICES_REF = {
+  FOUNDING_PRICE_MONTHLY,
+  STANDARD_PRICE_MONTHLY,
+};

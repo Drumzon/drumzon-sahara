@@ -55,46 +55,37 @@ export default function HowItWorks() {
           ))}
         </div>
 
-        {/* Value Equation breakdown — Hormozi 4 drivers, restated in plain English */}
-        <div className="mt-4 max-w-[700px] mx-auto">
-          <p className="text-ash text-[11px] font-semibold tracking-[0.22em] uppercase mb-5">
-            Why it works
+        {/* Why membership instead of pay-per-pack */}
+        <div className="mt-6 max-w-[820px] mx-auto">
+          <p className="text-ash text-[11px] font-semibold tracking-[0.22em] uppercase mb-6">
+            Why a membership, not a one-off pack
           </p>
-          <div className="grid sm:grid-cols-2 gap-x-10 gap-y-5 text-left">
+          <div className="grid sm:grid-cols-3 gap-x-6 gap-y-6 text-left">
             <div>
-              <h4 className="text-ink text-[14px] font-semibold mb-1">
-                You finish tracks faster
+              <h4 className="text-stone text-[13px] font-semibold uppercase tracking-[0.06em] mb-2">
+                One-off pack
               </h4>
-              <p className="text-stone text-[13px] leading-[1.55]">
-                Pre-mixed kits, stems, MIDI ready to drop in. Skip the
-                blank-canvas hours.
+              <p className="text-stone text-[14px] leading-[1.55]">
+                Pay €30–40 once, get one pack. Find the next one yourself.
+                Repeat every time you start a new track.
               </p>
             </div>
             <div>
-              <h4 className="text-ink text-[14px] font-semibold mb-1">
-                The sound is the right sound
+              <h4 className="text-stone text-[13px] font-semibold uppercase tracking-[0.06em] mb-2">
+                Big catalog subscription
               </h4>
-              <p className="text-stone text-[13px] leading-[1.55]">
-                One genre, made by a 20-year producer who ships in it.
-                Not recycled Deep House with a marimba on top.
+              <p className="text-stone text-[14px] leading-[1.55]">
+                Pay monthly, scroll thousands of unrelated samples, hit a
+                credit limit, lose access when you cancel.
               </p>
             </div>
             <div>
-              <h4 className="text-ink text-[14px] font-semibold mb-1">
-                Inside your DAW in 60 seconds
+              <h4 className="text-ink text-[13px] font-semibold uppercase tracking-[0.06em] mb-2">
+                Drumzon Pro
               </h4>
-              <p className="text-stone text-[13px] leading-[1.55]">
-                Subscribe → email → download → drag-and-drop. No portal
-                friction, no waiting.
-              </p>
-            </div>
-            <div>
-              <h4 className="text-ink text-[14px] font-semibold mb-1">
-                Zero effort to keep using
-              </h4>
-              <p className="text-stone text-[13px] leading-[1.55]">
-                Every loop pre-stemmed, every melody bounced with MIDI.
-                Customize, don&apos;t reconstruct.
+              <p className="text-stone text-[14px] leading-[1.55]">
+                One curated drop every month, made by a 20-year producer
+                in the genre. Cancel anytime, keep every file forever.
               </p>
             </div>
           </div>

@@ -1,16 +1,29 @@
-// Hormozi value-stack section. Each monthly deliverable shown with
-// what it is, the pain it removes, and its market-comparable value.
-// Footer tallies total perceived value and contrasts with the
-// €7/€14.95 monthly price for a clean anchoring moment.
+// Hormozi value-stack — but anchored against REAL market prices rather
+// than invented "perceived value". Single curated Afro House packs at
+// this depth sell for €30-40 standalone (researched May 2026 from
+// active competitor catalogs). Drumzon Pro delivers one such pack
+// every month for €7-14.95. That's the offer.
 
-import { VALUE_STACK, totalPerceivedValue } from "@/lib/value-stack";
+import {
+  MARKET_PACK_PRICE_MIN,
+  MARKET_PACK_PRICE_MAX,
+  MARKET_PACK_PRICE_MID,
+  yearlyMarketValue,
+  yearlySavingsFounding,
+  yearlySavingsStandard,
+  VALUE_STACK,
+} from "@/lib/value-stack";
 import {
   FOUNDING_PRICE_MONTHLY,
+  FOUNDING_PRICE_YEARLY,
   STANDARD_PRICE_MONTHLY,
+  STANDARD_PRICE_YEARLY,
 } from "@/lib/pricing";
 
 export default function ValueStack() {
-  const total = totalPerceivedValue();
+  const annualMarket = yearlyMarketValue();
+  const foundingSaves = yearlySavingsFounding();
+  const standardSaves = yearlySavingsStandard();
 
   return (
     <section
@@ -19,65 +32,115 @@ export default function ValueStack() {
     >
       <div className="mx-auto max-w-[920px] text-center">
         <h2 className="display-2 text-ink mx-auto">
-          Everything that lands in your DAW, every month.
+          One drop a month.{" "}
+          <span className="text-chroma">€{MARKET_PACK_PRICE_MIN}–{MARKET_PACK_PRICE_MAX}</span>{" "}
+          of pack, every time.
         </h2>
         <p className="display-subhead mx-auto mt-5">
-          One curated drop. Six things in the box. Conservative market value
-          per piece, so you can do the math yourself.
+          Premium curated Afro House packs at this depth list at €{MARKET_PACK_PRICE_MIN}–{MARKET_PACK_PRICE_MAX}{" "}
+          standalone. You receive one every active month for the price of a
+          coffee.
         </p>
 
-        {/* Stack list — left-aligned within the card for readability, card
-            itself centered in the section. */}
-        <ul
-          className="mt-12 mx-auto max-w-[720px] flex flex-col rounded-[20px] overflow-hidden"
-          style={{ background: "var(--color-cream-warm)" }}
-        >
-          {VALUE_STACK.map((item, i) => (
+        {/* Itemized breakdown of one monthly drop */}
+        <div className="mt-12 mx-auto max-w-[720px]">
+          <p className="text-ash text-[11px] font-semibold tracking-[0.22em] uppercase mb-4 text-center">
+            What lands in your DAW every month
+          </p>
+          <ul
+            className="flex flex-col rounded-[20px] overflow-hidden"
+            style={{ background: "var(--color-cream-warm)" }}
+          >
+            {VALUE_STACK.map((item, i) => (
+              <li
+                key={item.title}
+                className={`flex items-center justify-between gap-6 p-5 sm:p-6 text-left ${
+                  i > 0 ? "border-t border-black/[0.05]" : ""
+                }`}
+              >
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-ink text-[15px] sm:text-[16px] font-semibold tracking-[-0.012em] mb-1">
+                    {item.title}
+                  </h3>
+                  <p className="text-stone text-[13px] sm:text-[14px] leading-[1.5]">
+                    {item.what}
+                  </p>
+                </div>
+              </li>
+            ))}
             <li
-              key={item.title}
-              className={`flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-6 p-5 sm:p-6 text-left ${
-                i > 0 ? "border-t border-black/[0.05]" : ""
-              }`}
+              className="flex items-baseline justify-between gap-6 p-5 sm:p-6 text-left border-t-2 border-black/[0.10]"
+              style={{ background: "white" }}
             >
-              <div className="flex-1 min-w-0">
-                <h3 className="text-ink text-[16px] font-semibold tracking-[-0.012em] mb-1">
-                  {item.title}
-                </h3>
-                <p className="text-stone text-[14px] leading-[1.55]">
-                  {item.what}
-                </p>
-              </div>
-              <span className="shrink-0 text-stone text-[14px] font-mono tabular-nums sm:text-right">
-                €{item.value}
-                <span className="text-ash text-[11px]"> value</span>
+              <h3 className="text-ink text-[15px] sm:text-[16px] font-semibold tracking-[-0.012em]">
+                One complete drop · standalone value
+              </h3>
+              <span className="shrink-0 text-ink text-[20px] font-semibold tabular-nums tracking-[-0.025em]">
+                €{MARKET_PACK_PRICE_MID}
               </span>
             </li>
-          ))}
+          </ul>
+        </div>
 
-          {/* Total row */}
-          <li
-            className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 sm:gap-6 p-5 sm:p-6 text-left border-t-2 border-black/[0.10]"
-            style={{ background: "white" }}
-          >
-            <div className="flex-1">
-              <h3 className="text-ink text-[16px] font-semibold tracking-[-0.012em]">
-                Total perceived value, every month
-              </h3>
+        {/* The math — yearly comparison */}
+        <div className="mt-12 max-w-[800px] mx-auto">
+          <p className="text-ash text-[11px] font-semibold tracking-[0.22em] uppercase mb-5 text-center">
+            The math over a year
+          </p>
+          <div className="grid sm:grid-cols-3 gap-3 lg:gap-4">
+            {/* Buy standalone */}
+            <div
+              className="p-6 rounded-[16px] text-left"
+              style={{ background: "var(--color-cream-warm)" }}
+            >
+              <p className="text-stone text-[12px] uppercase tracking-[0.06em] font-semibold mb-2">
+                Buy standalone
+              </p>
+              <p className="text-ink text-[28px] font-semibold tracking-[-0.03em] leading-none mb-1">
+                €{annualMarket}
+              </p>
+              <p className="text-stone text-[12px] leading-[1.5]">
+                12 packs · €{MARKET_PACK_PRICE_MID} each
+              </p>
             </div>
-            <span className="shrink-0 text-ink text-[24px] font-semibold tabular-nums tracking-[-0.025em]">
-              €{total}
-            </span>
-          </li>
-        </ul>
 
-        {/* Anchor moment — Hormozi-style value vs price */}
-        <div className="mt-10 max-w-[640px] mx-auto">
-          <p className="text-stone text-[15px] leading-[1.6]">
-            <span className="text-ink font-medium">€{total} of value</span>{" "}
-            for <span className="text-chroma">€{FOUNDING_PRICE_MONTHLY}/month</span>{" "}
-            if you&apos;re one of the first 100, or €{STANDARD_PRICE_MONTHLY}/month
-            after. Both prices locked for life. Both stay below the value
-            you&apos;re receiving every single month.
+            {/* Founding member */}
+            <div
+              className="p-6 rounded-[16px] text-left bg-white"
+              style={{ border: "1.5px solid var(--color-orange)" }}
+            >
+              <p className="text-orange-deep text-[12px] uppercase tracking-[0.06em] font-semibold mb-2">
+                Founding member
+              </p>
+              <p className="text-ink text-[28px] font-semibold tracking-[-0.03em] leading-none mb-1">
+                €{FOUNDING_PRICE_YEARLY}
+              </p>
+              <p className="text-stone text-[12px] leading-[1.5]">
+                12 packs · save €{foundingSaves}/yr
+              </p>
+            </div>
+
+            {/* Standard member */}
+            <div
+              className="p-6 rounded-[16px] text-left bg-white border border-black/[0.10]"
+            >
+              <p className="text-stone text-[12px] uppercase tracking-[0.06em] font-semibold mb-2">
+                Standard member
+              </p>
+              <p className="text-ink text-[28px] font-semibold tracking-[-0.03em] leading-none mb-1">
+                €{STANDARD_PRICE_YEARLY}
+              </p>
+              <p className="text-stone text-[12px] leading-[1.5]">
+                12 packs · save €{standardSaves}/yr
+              </p>
+            </div>
+          </div>
+
+          <p className="text-stone text-[14px] mt-6 leading-[1.6] max-w-[600px] mx-auto">
+            Founding rate (€{FOUNDING_PRICE_MONTHLY}/mo or €{FOUNDING_PRICE_YEARLY}/yr) is locked
+            for life — never raised. Standard rate
+            (€{STANDARD_PRICE_MONTHLY}/mo or €{STANDARD_PRICE_YEARLY}/yr) is the
+            permanent lifetime price for everyone after Founding sells out.
           </p>
         </div>
       </div>

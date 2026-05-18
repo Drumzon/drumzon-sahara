@@ -15,6 +15,10 @@ import {
   STANDARD_PRICE_YEARLY,
   FOUNDING_MAX_SLOTS,
 } from "@/lib/pricing";
+import {
+  FOUNDING_EFFECTIVE_MONTHLY,
+  STANDARD_EFFECTIVE_MONTHLY,
+} from "@/lib/value-stack";
 
 const MEMBER_BENEFITS = [
   "4 construction kits, every month",
@@ -87,8 +91,8 @@ export default function PricingCard({
           </p>
         </div>
 
-        {/* Interval toggle — centered */}
-        <div className="flex justify-center mb-10">
+        {/* Interval toggle — centered, with yearly nudge */}
+        <div className="flex flex-col items-center gap-2 mb-10">
           <div
             className="inline-flex p-1 rounded-full"
             style={{
@@ -109,13 +113,19 @@ export default function PricingCard({
             <button
               type="button"
               onClick={() => setBillingInterval("yearly")}
-              className={`px-5 py-2 rounded-full text-[13px] font-medium transition-all ${
+              className={`px-5 py-2 rounded-full text-[13px] font-medium transition-all inline-flex items-center gap-2 ${
                 billingInterval === "yearly"
                   ? "bg-white text-ink shadow-sm"
                   : "text-stone hover:text-ink"
               }`}
             >
-              Yearly · 2 mo free
+              Yearly
+              <span
+                className="text-[10px] font-semibold px-1.5 py-0.5 rounded-full text-white"
+                style={{ background: "var(--color-orange)" }}
+              >
+                2 mo free
+              </span>
             </button>
           </div>
         </div>
@@ -156,6 +166,11 @@ export default function PricingCard({
                 </span>
                 <span className="text-stone text-[15px]">{priceUnit}</span>
               </div>
+              {billingInterval === "yearly" && (
+                <p className="text-stone text-[12px] mt-1">
+                  €{FOUNDING_EFFECTIVE_MONTHLY}/mo effective · 2 months free
+                </p>
+              )}
               <p className="text-stone text-[12px] mt-1">
                 Locked for life · never raised
               </p>
@@ -207,6 +222,11 @@ export default function PricingCard({
                 </span>
                 <span className="text-stone text-[15px]">{priceUnit}</span>
               </div>
+              {billingInterval === "yearly" && (
+                <p className="text-stone text-[12px] mt-1">
+                  €{STANDARD_EFFECTIVE_MONTHLY}/mo effective · 2 months free
+                </p>
+              )}
               <p className="text-stone text-[12px] mt-1">
                 Locked for life · never raised
               </p>
