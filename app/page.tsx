@@ -1,13 +1,11 @@
 import { createClient } from "@/lib/supabase/server";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Problem from "@/components/Problem";
 import ValueStack from "@/components/ValueStack";
 import HowItWorks from "@/components/HowItWorks";
 import Preview from "@/components/Preview";
 import LeadMagnet from "@/components/LeadMagnet";
 import PricingCard from "@/components/PricingCard";
-import Guarantee from "@/components/Guarantee";
 import About from "@/components/About";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
@@ -85,21 +83,18 @@ export default async function Home() {
       <Navbar />
 
       <main>
-        {/* Hormozi $100M Leads + $100M Offers flow:
-              hero → problem → mechanism → value stack → social proof
-              → low-friction lead magnet (free pack) → core offer (pricing)
-              → guarantee → about → FAQ */}
+        {/* Apple/Elon-style flow: show the product, name the price, ship.
+            Deleted: Problem (the audio is the proof), Guarantee (one line
+            in pricing footnote is enough), "why" rationale blocks. */}
         <Hero isFoundingOpen={isFoundingOpen} slotsClaimed={slotsClaimed} />
-        <Problem />
-        <HowItWorks />
         <ValueStack />
+        <HowItWorks />
         <Preview />
         <LeadMagnet />
         <PricingCard
           slotsClaimed={slotsClaimed}
           isFoundingOpen={isFoundingOpen}
         />
-        <Guarantee />
         <About />
         <FAQ />
       </main>

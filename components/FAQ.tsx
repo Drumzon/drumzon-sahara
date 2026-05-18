@@ -1,37 +1,26 @@
-// Refined FAQ — tighter rows, lighter question type, smaller toggle.
+// 5 questions. Each one resolves real friction before subscribe.
+// No "still unsure" tail copy.
 
 const FAQ_ITEMS = [
   {
     q: "Are the samples royalty-free?",
-    a: "Yes, 100%. Use in commercial releases, sell tracks, sync to anything. The license is permanent — what you download is yours to keep, even after cancellation.",
+    a: "Yes. Use in commercial releases on any platform. The license is permanent — what you download is yours, even after cancellation.",
   },
   {
     q: "Do I need Ableton?",
-    a: "No. Every file is WAV format. Works in Ableton Live, FL Studio, Logic Pro, Cubase, Studio One, Bitwig, Reaper, Pro Tools — any DAW that imports WAV.",
-  },
-  {
-    q: "What if I cancel and resubscribe later?",
-    a: "You keep everything you downloaded. If you're a Founding member and resubscribe within 90 days, your lifetime €19/month price is preserved. After 90 days inactive, Founding status expires and you'd rejoin at Standard pricing.",
+    a: "No. Every file is WAV. Works in Ableton, FL, Logic, Cubase, Studio One, Bitwig, Reaper, Pro Tools — any DAW that opens WAV.",
   },
   {
     q: "Can I get drops from before I joined?",
-    a: "No. Each month's drop is delivered only to members active that month. The members who were there own that drop forever. New members start their library from the month they join.",
+    a: "No. Each month's drop is delivered only to members active that month. New members start their library from the month they join.",
+  },
+  {
+    q: "What if I cancel and resubscribe later?",
+    a: "You keep everything you downloaded. Founding members who resubscribe within 90 days keep the lifetime €19 price. After 90 days inactive, you'd rejoin at Standard.",
   },
   {
     q: "Why no refunds?",
-    a: "Because there's a full demo above. You can hear exactly what you're getting before you decide. If the sound is what you want, join. If not, don't.",
-  },
-  {
-    q: "How do I download the drops?",
-    a: "After subscribing, you receive an email with portal access. Each new drop becomes available on the 1st of the month. Download anytime while you're a member.",
-  },
-  {
-    q: "What if a month's drop is delayed?",
-    a: "Drumzon Pro commits to at least one drop per active member month. In rare cases of unavoidable delay, your subscription pauses (no charge) until delivery resumes.",
-  },
-  {
-    q: "Can I share files with other producers?",
-    a: "The license is personal. Files include subtle metadata watermarks. We trust you — but please respect the work.",
+    a: "Because the full demo is on this page. Listen first. If the sound is what you want, subscribe. If not, don't.",
   },
 ];
 
@@ -41,10 +30,10 @@ export default function FAQ() {
       id="faq"
       className="px-6 md:px-10 py-[clamp(56px,8vw,110px)]"
     >
-      <div className="mx-auto max-w-[820px]">
-        <div className="mb-10 lg:mb-12 text-center">
+      <div className="mx-auto max-w-[760px]">
+        <div className="text-center mb-10 lg:mb-12">
           <h2 className="display-2 text-ink mx-auto">
-            Frequently asked.
+            Questions.
           </h2>
         </div>
 
@@ -75,17 +64,6 @@ export default function FAQ() {
             </li>
           ))}
         </ul>
-
-        <p className="mt-10 text-stone text-[13px] text-center">
-          Still unsure? Email{" "}
-          <a
-            href="mailto:contact@drumzon.com"
-            className="text-ink underline decoration-stone/30 hover:decoration-ink underline-offset-4"
-          >
-            contact@drumzon.com
-          </a>
-          .
-        </p>
       </div>
     </section>
   );

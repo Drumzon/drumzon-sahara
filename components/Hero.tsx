@@ -7,10 +7,6 @@ import {
   STANDARD_PRICE_MONTHLY,
   FOUNDING_MAX_SLOTS,
 } from "@/lib/pricing";
-import {
-  MARKET_PACK_PRICE_MIN,
-  MARKET_PACK_PRICE_MAX,
-} from "@/lib/value-stack";
 
 // Hormozi-structured Hero on Apple-minimal canvas.
 // Mobile-first centered: stacked single column on small screens, opens
@@ -84,9 +80,8 @@ export default function Hero({
         </h1>
 
         <p className="display-subhead mx-auto">
-          One curated drop a month — four construction kits, samples,
-          presets, MIDIs — plus five bonuses that get you producing
-          within 60 seconds of subscribing.
+          One curated drop a month. Four construction kits, samples,
+          presets, MIDIs.
         </p>
 
         {/* Cover — sits between subhead and audio on mobile, anchored above CTA */}
@@ -142,23 +137,11 @@ export default function Hero({
           </div>
         </div>
 
-        {/* Trust line — anchored against real market pack pricing */}
-        <div className="flex flex-col items-center gap-1.5 mt-2 text-[13px]">
-          <p className="text-stone max-w-[52ch]">
-            Curated Afro House packs of this depth list at{" "}
-            <span className="text-ink font-medium">€{MARKET_PACK_PRICE_MIN}–{MARKET_PACK_PRICE_MAX}</span>{" "}
-            standalone. Get one every month for{" "}
-            <span className="text-ink font-medium">
-              €{isFoundingOpen ? FOUNDING_PRICE_MONTHLY : STANDARD_PRICE_MONTHLY}
-            </span>
-            , locked for life.
+        {isFoundingOpen && remaining > 0 && (
+          <p className="text-ash text-[12px] mt-2">
+            {remaining} of {FOUNDING_MAX_SLOTS} Founding spots remaining
           </p>
-          {isFoundingOpen && remaining > 0 && (
-            <p className="text-ash text-[12px]">
-              {remaining} of {FOUNDING_MAX_SLOTS} Founding spots remaining
-            </p>
-          )}
-        </div>
+        )}
       </div>
     </section>
   );

@@ -55,16 +55,12 @@ export default function LeadMagnet() {
       className="px-6 md:px-10 py-[clamp(56px,8vw,110px)]"
     >
       <div className="mx-auto max-w-[760px] text-center">
-        <p className="text-orange-deep text-[11px] font-semibold tracking-[0.22em] uppercase mb-3">
-          Not ready to subscribe?
-        </p>
         <h2 className="display-2 text-ink mx-auto">
-          Try{" "}
-          <span className="text-chroma">The First Drop</span>{" "}
-          free. Use it like a paid pack.
+          <span className="text-chroma">The First Drop.</span>{" "}
+          Free.
         </h2>
         <p className="display-subhead mx-auto mt-5">
-          {LEAD_MAGNET.description}
+          A full construction kit. Same studio quality as the monthly drops.
         </p>
 
         {/* The free pack card — anchors at €40 → FREE for visual impact */}
@@ -130,17 +126,9 @@ export default function LeadMagnet() {
           </form>
 
           <p className="text-ash text-[12px] mt-4 leading-[1.5]">
-            Instant download. One email after explaining what&apos;s next.
-            Unsubscribe in one click. Yours to keep regardless.
+            Instant download. Unsubscribe in one click. Yours to keep.
           </p>
         </div>
-
-        {/* Decap-style framing */}
-        <p className="text-stone text-[14px] mt-10 max-w-[560px] mx-auto leading-[1.6]">
-          If this is what we give away free, imagine what lands in your DAW
-          every month as a member. The membership&apos;s right below — same
-          quality, every month, locked for life.
-        </p>
       </div>
     </section>
   );

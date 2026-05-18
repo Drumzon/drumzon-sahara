@@ -86,14 +86,8 @@ export default function PricingCard({
       <div className="mx-auto max-w-[1080px]">
         <div className="max-w-[680px] mx-auto text-center mb-10 lg:mb-14">
           <h2 className="display-2 text-ink mx-auto">
-            Same drop. Same access.{" "}
-            <span className="text-chroma">Different lifetime price.</span>
+            Pricing.
           </h2>
-          <p className="display-subhead mt-4 mx-auto">
-            First 100 producers lock €{FOUNDING_PRICE_MONTHLY}/month forever.
-            Everyone after pays €{STANDARD_PRICE_MONTHLY}/month forever.
-            Neither price ever raises.
-          </p>
         </div>
 
         {/* Interval toggle — centered, with yearly nudge */}
@@ -261,9 +255,8 @@ export default function PricingCard({
           </article>
         </div>
 
-        <p className="text-stone text-[12px] mt-8 max-w-[560px] mx-auto text-center">
-          Same product on both tiers. Founding is just the lower lifetime
-          rate for the first 100. Cancel anytime via Stripe.
+        <p className="text-stone text-[12px] mt-8 mx-auto text-center">
+          Cancel anytime. No refunds — listen first.
         </p>
       </div>
     </section>
