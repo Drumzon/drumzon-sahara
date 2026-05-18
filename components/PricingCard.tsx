@@ -1,9 +1,13 @@
 "use client";
 
-// Apple-style 2-column pricing — Founding (featured) vs Standard, side
-// by side. Both cards always visible so visitors understand the tradeoff
-// at a glance. When Founding sells out, that card flips to a "Closed"
-// state and Standard becomes the only active CTA.
+// Two cards side-by-side. SAME monthly drop, SAME features, SAME access.
+// The ONLY difference is the locked-for-life price:
+//   - Founding: €7/mo locked forever (first 100 producers)
+//   - Standard: €14.95/mo locked forever (everyone after)
+//
+// Both prices never go down once set. Cancel anytime, keep what you download.
+// Honest pitch: it's the same product. Buy now and lock in cheap forever,
+// or wait and lock in the standard rate.
 
 import { useState } from "react";
 import {
@@ -12,22 +16,15 @@ import {
   STANDARD_PRICE_MONTHLY,
   STANDARD_PRICE_YEARLY,
   FOUNDING_MAX_SLOTS,
-  isSaharaWindow,
 } from "@/lib/pricing";
 
-const STANDARD_FEATURES = [
-  "Monthly construction kit drop",
-  "Stems, samples, presets, MIDIs",
-  "Royalty-free, commercial use",
-  "Cancel anytime",
-  "Keep every file you download",
-];
-
-const FOUNDING_EXTRAS = [
-  `€${FOUNDING_PRICE_MONTHLY}/month locked for life`,
-  "Quarterly track feedback",
-  "Yearly Compilation credit",
-  "Founding-only Vault drop",
+// Single source of truth — what every active member gets every month.
+const MEMBER_BENEFITS = [
+  "4 complete construction kits, every month",
+  "~80 individual samples, ~12 presets, ~8 MIDIs",
+  "Stems + MIDI on every loop",
+  "Royalty-free for commercial use",
+  "Cancel anytime, keep every file you downloaded",
 ];
 
 const ArrowRight = () => (
@@ -44,6 +41,12 @@ const Check = ({ accent = false }: { accent?: boolean }) => (
   >
     ✓
   </span>
+);
+
+const Lock = () => (
+  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+    <path d="M12 1a5 5 0 0 0-5 5v4H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2h-2V6a5 5 0 0 0-5-5zm-3 5a3 3 0 0 1 6 0v4H9V6z" />
+  </svg>
 );
 
 export default function PricingCard({
@@ -83,22 +86,18 @@ export default function PricingCard({
   const standardPrice = billingInterval === "monthly" ? STANDARD_PRICE_MONTHLY : STANDARD_PRICE_YEARLY;
   const priceUnit = billingInterval === "monthly" ? "/month" : "/year";
 
-  // Sahara is a Founding-only forever bonus during the window; surface it
-  // as the lead extra rather than buried in the bonus list.
-  const foundingExtras = isSaharaWindow()
-    ? ["Sahara (Month 1) — yours forever", ...FOUNDING_EXTRAS]
-    : FOUNDING_EXTRAS;
-
   return (
     <section id="pricing" className="px-6 md:px-10 py-[clamp(56px,8vw,110px)]">
       <div className="mx-auto max-w-[1100px]">
-        <div className="max-w-[760px] mb-12 lg:mb-14">
+        <div className="max-w-[760px] mb-10 lg:mb-14">
           <h2 className="display-2 text-ink">
-            Two ways in. Same drop, different terms.
+            Same drop. Same access.{" "}
+            <span className="text-chroma">Different lifetime price.</span>
           </h2>
           <p className="display-subhead mt-5">
-            Founding members get the lowest price forever and four bonuses
-            Standard members will never receive. Limited to the first 100.
+            First 100 producers lock €{FOUNDING_PRICE_MONTHLY}/month forever.
+            Everyone after pays €{STANDARD_PRICE_MONTHLY}/month forever.
+            Neither price ever raises — pick where you want to land.
           </p>
         </div>
 
@@ -138,7 +137,7 @@ export default function PricingCard({
 
         {/* Two cards side-by-side */}
         <div className="grid md:grid-cols-2 gap-4 lg:gap-5">
-          {/* FOUNDING card (featured) */}
+          {/* FOUNDING card */}
           <article
             className={`relative p-8 lg:p-10 rounded-[24px] flex flex-col gap-6 ${
               isFoundingOpen ? "" : "opacity-60"
@@ -153,7 +152,6 @@ export default function PricingCard({
                 : "none",
             }}
           >
-            {/* Featured badge */}
             {isFoundingOpen && (
               <span
                 className="absolute top-0 right-6 -translate-y-1/2 inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold text-white"
@@ -163,7 +161,7 @@ export default function PricingCard({
               </span>
             )}
 
-            <header className="flex flex-col gap-3">
+            <header className="flex flex-col gap-2">
               <h3 className="text-ink text-[20px] font-semibold tracking-[-0.015em]">
                 Founding
                 {!isFoundingOpen && (
@@ -172,37 +170,32 @@ export default function PricingCard({
                   </span>
                 )}
               </h3>
-              <p className="text-stone text-[14px] leading-[1.55]">
-                For the first 100 producers who want lifetime price + bonuses
-                Standard members never get.
+              <p className="text-stone text-[14px] leading-[1.5]">
+                For the first {FOUNDING_MAX_SLOTS} producers. Same drop as
+                Standard — just cheaper, locked forever.
               </p>
             </header>
 
-            <div className="flex items-baseline gap-2">
-              <span className="text-ink text-[44px] font-bold tracking-[-0.035em] leading-none">
-                €{foundingPrice}
-              </span>
-              <span className="text-stone text-[15px]">{priceUnit}</span>
+            <div>
+              <div className="flex items-baseline gap-2">
+                <span className="text-ink text-[48px] font-bold tracking-[-0.035em] leading-none">
+                  €{foundingPrice}
+                </span>
+                <span className="text-stone text-[15px]">{priceUnit}</span>
+              </div>
+              <p className="mt-2 text-orange-deep text-[12px] font-semibold uppercase tracking-[0.12em] flex items-center gap-1.5">
+                <Lock />
+                Locked for life
+              </p>
             </div>
 
             <ul className="flex flex-col gap-3">
-              {/* Founding-exclusive extras come first, marked with orange ✓ */}
-              {foundingExtras.map((feat) => (
+              {MEMBER_BENEFITS.map((feat) => (
                 <li
                   key={feat}
                   className="flex items-start gap-3 text-ink text-[14px] leading-[1.5]"
                 >
                   <Check accent />
-                  <span>{feat}</span>
-                </li>
-              ))}
-              {/* Then everything Standard also gets, neutral ✓ */}
-              {STANDARD_FEATURES.map((feat) => (
-                <li
-                  key={feat}
-                  className="flex items-start gap-3 text-stone text-[14px] leading-[1.5]"
-                >
-                  <Check />
                   <span>{feat}</span>
                 </li>
               ))}
@@ -231,42 +224,36 @@ export default function PricingCard({
               border: "1px solid rgba(0,0,0,0.06)",
             }}
           >
-            <header className="flex flex-col gap-3">
+            <header className="flex flex-col gap-2">
               <h3 className="text-ink text-[20px] font-semibold tracking-[-0.015em]">
                 Standard
               </h3>
-              <p className="text-stone text-[14px] leading-[1.55]">
-                Open membership. Same monthly drop. No Founding bonuses.
-                Price applies to anyone joining after Founding sells out.
+              <p className="text-stone text-[14px] leading-[1.5]">
+                For everyone after Founding sells out. Same drop, same
+                access — at the lifetime rate.
               </p>
             </header>
 
-            <div className="flex items-baseline gap-2">
-              <span className="text-ink text-[44px] font-bold tracking-[-0.035em] leading-none">
-                €{standardPrice}
-              </span>
-              <span className="text-stone text-[15px]">{priceUnit}</span>
+            <div>
+              <div className="flex items-baseline gap-2">
+                <span className="text-ink text-[48px] font-bold tracking-[-0.035em] leading-none">
+                  €{standardPrice}
+                </span>
+                <span className="text-stone text-[15px]">{priceUnit}</span>
+              </div>
+              <p className="mt-2 text-stone text-[12px] font-semibold uppercase tracking-[0.12em] flex items-center gap-1.5">
+                <Lock />
+                Locked for life · never raised
+              </p>
             </div>
 
             <ul className="flex flex-col gap-3">
-              {STANDARD_FEATURES.map((feat) => (
+              {MEMBER_BENEFITS.map((feat) => (
                 <li
                   key={feat}
                   className="flex items-start gap-3 text-ink text-[14px] leading-[1.5]"
                 >
                   <Check />
-                  <span>{feat}</span>
-                </li>
-              ))}
-              {/* Shadow rows showing what Founding gets that Standard doesn't */}
-              {foundingExtras.map((feat) => (
-                <li
-                  key={feat}
-                  className="flex items-start gap-3 text-ash text-[14px] leading-[1.5] line-through decoration-1"
-                >
-                  <span className="shrink-0 mt-1 text-ash" aria-hidden>
-                    —
-                  </span>
                   <span>{feat}</span>
                 </li>
               ))}
@@ -284,10 +271,11 @@ export default function PricingCard({
           </article>
         </div>
 
-        {/* Footnote */}
-        <p className="text-stone text-[13px] text-center mt-10 max-w-[560px] mx-auto">
-          Cancel anytime via Stripe. Keep every file you download.
-          No refunds — listen to the demo above before deciding.
+        {/* Honest footnote */}
+        <p className="text-stone text-[13px] text-center mt-10 max-w-[600px] mx-auto">
+          No hidden tier perks. No bait-and-switch. The difference is the
+          €{STANDARD_PRICE_MONTHLY - FOUNDING_PRICE_MONTHLY}/month you save
+          forever by being one of the first 100. Cancel anytime via Stripe.
         </p>
       </div>
     </section>

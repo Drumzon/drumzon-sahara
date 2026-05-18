@@ -83,9 +83,10 @@ export default function Hero({
             producers who want the sound, not the search.
           </h1>
 
-          <p className="display-subhead max-w-[44ch]">
-            Every month: one drop. Four complete construction kits.
-            Drag, drop, you&apos;re inside the track.
+          <p className="display-subhead max-w-[46ch]">
+            Every month: one drop. Four complete construction kits, stems,
+            samples, presets, MIDIs. Drag, drop, you&apos;re inside the
+            track.
           </p>
 
           <div className="w-full max-w-[560px]">
