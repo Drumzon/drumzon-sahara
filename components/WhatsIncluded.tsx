@@ -1,8 +1,7 @@
 import { getCurrentDrop } from "@/lib/drops";
 
-// Interim — this section will be absorbed into <CurrentDrop /> in F2.
-// Patched here to read from the new drops lib and remove the contradictory
-// "€X once · No sub" cell (Inner Circle would contradict that phrasing).
+// Detailed "what's inside" deep dive — sits after CurrentDrop spotlight.
+// Reads contents counts and BPM range from the current drop in lib/drops.ts.
 
 export default function WhatsIncluded() {
   const drop = getCurrentDrop();

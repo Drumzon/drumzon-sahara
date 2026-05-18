@@ -33,8 +33,8 @@ export function detectCurrency(country: string | null | undefined): Currency {
 
 export function formatPrice(amount: number, currency: Currency): string {
   const symbol = currency === "EUR" ? "€" : "$";
-  // No cents for whole-number prices ($27, not $27.00). Matches Innervisions
-  // / Keinemusik convention.
+  // No cents for whole-number prices ($27, not $27.00) — matches the
+  // premium digital-product convention. Use full decimals only when needed.
   const formatted =
     Number.isInteger(amount) ? amount.toString() : amount.toFixed(2);
   return `${symbol}${formatted}`;

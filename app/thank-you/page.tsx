@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-type Variant = "pack" | "inner-circle" | "midi";
+type Variant = "pack" | "midi";
 
 const COPY: Record<Variant, { eyebrow: string; title: React.ReactNode; body: React.ReactNode; sub?: string }> = {
   pack: {
@@ -45,23 +45,6 @@ const COPY: Record<Variant, { eyebrow: string; title: React.ReactNode; body: Rea
       </>
     ),
     sub: "Didn't arrive? Check spam or email itsdrumzon@gmail.com.",
-  },
-  "inner-circle": {
-    eyebrow: "You're in",
-    title: (
-      <>
-        Welcome to the{" "}
-        <span className="serif-em gradient-text">Inner Circle</span>.
-      </>
-    ),
-    body: (
-      <>
-        This month's drop, the exclusive Serum presets, and the MIDI pack
-        are all in your inbox. New drops will land automatically on the
-        15th of each month — 24h before public.
-      </>
-    ),
-    sub: "Cancel anytime from your Stripe customer portal. Every pack you've downloaded stays yours.",
   },
   midi: {
     eyebrow: "You're on the list",
@@ -88,12 +71,7 @@ export default async function ThankYou({
   searchParams: Promise<{ purchase?: string }>;
 }) {
   const params = await searchParams;
-  const variant: Variant =
-    params.purchase === "inner-circle"
-      ? "inner-circle"
-      : params.purchase === "pack"
-        ? "pack"
-        : "midi";
+  const variant: Variant = params.purchase === "pack" ? "pack" : "midi";
   const copy = COPY[variant];
 
   return (

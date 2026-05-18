@@ -10,10 +10,8 @@
 // Same number in USD and EUR — buyers see local currency, you don't
 // micro-convert. Easier mental model and easier Stripe setup.
 
-import type { Currency } from "./currency";
 import type { Drop } from "./drops";
 
-export const INNER_CIRCLE_PRICE = 34; // /month, same number in USD and EUR
 export const PROMO_CODE = "DRUMZON10"; // optional welcome promo
 
 export type PriceTier =
@@ -115,7 +113,3 @@ export function splitDuration(ms: number) {
   return { days, hours, mins, secs };
 }
 
-/** Inner Circle subscription price in the buyer's currency. */
-export function getInnerCirclePrice(_currency: Currency): number {
-  return INNER_CIRCLE_PRICE;
-}

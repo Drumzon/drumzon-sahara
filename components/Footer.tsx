@@ -4,7 +4,6 @@ import { getCurrentDrop } from "@/lib/drops";
 
 // 3-col footer. Brand col reads from current drop. Sections col links
 // to anchors. Connect col includes legal pages + socials + contact.
-// Killed the old "Owned, not subscribed" tagline — contradicts Inner Circle.
 
 const Arrow = () => (
   <span
@@ -68,16 +67,16 @@ export default function Footer() {
               <span>{drop.name} · {drop.monthLabel}</span>
               <Arrow />
             </Link>
-            <Link className={linkClass} href="/#inner-circle">
-              <span>Inner Circle</span>
-              <Arrow />
-            </Link>
             <Link className={linkClass} href="/#preview">
               <span>Audio preview</span>
               <Arrow />
             </Link>
             <Link className={linkClass} href="/#free-midi-pack">
               <span>Free MIDI pack</span>
+              <Arrow />
+            </Link>
+            <Link className={linkClass} href="/#about">
+              <span>About</span>
               <Arrow />
             </Link>
             <Link className={linkClass} href="/#faq">

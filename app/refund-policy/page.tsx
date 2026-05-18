@@ -28,17 +28,13 @@ export default function RefundPage() {
 
             <p>
               I'd rather refund than have an unhappy producer in the list.
-              The rules below apply to every Drumzon purchase — single drops
-              and Inner Circle subscriptions.
+              The rules below apply to every Drumzon purchase.
             </p>
 
             <h2 className="text-ink text-[15px] font-semibold uppercase tracking-[0.14em] mt-4">
-              Single drop purchases
+              14 days, no questions asked
             </h2>
             <p>
-              <span className="text-ink font-medium">
-                14 days, no questions asked.
-              </span>{" "}
               Email{" "}
               <a
                 href="mailto:itsdrumzon@gmail.com"
@@ -53,23 +49,10 @@ export default function RefundPage() {
             </p>
 
             <h2 className="text-ink text-[15px] font-semibold uppercase tracking-[0.14em] mt-4">
-              Inner Circle subscriptions
-            </h2>
-            <p>
-              <span className="text-ink font-medium">Cancel anytime</span> from
-              your Stripe customer portal (link in your welcome email) or by
-              emailing us. When you cancel, your access continues until the
-              end of the current billing period — you get the value you paid
-              for. The unused portion of a monthly cycle is prorated and
-              refunded if you cancel within the first 14 days.
-            </p>
-
-            <h2 className="text-ink text-[15px] font-semibold uppercase tracking-[0.14em] mt-4">
               What you keep
             </h2>
             <p>
-              Every pack you've downloaded — single purchase or Inner Circle —
-              stays yours forever under the{" "}
+              Every pack you've downloaded stays yours forever under the{" "}
               <a
                 href="/license"
                 className="text-ink underline decoration-orange/40 hover:decoration-orange"

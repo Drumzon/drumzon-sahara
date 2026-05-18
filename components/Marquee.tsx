@@ -1,8 +1,8 @@
 import { getCurrentDrop } from "@/lib/drops";
 
-// Marquee tags removed: "Owned, not subscribed" (contradicts Inner Circle),
-// "Drumzon Vol. 1" (now dynamic via current drop), generic "Mixed by ear".
-// Added: Royalty-free, Commercial use, Afro House (genre anchor).
+// Marquee tags are data-driven from the current drop (name, month, BPM,
+// total sounds) plus evergreen brand tags (Royalty-free, Commercial use,
+// Afro House, WAV 24-bit, Drag and drop).
 export default function Marquee() {
   const drop = getCurrentDrop();
   const totalSounds =

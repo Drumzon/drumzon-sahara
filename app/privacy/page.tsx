@@ -50,10 +50,9 @@ export default function Privacy() {
               </h2>
               <p>
                 We collect your email when you sign up for the free Afrohouse
-                MIDI starter pack, buy a monthly drop, or subscribe to Inner
-                Circle. Stripe collects card details for purchases (we never
-                see them — Stripe handles all card data). Inner Circle
-                subscribers' billing data is stored by Stripe. That's it.
+                MIDI starter pack or buy a monthly drop. Stripe collects card
+                details for purchases — we never see them, Stripe handles all
+                card data. That's it.
               </p>
               <p>
                 No tracking pixels. No behavioural profiling. No third-party
@@ -68,13 +67,10 @@ export default function Privacy() {
               <p>
                 Your email is used to: deliver what you bought or signed up
                 for, send the monthly drop announcement, occasionally send
-                discount codes or surveys. Inner Circle subscribers get one
-                extra email per month with the exclusive presets, MIDIs, and
-                Ableton template.
+                discount codes or surveys.
               </p>
               <p>
-                Maximum cadence: 4 emails a month for IC members, 1–2 a month
-                for everyone else.
+                Maximum cadence: 1–2 emails a month. No spam, ever.
               </p>
             </section>
 
@@ -118,9 +114,7 @@ export default function Privacy() {
                 >
                   itsdrumzon@gmail.com
                 </a>{" "}
-                — we'll do it within 7 days. Inner Circle members can also
-                cancel + request data deletion from their Stripe customer
-                portal.
+                — we'll do it within 7 days.
               </p>
               <p>
                 You have the right to access, correct, port, or delete your
@@ -147,7 +141,7 @@ export default function Privacy() {
               <p>
                 If we change this policy, we'll update the date at the top.
                 Material changes will be announced via email to existing
-                subscribers and Inner Circle members.
+                subscribers.
               </p>
             </section>
           </div>

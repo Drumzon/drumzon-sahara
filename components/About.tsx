@@ -1,6 +1,5 @@
 // Faceless brand pitch — no founder photo, no personal bio.
-// Authority comes from technical specificity and reference-naming, not
-// "trust me bro". Same pattern as Innervisions / Keinemusik websites.
+// Authority comes from technical specificity, not "trust me bro".
 
 export default function About() {
   return (
@@ -53,12 +52,13 @@ export default function About() {
               where the genre lives sonically.
             </p>
             <p className="text-stone text-[15px] leading-[1.65]">
-              One drop a month, in the palette of{" "}
-              <span className="text-ink font-medium">Black Coffee</span>,{" "}
-              <span className="text-ink font-medium">Keinemusik</span>,{" "}
-              <span className="text-ink font-medium">Hugel</span>, and{" "}
-              <span className="text-ink font-medium">&ME</span>. Made to
-              ship tracks faster, not bigger sample libraries.
+              One drop a month.{" "}
+              <span className="text-ink font-medium">Studio-grade</span>,{" "}
+              <span className="text-ink font-medium">dancefloor-ready</span>,
+              and{" "}
+              <span className="text-ink font-medium">A/B tested</span> on
+              real systems before it ships. Made to help you finish tracks
+              faster, not collect bigger sample libraries.
             </p>
           </div>
         </div>

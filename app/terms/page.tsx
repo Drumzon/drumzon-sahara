@@ -28,8 +28,8 @@ export default function TermsPage() {
             <p className="text-ink font-medium">Last updated: May 2026</p>
 
             <p>
-              By using drumzon.com, buying a sample pack, or subscribing
-              to Inner Circle, you agree to these terms.
+              By using drumzon.com or buying a sample pack, you agree to
+              these terms.
             </p>
 
             <h2 className="text-ink text-[15px] font-semibold uppercase tracking-[0.14em] mt-4">
@@ -74,17 +74,7 @@ export default function TermsPage() {
             </p>
 
             <h2 className="text-ink text-[15px] font-semibold uppercase tracking-[0.14em] mt-4">
-              4. Inner Circle subscription
-            </h2>
-            <p>
-              Billed monthly via Stripe. You authorize Stripe to charge your
-              card €34 (or $34) per month until you cancel. Cancel anytime
-              from your Stripe customer portal — access continues until the
-              end of the paid period.
-            </p>
-
-            <h2 className="text-ink text-[15px] font-semibold uppercase tracking-[0.14em] mt-4">
-              5. Refunds
+              4. Refunds
             </h2>
             <p>
               See our{" "}
@@ -98,7 +88,7 @@ export default function TermsPage() {
             </p>
 
             <h2 className="text-ink text-[15px] font-semibold uppercase tracking-[0.14em] mt-4">
-              6. What you can't do
+              5. What you can't do
             </h2>
             <p>
               Don't share your download links, resell the raw samples as your
@@ -114,7 +104,7 @@ export default function TermsPage() {
             </p>
 
             <h2 className="text-ink text-[15px] font-semibold uppercase tracking-[0.14em] mt-4">
-              7. Liability
+              6. Liability
             </h2>
             <p>
               The packs are provided "as-is". We're not liable for any
@@ -124,17 +114,16 @@ export default function TermsPage() {
             </p>
 
             <h2 className="text-ink text-[15px] font-semibold uppercase tracking-[0.14em] mt-4">
-              8. Changes
+              7. Changes
             </h2>
             <p>
               We may update these terms. Material changes will be
-              communicated via email to existing customers + Inner Circle
-              members. Continuing to use the service after notice constitutes
-              acceptance.
+              communicated via email to existing customers. Continuing to
+              use the service after notice constitutes acceptance.
             </p>
 
             <h2 className="text-ink text-[15px] font-semibold uppercase tracking-[0.14em] mt-4">
-              9. Governing law
+              8. Governing law
             </h2>
             <p>
               Spanish law. Disputes settled in the courts of Madrid.

@@ -160,7 +160,7 @@ export default function CurrentDrop({ currency }: { currency: Currency }) {
               <span className="text-ink font-medium">
                 {formatPrice(price.amount, currency)}
               </span>
-              . Inner Circle members got it for $27 on release day.
+              . Early-bird buyers locked it in at $27.
             </p>
           )}
         </div>

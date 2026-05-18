@@ -30,10 +30,9 @@ export default function LicensePage() {
             </p>
 
             <p>
-              When you buy a Drumzon sample pack or subscribe to Inner Circle,
-              you receive a non-exclusive, royalty-free, perpetual,
-              worldwide license to use the sounds in your music. The summary
-              below covers 99% of producer use-cases.
+              When you buy a Drumzon sample pack, you receive a non-exclusive,
+              royalty-free, perpetual, worldwide license to use the sounds in
+              your music. The summary below covers 99% of producer use-cases.
             </p>
 
             <Section title="You CAN">
@@ -58,7 +57,7 @@ export default function LicensePage() {
                 Modify, layer, pitch-shift, time-stretch, chop, resample,
                 or otherwise transform the sounds.
               </li>
-              <li>Keep the sounds forever, even if you cancel Inner Circle.</li>
+              <li>Keep the sounds forever — pay once, never expires.</li>
             </Section>
 
             <Section title="You CANNOT">
@@ -83,19 +82,6 @@ export default function LicensePage() {
               <li>
                 Use the Drumzon name, logo, or branding to endorse your
                 work without permission.
-              </li>
-            </Section>
-
-            <Section title="Inner Circle exclusives">
-              <li>
-                Serum presets and exclusive MIDI packs are members-only.
-                The same usage rights apply (use in music, release commercially,
-                cannot resell as presets/MIDIs).
-              </li>
-              <li>
-                If you cancel Inner Circle, your existing presets and MIDIs
-                remain yours under this same license. Future months' content
-                stops at your cancellation date.
               </li>
             </Section>
 

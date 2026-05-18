@@ -39,16 +39,16 @@ export default async function Navbar() {
           {drop.name}
         </Link>
         <Link
-          href="/#inner-circle"
-          className="px-3.5 py-2 rounded-full text-[13px] font-medium text-stone hover:text-ink hover:bg-black/[0.05] transition-colors"
-        >
-          Inner Circle
-        </Link>
-        <Link
           href="/#preview"
           className="px-3.5 py-2 rounded-full text-[13px] font-medium text-stone hover:text-ink hover:bg-black/[0.05] transition-colors"
         >
           Preview
+        </Link>
+        <Link
+          href="/#free-midi-pack"
+          className="px-3.5 py-2 rounded-full text-[13px] font-medium text-stone hover:text-ink hover:bg-black/[0.05] transition-colors"
+        >
+          Free MIDIs
         </Link>
         <Link
           href="/#faq"

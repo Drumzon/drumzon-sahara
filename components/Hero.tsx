@@ -2,8 +2,7 @@ import AudioPreview from "./AudioPreview";
 import type { Currency } from "@/lib/currency";
 import { formatPrice } from "@/lib/currency";
 import { getCurrentDrop, getDropBuyUrl } from "@/lib/drops";
-import { getDropPrice, getInnerCirclePrice } from "@/lib/pricing";
-import { getInnerCircleBuyUrl } from "@/lib/membership";
+import { getDropPrice } from "@/lib/pricing";
 import HeroCountdown from "./HeroCountdown";
 
 const ArrowRight = () => (
@@ -29,8 +28,6 @@ export default function Hero({ currency }: { currency: Currency }) {
   const drop = getCurrentDrop();
   const price = getDropPrice(drop);
   const buyUrl = getDropBuyUrl(drop, currency);
-  const icUrl = getInnerCircleBuyUrl();
-  const icPrice = getInnerCirclePrice(currency);
 
   const currentPriceFmt = formatPrice(price.amount, currency);
   const nextPriceFmt =
@@ -76,11 +73,12 @@ export default function Hero({ currency }: { currency: Currency }) {
               drop.contents.melodyLoops +
               drop.contents.bassLoops +
               drop.contents.pads}
-            + sounds tuned to the{" "}
+            + studio-grade sounds. Stems on every drum loop, MIDI on every
+            melody.{" "}
             <span className="text-ink font-medium">
-              Black Coffee · Keinemusik · Hugel
+              Engineered to sit in the mix
             </span>{" "}
-            palette. Stems on every drum loop. MIDI on every melody.
+            without six plugins on top.
           </p>
 
           <div className="fade-up-2 w-full mt-1">
@@ -109,11 +107,11 @@ export default function Hero({ currency }: { currency: Currency }) {
             <HeroCountdown msUntilNextTier={price.msUntilNextTier} />
           )}
 
-          {/* Dual CTA: drop one-time + Inner Circle subscription */}
+          {/* Primary CTA — single drop purchase */}
           <div className="fade-up-3 flex flex-wrap gap-2 mt-2 justify-center">
             <a
               href={buyUrl}
-              className="inline-flex items-center justify-center gap-2 h-[44px] px-5 rounded-full bg-orange text-white text-[13px] font-medium hover:bg-orange-deep hover:-translate-y-0.5 transition-all"
+              className="inline-flex items-center justify-center gap-2 h-[48px] px-7 rounded-full bg-orange text-white text-[14px] font-medium hover:bg-orange-deep hover:-translate-y-0.5 transition-all"
               style={{
                 boxShadow: "0 10px 28px -10px rgba(255,107,53,0.55)",
               }}
@@ -122,18 +120,18 @@ export default function Hero({ currency }: { currency: Currency }) {
               <ArrowRight />
             </a>
             <a
-              href={icUrl}
-              className="inline-flex items-center justify-center h-[44px] px-5 rounded-full text-ink text-[13px] font-medium border border-black/15 backdrop-blur-md hover:border-orange hover:text-orange-deep transition-colors"
+              href="#free-midi-pack"
+              className="inline-flex items-center justify-center h-[48px] px-6 rounded-full text-ink text-[14px] font-medium border border-black/15 backdrop-blur-md hover:border-orange hover:text-orange-deep transition-colors"
               style={{ background: "rgba(26,26,26,0.04)" }}
             >
-              Join Inner Circle — {formatPrice(icPrice, currency)}/mo
+              Try the free MIDIs
             </a>
           </div>
 
-          {/* Trust line — repositioned without "owned forever" or "no sub" */}
+          {/* Trust line */}
           <div className="fade-up-3 mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] text-ash uppercase tracking-[0.14em] font-semibold justify-center">
             <span className="inline-flex items-center gap-1.5">
-              <span aria-hidden>✓</span> Royalty-free
+              <span aria-hidden>✓</span> Pay once · yours forever
             </span>
             <span aria-hidden className="text-ash/40">·</span>
             <span className="inline-flex items-center gap-1.5">
@@ -141,7 +139,7 @@ export default function Hero({ currency }: { currency: Currency }) {
             </span>
             <span aria-hidden className="text-ash/40">·</span>
             <span className="inline-flex items-center gap-1.5">
-              <span aria-hidden>✓</span> Instant download
+              <span aria-hidden>✓</span> Royalty-free
             </span>
           </div>
         </div>

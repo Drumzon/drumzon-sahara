@@ -54,7 +54,7 @@ export const DROPS: Drop[] = [
     releaseDate: "2026-05-15T00:00:00Z",
     tagline: "Log drums, marimba, and the heat of the dunes.",
     description:
-      "Built around the deep, organic palette of Black Coffee, Keinemusik and Hugel. Hand-tuned log drums, marimba leads with airy reverbs, atmospheric pads that breathe, and percussion that actually sits in the pocket.",
+      "Hand-tuned log drums, marimba leads with airy reverbs, atmospheric pads that breathe, and percussion that actually sits in the pocket. Studio-grade afro house, engineered for dancefloor mixes.",
     bpmRange: [120, 125],
     keys: ["A minor", "C minor", "G minor", "F minor"],
     contents: {

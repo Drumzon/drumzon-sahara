@@ -28,18 +28,16 @@ export const metadata: Metadata = {
     template: "%s | Drumzon",
   },
   description:
-    "Premium Afro House sample packs in the palette of Black Coffee, Keinemusik, Hugel & ME. One drop a month, stems on every loop, MIDI on every melody. Royalty-free.",
+    "Premium Afro House sample packs. One drop a month — studio-grade sounds, stems on every loop, MIDI on every melody. Royalty-free, pay once, yours forever.",
   keywords: [
     "afro house sample pack",
     "afro house drums",
-    "afro house serum presets",
-    "keinemusik sample pack",
-    "hugel sample pack",
-    "black coffee samples",
     "afro house percussion",
-    "afro house ableton template",
+    "afro house midi",
+    "afro house loops",
     "royalty-free afro house",
-    "monthly sample pack subscription",
+    "premium sample pack",
+    "studio-grade afro house",
     "drumzon",
   ],
   authors: [{ name: "Drumzon" }],
@@ -55,13 +53,13 @@ export const metadata: Metadata = {
     siteName: "Drumzon",
     title: "Drumzon — Afro House sample packs, one drop a month",
     description:
-      "Premium Afro House drops every month, plus exclusive Serum presets, MIDIs, and Ableton templates for Inner Circle members. Royalty-free, all DAWs.",
+      "Premium Afro House drops every month. Studio-grade sounds, stems on every loop, MIDI on every melody. Royalty-free, all DAWs.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Drumzon — Afro House, one drop a month",
     description:
-      "Premium Afro House sample packs in the Keinemusik / Black Coffee / Hugel palette. Royalty-free.",
+      "Studio-grade Afro House sample packs, one drop a month. Royalty-free.",
     creator: "@drumzon",
   },
   robots: {
