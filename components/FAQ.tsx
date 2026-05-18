@@ -42,8 +42,8 @@ export default function FAQ() {
       className="px-6 md:px-10 py-[clamp(56px,8vw,110px)]"
     >
       <div className="mx-auto max-w-[820px]">
-        <div className="mb-10 lg:mb-12">
-          <h2 className="display-2 text-ink">
+        <div className="mb-10 lg:mb-12 text-center">
+          <h2 className="display-2 text-ink mx-auto">
             Frequently asked.
           </h2>
         </div>
@@ -76,7 +76,7 @@ export default function FAQ() {
           ))}
         </ul>
 
-        <p className="mt-10 text-stone text-[13px]">
+        <p className="mt-10 text-stone text-[13px] text-center">
           Still unsure? Email{" "}
           <a
             href="mailto:contact@drumzon.com"

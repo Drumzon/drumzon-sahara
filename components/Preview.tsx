@@ -1,5 +1,5 @@
-// Refined sample rows. Smaller play buttons. No background fill on
-// hover — just opacity transition + subtle bg shift on the row.
+// Refined sample row list — center-aligned section header, mobile-first
+// tighter row layout. Hover stays minimal.
 
 const PREVIEWS = [
   { num: "01", file: "Sahara_Kick_Deep_03.wav", meta: "Kick · One-shot", duration: "0:02" },
@@ -16,14 +16,14 @@ export default function Preview() {
       id="preview"
       className="px-6 md:px-10 py-[clamp(56px,8vw,110px)]"
     >
-      <div className="mx-auto max-w-[840px]">
-        <div className="max-w-[560px] mb-10 lg:mb-12">
-          <h2 className="display-2 text-ink">
+      <div className="mx-auto max-w-[820px]">
+        <div className="text-center mb-10 lg:mb-12">
+          <h2 className="display-2 text-ink mx-auto">
             Six bites from inside{" "}
             <span className="text-chroma">Sahara</span>.
           </h2>
-          <p className="display-subhead mt-4">
-            A taste of what lands in your DAW within seconds of subscribing.
+          <p className="display-subhead mx-auto mt-4">
+            A taste of what lands in your DAW seconds after subscribing.
           </p>
         </div>
 
@@ -31,10 +31,10 @@ export default function Preview() {
           {PREVIEWS.map((p, i) => (
             <li
               key={p.file}
-              className={`group grid items-center gap-4 py-4 cursor-pointer transition-opacity hover:opacity-100 opacity-90 ${
+              className={`group grid items-center gap-3 sm:gap-4 py-4 cursor-pointer transition-opacity hover:opacity-100 opacity-90 ${
                 i === 0 ? "border-t" : ""
               } border-b border-black/[0.06]`}
-              style={{ gridTemplateColumns: "28px 36px 1fr auto" }}
+              style={{ gridTemplateColumns: "24px 32px 1fr auto" }}
               tabIndex={0}
             >
               <span className="font-mono text-[11px] text-ash tabular-nums">
@@ -43,12 +43,12 @@ export default function Preview() {
               <button
                 type="button"
                 aria-label={`Play ${p.file}`}
-                className="w-9 h-9 rounded-full bg-white border border-black/[0.12] text-ink grid place-items-center text-[10px] transition-all group-hover:bg-ink group-hover:text-white group-hover:border-ink"
+                className="w-8 h-8 rounded-full bg-white border border-black/[0.12] text-ink grid place-items-center text-[10px] transition-all group-hover:bg-ink group-hover:text-white group-hover:border-ink"
               >
                 ▶
               </button>
               <div className="min-w-0">
-                <div className="text-ink text-[15px] font-medium leading-tight truncate tracking-[-0.011em]">
+                <div className="text-ink text-[14px] sm:text-[15px] font-medium leading-tight truncate tracking-[-0.011em]">
                   {p.file}
                 </div>
                 <div className="text-stone text-[12px] mt-0.5">
@@ -62,8 +62,8 @@ export default function Preview() {
           ))}
         </ul>
 
-        <p className="mt-8 text-ash text-[13px]">
-          6 of 100+. The full kit opens after subscribing.
+        <p className="mt-8 text-ash text-[13px] text-center">
+          6 of 100+ in the May 31 drop. The full kit unlocks after subscribing.
         </p>
       </div>
     </section>

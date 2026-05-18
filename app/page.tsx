@@ -1,10 +1,12 @@
 import { createClient } from "@/lib/supabase/server";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import WhatsIncluded from "@/components/WhatsIncluded";
+import Problem from "@/components/Problem";
+import ValueStack from "@/components/ValueStack";
 import HowItWorks from "@/components/HowItWorks";
 import Preview from "@/components/Preview";
 import PricingCard from "@/components/PricingCard";
+import Guarantee from "@/components/Guarantee";
 import About from "@/components/About";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
@@ -82,14 +84,18 @@ export default async function Home() {
       <Navbar />
 
       <main>
+        {/* Hormozi flow: hero → problem → mechanism → value stack →
+            social proof (preview) → offer + guarantee → about → FAQ */}
         <Hero isFoundingOpen={isFoundingOpen} slotsClaimed={slotsClaimed} />
-        <WhatsIncluded />
+        <Problem />
         <HowItWorks />
+        <ValueStack />
         <Preview />
         <PricingCard
           slotsClaimed={slotsClaimed}
           isFoundingOpen={isFoundingOpen}
         />
+        <Guarantee />
         <About />
         <FAQ />
       </main>

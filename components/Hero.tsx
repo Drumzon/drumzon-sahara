@@ -7,10 +7,12 @@ import {
   STANDARD_PRICE_MONTHLY,
   FOUNDING_MAX_SLOTS,
 } from "@/lib/pricing";
+import { totalPerceivedValue } from "@/lib/value-stack";
 
-// Refined Hero — Apple/Linear restraint. Lighter type weights, no
-// decoration around the cover, single primary CTA + small text-only
-// secondary. Cover sits cleanly without caption or floating tags.
+// Hormozi-structured Hero on Apple-minimal canvas.
+// Mobile-first centered: stacked single column on small screens, opens
+// to 2-col on lg+. Hero copy follows "Stop X. Start Y." pattern + risk
+// reversal trust line + perceived value anchor.
 
 const ArrowRight = () => (
   <svg
@@ -38,6 +40,7 @@ export default function Hero({
   const audioSrc = process.env.NEXT_PUBLIC_SAHARA_DEMO_URL || undefined;
   const [isLoading, setIsLoading] = useState(false);
   const remaining = Math.max(0, FOUNDING_MAX_SLOTS - slotsClaimed);
+  const perceivedValue = totalPerceivedValue();
 
   const handleCheckout = async () => {
     setIsLoading(true);
@@ -63,76 +66,84 @@ export default function Hero({
   };
 
   const primaryCta = isFoundingOpen
-    ? `Claim Founding · €${FOUNDING_PRICE_MONTHLY}/mo`
-    : `Subscribe · €${STANDARD_PRICE_MONTHLY}/mo`;
+    ? `Claim Founding · €${FOUNDING_PRICE_MONTHLY}/mo for life`
+    : `Subscribe · €${STANDARD_PRICE_MONTHLY}/mo for life`;
 
   return (
     <section
       id="hero"
-      className="relative pt-[clamp(80px,10vw,128px)] pb-[clamp(48px,6vw,80px)] px-6 md:px-10"
+      className="relative pt-[clamp(96px,12vw,140px)] pb-[clamp(48px,7vw,88px)] px-6 md:px-10"
     >
-      <div className="mx-auto max-w-[1180px] grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-        {/* LEFT — text + audio + CTAs */}
-        <div className="lg:col-span-7 flex flex-col gap-8 lg:gap-9 items-start">
-          <h1 className="display-1 text-ink">
-            The first curated label for{" "}
-            <span className="text-chroma">Afro House</span>{" "}
-            producers who want the sound, not the search.
-          </h1>
+      <div className="mx-auto max-w-[920px] flex flex-col items-center text-center gap-7 lg:gap-9">
+        <h1 className="display-1 text-ink">
+          Stop searching for{" "}
+          <span className="text-chroma">Afro House</span>{" "}
+          sounds. Start shipping tracks.
+        </h1>
 
-          <p className="display-subhead">
-            Every month: one drop. Four complete construction kits.
-            Drag, drop, you&apos;re inside the track.
-          </p>
+        <p className="display-subhead mx-auto">
+          Every month, one curated drop lands in your DAW: four complete
+          construction kits, samples, presets, MIDIs. Drag, drop, you&apos;re
+          inside the track.
+        </p>
 
-          <div className="w-full max-w-[560px]">
-            <AudioPlayer src={audioSrc} />
-          </div>
-
-          <div className="flex flex-wrap items-center gap-5">
-            <button
-              type="button"
-              onClick={handleCheckout}
-              disabled={isLoading}
-              className="inline-flex items-center justify-center gap-2 h-[46px] px-6 rounded-full bg-orange text-white text-[14px] font-medium hover:bg-orange-deep transition-colors disabled:opacity-60 disabled:cursor-wait"
-            >
-              {isLoading ? "Opening checkout…" : primaryCta}
-              {!isLoading && <ArrowRight />}
-            </button>
-            <a
-              href="#how-it-works"
-              className="text-stone hover:text-ink text-[14px] font-medium transition-colors inline-flex items-center gap-1.5"
-            >
-              How it works <ArrowRight />
-            </a>
-          </div>
-
-          {isFoundingOpen && remaining > 0 && (
-            <p className="text-stone text-[13px]">
-              <span className="text-ink font-medium">{remaining}</span> of{" "}
-              {FOUNDING_MAX_SLOTS} Founding spots remaining · price locked
-              for life.
-            </p>
-          )}
-        </div>
-
-        {/* RIGHT — Sahara cover, no caption, no floating tags */}
-        <div className="lg:col-span-5 w-full max-w-[340px] mx-auto lg:mx-0">
+        {/* Cover — sits between subhead and audio on mobile, anchored above CTA */}
+        <div className="w-full max-w-[260px] mx-auto my-2">
           <div
             className="relative w-full aspect-[4/5] rounded-[20px] overflow-hidden"
             style={{
               boxShadow:
-                "0 24px 50px -16px rgba(26,17,8,0.18), 0 6px 14px -4px rgba(26,17,8,0.10)",
+                "0 24px 50px -16px rgba(26,17,8,0.20), 0 6px 14px -4px rgba(26,17,8,0.10)",
             }}
           >
             <img
               src="/images/sahara-cover.png"
-              alt="Drumzon Pro — Sahara"
+              alt="Drumzon Pro — Sahara, May 31 drop"
               width="1080"
               height="1350"
               className="w-full h-full object-cover block"
             />
           </div>
+        </div>
+
+        {/* Audio player */}
+        <div className="w-full max-w-[560px] mx-auto">
+          <AudioPlayer src={audioSrc} />
+        </div>
+
+        {/* CTA stack — primary button, then text-link */}
+        <div className="flex flex-col items-center gap-3 mt-2">
+          <button
+            type="button"
+            onClick={handleCheckout}
+            disabled={isLoading}
+            className="inline-flex items-center justify-center gap-2 h-[50px] px-7 rounded-full bg-orange text-white text-[14px] font-medium hover:bg-orange-deep transition-colors disabled:opacity-60 disabled:cursor-wait"
+          >
+            {isLoading ? "Opening checkout…" : primaryCta}
+            {!isLoading && <ArrowRight />}
+          </button>
+          <a
+            href="#how-it-works"
+            className="text-stone hover:text-ink text-[13px] font-medium transition-colors inline-flex items-center gap-1.5"
+          >
+            How it works <ArrowRight />
+          </a>
+        </div>
+
+        {/* Trust line — Hormozi value anchor + risk reversal */}
+        <div className="flex flex-col items-center gap-1.5 mt-2 text-[13px]">
+          <p className="text-stone">
+            <span className="text-ink font-medium">€{perceivedValue}/mo of value</span> for{" "}
+            <span className="text-ink font-medium">
+              €{isFoundingOpen ? FOUNDING_PRICE_MONTHLY : STANDARD_PRICE_MONTHLY}
+            </span>
+            . Locked for life. Cancel anytime, keep every file.
+          </p>
+          {isFoundingOpen && remaining > 0 && (
+            <p className="text-ash text-[12px]">
+              {remaining} of {FOUNDING_MAX_SLOTS} Founding spots remaining
+            </p>
+          )}
         </div>
       </div>
     </section>
