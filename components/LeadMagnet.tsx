@@ -76,13 +76,8 @@ export default function LeadMagnet() {
             <h3 className="text-ink text-[20px] font-semibold tracking-[-0.018em]">
               {LEAD_MAGNET.name}
             </h3>
-            <span className="shrink-0 text-stone text-[14px] font-mono tabular-nums">
-              <span className="line-through opacity-50">
-                €{LEAD_MAGNET.perceived_value}
-              </span>
-              <span className="ml-2 text-orange-deep font-semibold">
-                FREE
-              </span>
+            <span className="shrink-0 text-orange-deep text-[14px] font-semibold tracking-[-0.011em]">
+              Free
             </span>
           </div>
 

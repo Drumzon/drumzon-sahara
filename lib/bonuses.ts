@@ -18,26 +18,20 @@ export type Bonus = {
 export const BONUS_STACK: Bonus[] = [
   {
     name: "The MIDI Lab",
-    what: "50+ MIDI files: chord progressions, basslines, lead melodies, plus 10 song-starter templates in the 5 keys producers actually use in the genre (A, C, G, F, D minor).",
-    solves: "I run out of melodic ideas. I need starting points I can take in any direction.",
+    what: "50+ MIDI files: chord progressions, basslines, lead melodies in 5 keys.",
+    solves: "Out of melodic ideas.",
     value: 80,
   },
   {
     name: "The Preset Lab",
-    what: "50+ Serum, Vital, Diva and Massive presets curated from past drop kits — log drums, marimbas, plucks, pads, bass synths, FX. Plug, tweak, ship.",
-    solves: "I want a full synth palette without designing patches from scratch.",
+    what: "50+ Serum, Vital, Diva and Massive presets curated from past drop kits.",
+    solves: "Sound design from scratch.",
     value: 100,
   },
   {
-    name: "The Quarterly Vault Drop",
-    what: "Four times a year, a bonus mega-pack of ~150 loops + one-shots that didn't make the monthly cut. Same studio quality, different aesthetic angles. Members-only — never sold separately.",
-    solves: "One drop a month isn't enough — I want extra material between releases.",
-    value: 240,
-  },
-  {
     name: "The Sahara Vault",
-    what: "The Month 1 drop (4 kits + ~80 sounds + presets + MIDIs) added permanently to your library. Only for members joining May 31 – June 30.",
-    solves: "I want the launch drop even if I subscribe after it released.",
+    what: "The Month 1 drop (4 kits + ~80 sounds) permanent. May 31 – June 30 signups only.",
+    solves: "Missing the launch drop.",
     value: 40,
   },
 ];

@@ -21,16 +21,14 @@ import {
 } from "@/lib/value-stack";
 
 // Same benefits both tiers (per Carlos's directive). The differentiator
-// is the locked lifetime price. All bonuses are 100% music assets —
-// curated by-products of the producer's monthly drop creation. Decap
-// quality bar (each piece built like a record).
+// is the locked lifetime price. All bonuses are 100% music assets.
+// No values shown — Apple-style: state what they get, name the price.
 const MEMBER_BENEFITS = [
-  "Monthly drop: 4 kits + ~80 samples + ~12 presets + ~8 MIDIs",
-  "The First Drop at signup · full kit (€40 value)",
-  "The MIDI Lab · 50+ files in 5 keys (€80 value)",
-  "The Preset Lab · 50+ Serum/Vital/Diva (€100 value)",
-  "The Quarterly Vault Drop · 4× bonus mega-packs (€240/yr value)",
-  "Royalty-free · cancel anytime · keep every file",
+  "Monthly drop — 4 kits, ~80 samples, ~12 presets, ~8 MIDIs",
+  "The First Drop at signup — full construction kit",
+  "The MIDI Lab — 50+ files in 5 keys",
+  "The Preset Lab — 50+ Serum, Vital, Diva, Massive",
+  "Royalty-free, cancel anytime, keep every file",
 ];
 
 const ArrowRight = () => (

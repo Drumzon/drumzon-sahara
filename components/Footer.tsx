@@ -19,16 +19,16 @@ export default function Footer() {
           className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-[13px]"
         >
           <Link
-            href="/#whats-included"
-            className="text-stone hover:text-ink transition-colors"
-          >
-            What you get
-          </Link>
-          <Link
             href="/#how-it-works"
             className="text-stone hover:text-ink transition-colors"
           >
             How it works
+          </Link>
+          <Link
+            href="/#free-pack"
+            className="text-stone hover:text-ink transition-colors"
+          >
+            Free pack
           </Link>
           <Link
             href="/#pricing"

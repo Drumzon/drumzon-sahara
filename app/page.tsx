@@ -1,9 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import ValueStack from "@/components/ValueStack";
 import HowItWorks from "@/components/HowItWorks";
-import Preview from "@/components/Preview";
 import LeadMagnet from "@/components/LeadMagnet";
 import PricingCard from "@/components/PricingCard";
 import About from "@/components/About";
@@ -83,13 +81,11 @@ export default async function Home() {
       <Navbar />
 
       <main>
-        {/* Apple/Elon-style flow: show the product, name the price, ship.
-            Deleted: Problem (the audio is the proof), Guarantee (one line
-            in pricing footnote is enough), "why" rationale blocks. */}
+        {/* Apple/Elon-shaped flow — every section earns its space.
+            Deleted: ValueStack (redundant with PricingCard features),
+            Preview (audio bites already in Hero demo). */}
         <Hero isFoundingOpen={isFoundingOpen} slotsClaimed={slotsClaimed} />
-        <ValueStack />
         <HowItWorks />
-        <Preview />
         <LeadMagnet />
         <PricingCard
           slotsClaimed={slotsClaimed}

@@ -24,16 +24,16 @@ export default function Navbar() {
         className="hidden md:flex items-center gap-1 ml-auto"
       >
         <Link
-          href="/#whats-included"
-          className="px-3 py-1.5 rounded-full text-[13px] font-medium text-stone hover:text-ink transition-colors"
-        >
-          Inside
-        </Link>
-        <Link
           href="/#how-it-works"
           className="px-3 py-1.5 rounded-full text-[13px] font-medium text-stone hover:text-ink transition-colors"
         >
           How it works
+        </Link>
+        <Link
+          href="/#free-pack"
+          className="px-3 py-1.5 rounded-full text-[13px] font-medium text-stone hover:text-ink transition-colors"
+        >
+          Free pack
         </Link>
         <Link
           href="/#pricing"
