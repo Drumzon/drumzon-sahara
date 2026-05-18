@@ -28,7 +28,7 @@ export default function FAQ() {
   return (
     <section
       id="faq"
-      className="px-6 md:px-10 py-[clamp(56px,8vw,110px)]"
+      className="px-6 md:px-10 py-[clamp(40px,6vw,80px)]"
     >
       <div className="mx-auto max-w-[760px]">
         <div className="text-center mb-10 lg:mb-12">

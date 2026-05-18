@@ -1,12 +1,12 @@
 // Just the mechanic. No "why a membership" rationale, no value
 // equation drivers — Apple-style: state the rule, name the steps,
-// move on.
+// move on. v16: dropped "01 02 03" mono numbers (didn't match sans).
 
 export default function HowItWorks() {
   return (
     <section
       id="how-it-works"
-      className="px-6 md:px-10 py-[clamp(56px,8vw,110px)]"
+      className="px-6 md:px-10 py-[clamp(40px,6vw,80px)]"
     >
       <div className="mx-auto max-w-[860px] text-center">
         <h2 className="display-2 text-ink mx-auto">
@@ -17,19 +17,13 @@ export default function HowItWorks() {
           Cancel anytime. Keep every file you downloaded.
         </p>
 
-        <div className="grid sm:grid-cols-3 gap-x-8 gap-y-10 mt-14">
+        <div className="grid sm:grid-cols-3 gap-x-8 gap-y-10 mt-12">
           {[
-            { n: "01", title: "Subscribe", body: "Pick Founding (€19/mo, first 100) or Standard (€29/mo). Price locked for life." },
-            { n: "02", title: "Receive every drop", body: "Each release lands in your portal automatically while you're active." },
-            { n: "03", title: "Keep forever", body: "Cancel and what you downloaded stays yours. What you missed stays missed." },
+            { title: "Subscribe", body: "Pick Founding (€19/mo, first 100) or Standard (€29/mo). Price locked for life." },
+            { title: "Receive every drop", body: "Each release lands in your portal automatically while you're active." },
+            { title: "Keep forever", body: "Cancel and what you downloaded stays yours. What you missed stays missed." },
           ].map((step) => (
-            <div key={step.n} className="flex flex-col gap-2.5 items-center text-center">
-              <span
-                className="text-stone text-[11px] font-mono tabular-nums tracking-[0.06em]"
-                aria-hidden
-              >
-                {step.n}
-              </span>
+            <div key={step.title} className="flex flex-col gap-2.5 items-center text-center">
               <h3 className="text-ink text-[16px] font-semibold tracking-[-0.015em]">
                 {step.title}
               </h3>

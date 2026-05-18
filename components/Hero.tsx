@@ -8,10 +8,9 @@ import {
   FOUNDING_MAX_SLOTS,
 } from "@/lib/pricing";
 
-// Hormozi-structured Hero on Apple-minimal canvas.
-// Mobile-first centered: stacked single column on small screens, opens
-// to 2-col on lg+. Hero copy follows "Stop X. Start Y." pattern + risk
-// reversal trust line + perceived value anchor.
+// v16 Hero — product-centric headline (Apple/Decap style: state the product,
+// don't promise outcomes). Two-col layout on desktop: text-left | cover+audio
+// right. Stacks linear on mobile. Spacing tightened.
 
 const ArrowRight = () => (
   <svg
@@ -70,78 +69,82 @@ export default function Hero({
   return (
     <section
       id="hero"
-      className="relative pt-[clamp(96px,12vw,140px)] pb-[clamp(48px,7vw,88px)] px-6 md:px-10"
+      className="relative pt-[clamp(88px,10vw,128px)] pb-[clamp(40px,6vw,72px)] px-6 md:px-10"
     >
-      <div className="mx-auto max-w-[920px] flex flex-col items-center text-center gap-7 lg:gap-9">
-        <h1 className="display-1 text-ink">
-          Ship a finished{" "}
-          <span className="text-chroma">Afro House</span>{" "}
-          track every month. Without scrolling samples for hours.
-        </h1>
+      <div className="mx-auto max-w-[1180px]">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          {/* LEFT — copy + CTA. Centered on mobile, left-aligned on lg+ */}
+          <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left gap-6 lg:gap-7">
+            <h1 className="display-1 text-ink">
+              A curated <span className="text-chroma">Afro House</span>{" "}
+              drop. Every month. In your DAW.
+            </h1>
 
-        <p className="display-subhead mx-auto">
-          One curated drop a month. Four construction kits, samples,
-          presets, MIDIs.
-        </p>
+            <p className="display-subhead max-w-[44ch]">
+              Four construction kits, samples, presets, MIDIs. Curated
+              by Drumzon. Yours to keep.
+            </p>
 
-        {/* Cover — sits between subhead and audio on mobile, anchored above CTA */}
-        <div className="w-full max-w-[260px] mx-auto my-2">
-          <div
-            className="relative w-full aspect-[4/5] rounded-[20px] overflow-hidden"
-            style={{
-              boxShadow:
-                "0 24px 50px -16px rgba(26,17,8,0.20), 0 6px 14px -4px rgba(26,17,8,0.10)",
-            }}
-          >
-            <img
-              src="/images/sahara-cover.png"
-              alt="Drumzon Pro — Sahara, May 31 drop"
-              width="1080"
-              height="1350"
-              className="w-full h-full object-cover block"
-            />
+            <div className="flex flex-col items-center lg:items-start gap-3 mt-1">
+              <button
+                type="button"
+                onClick={handleCheckout}
+                disabled={isLoading}
+                className="inline-flex items-center justify-center gap-2 h-[50px] px-7 rounded-full bg-orange text-white text-[14px] font-medium hover:bg-orange-deep transition-colors disabled:opacity-60 disabled:cursor-wait"
+              >
+                {isLoading ? "Opening checkout…" : primaryCta}
+                {!isLoading && <ArrowRight />}
+              </button>
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-5 gap-y-2 text-[13px]">
+                <a
+                  href="#free-pack"
+                  className="text-stone hover:text-ink font-medium transition-colors inline-flex items-center gap-1.5"
+                >
+                  Or get The First Drop free <ArrowRight />
+                </a>
+                <span aria-hidden className="text-ash/40">·</span>
+                <a
+                  href="#how-it-works"
+                  className="text-stone hover:text-ink font-medium transition-colors inline-flex items-center gap-1.5"
+                >
+                  How it works <ArrowRight />
+                </a>
+              </div>
+            </div>
+
+            {isFoundingOpen && remaining > 0 && (
+              <p className="text-ash text-[12px] mt-1">
+                {remaining} of {FOUNDING_MAX_SLOTS} Founding spots remaining
+              </p>
+            )}
+          </div>
+
+          {/* RIGHT — cover + audio. Stacked on mobile (below copy), side
+              column on lg+ */}
+          <div className="lg:col-span-5 flex flex-col items-center gap-5 lg:gap-6 w-full">
+            <div className="w-full max-w-[280px]">
+              <div
+                className="relative w-full aspect-[4/5] rounded-[20px] overflow-hidden"
+                style={{
+                  boxShadow:
+                    "0 24px 50px -16px rgba(26,17,8,0.20), 0 6px 14px -4px rgba(26,17,8,0.10)",
+                }}
+              >
+                <img
+                  src="/images/sahara-cover.png"
+                  alt="Drumzon Pro — Sahara, May 31 drop"
+                  width="1080"
+                  height="1350"
+                  className="w-full h-full object-cover block"
+                />
+              </div>
+            </div>
+
+            <div className="w-full max-w-[440px]">
+              <AudioPlayer src={audioSrc} />
+            </div>
           </div>
         </div>
-
-        {/* Audio player */}
-        <div className="w-full max-w-[560px] mx-auto">
-          <AudioPlayer src={audioSrc} />
-        </div>
-
-        {/* CTA stack — primary subscribe, then dual text-links to
-            "try free first" and "how it works" */}
-        <div className="flex flex-col items-center gap-3 mt-2">
-          <button
-            type="button"
-            onClick={handleCheckout}
-            disabled={isLoading}
-            className="inline-flex items-center justify-center gap-2 h-[50px] px-7 rounded-full bg-orange text-white text-[14px] font-medium hover:bg-orange-deep transition-colors disabled:opacity-60 disabled:cursor-wait"
-          >
-            {isLoading ? "Opening checkout…" : primaryCta}
-            {!isLoading && <ArrowRight />}
-          </button>
-          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[13px]">
-            <a
-              href="#free-pack"
-              className="text-stone hover:text-ink font-medium transition-colors inline-flex items-center gap-1.5"
-            >
-              Or get The First Drop free <ArrowRight />
-            </a>
-            <span aria-hidden className="text-ash/40">·</span>
-            <a
-              href="#how-it-works"
-              className="text-stone hover:text-ink font-medium transition-colors inline-flex items-center gap-1.5"
-            >
-              How it works <ArrowRight />
-            </a>
-          </div>
-        </div>
-
-        {isFoundingOpen && remaining > 0 && (
-          <p className="text-ash text-[12px] mt-2">
-            {remaining} of {FOUNDING_MAX_SLOTS} Founding spots remaining
-          </p>
-        )}
       </div>
     </section>
   );

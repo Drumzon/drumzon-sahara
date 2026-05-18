@@ -80,7 +80,7 @@ export default function PricingCard({
   const priceUnit = billingInterval === "monthly" ? "/month" : "/year";
 
   return (
-    <section id="pricing" className="px-6 md:px-10 py-[clamp(56px,8vw,110px)]">
+    <section id="pricing" className="px-6 md:px-10 py-[clamp(40px,6vw,80px)]">
       <div className="mx-auto max-w-[1080px]">
         <div className="max-w-[680px] mx-auto text-center mb-10 lg:mb-14">
           <h2 className="display-2 text-ink mx-auto">

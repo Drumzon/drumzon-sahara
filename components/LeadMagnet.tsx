@@ -52,7 +52,7 @@ export default function LeadMagnet() {
   return (
     <section
       id="free-pack"
-      className="px-6 md:px-10 py-[clamp(56px,8vw,110px)]"
+      className="px-6 md:px-10 py-[clamp(40px,6vw,80px)]"
     >
       <div className="mx-auto max-w-[760px] text-center">
         <h2 className="display-2 text-ink mx-auto">
