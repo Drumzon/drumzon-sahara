@@ -1,6 +1,5 @@
-// Literal preview list from previous landing — numbered sample rows
-// with play buttons, mono filename, meta line, duration. Content swapped
-// to Sahara (May 31 drop) sample names.
+// Apple-refined Preview list — minimal headline, clean sample rows with
+// play buttons. No tinted backdrop, no eyebrow.
 
 const PREVIEWS = [
   { num: "01", file: "Sahara_Kick_Deep_03.wav", meta: "Kick · One-shot", duration: "0:02" },
@@ -15,29 +14,23 @@ export default function Preview() {
   return (
     <section
       id="preview"
-      className="px-6 md:px-10 py-[clamp(48px,6vw,88px)] relative"
-      style={{
-        background: "rgba(245,240,230,0.42)",
-        backdropFilter: "blur(8px)",
-        WebkitBackdropFilter: "blur(8px)",
-      }}
+      className="px-6 md:px-10 py-[clamp(80px,12vw,160px)]"
     >
       <div className="mx-auto max-w-[880px]">
-        <div className="flex flex-col items-center text-center gap-4 mb-12 lg:mb-16">
-          <h2
-            className="h-display text-ink"
-            style={{ fontSize: "clamp(30px, 4.4vw, 56px)" }}
-          >
-            Six bites from{" "}
-            <span className="serif-em gradient-text">inside Sahara</span>.
+        <div className="max-w-[640px] mb-12 lg:mb-14">
+          <h2 className="display-2 text-ink">
+            Six bites from inside Sahara.
           </h2>
+          <p className="display-subhead mt-5">
+            A taste of what lands in your DAW within seconds of subscribing.
+          </p>
         </div>
 
         <ul className="flex flex-col">
           {PREVIEWS.map((p, i) => (
             <li
               key={p.file}
-              className={`group grid items-center gap-4 py-5 px-2 cursor-pointer transition-colors hover:bg-black/[0.02] ${
+              className={`group grid items-center gap-4 py-5 px-2 cursor-pointer transition-colors hover:bg-cream-warm/50 ${
                 i === 0 ? "border-t" : ""
               } border-b border-black/[0.08]`}
               style={{ gridTemplateColumns: "32px 44px 1fr auto" }}
@@ -47,30 +40,27 @@ export default function Preview() {
               <button
                 type="button"
                 aria-label={`Play ${p.file}`}
-                className="w-11 h-11 rounded-full bg-cream-base border border-black/[0.16] text-orange-deep grid place-items-center text-[12px] transition-all group-hover:bg-orange group-hover:text-white group-hover:border-orange group-hover:scale-105"
+                className="w-11 h-11 rounded-full bg-white border border-black/[0.12] text-ink grid place-items-center text-[12px] transition-all group-hover:bg-orange group-hover:text-white group-hover:border-orange"
               >
                 ▶
               </button>
               <div className="min-w-0">
-                <div
-                  className="font-serif text-ink leading-tight truncate"
-                  style={{ fontSize: "clamp(15px, 1.4vw, 19px)" }}
-                >
+                <div className="text-ink text-[15px] sm:text-[16px] font-medium leading-tight truncate tracking-[-0.011em]">
                   {p.file}
                 </div>
-                <div className="font-mono text-[10px] text-ash uppercase tracking-[0.12em] mt-1.5">
+                <div className="text-stone text-[12px] mt-1">
                   {p.meta}
                 </div>
               </div>
-              <span className="font-mono text-[13px] text-orange-deep font-semibold tabular-nums">
+              <span className="font-mono text-[13px] text-stone font-medium tabular-nums">
                 {p.duration}
               </span>
             </li>
           ))}
         </ul>
 
-        <p className="mt-10 text-center text-[11px] text-ash uppercase tracking-[0.16em] font-semibold">
-          06 of 100+. The full kit opens after subscribing.
+        <p className="mt-8 text-stone text-[14px]">
+          6 of 100+. The full kit opens after subscribing.
         </p>
       </div>
     </section>

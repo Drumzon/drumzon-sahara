@@ -4,27 +4,30 @@
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
 
-  /* Pure white base per user request */
+  /* Apple-style refined palette — pure white base, Apple-system grays,
+     orange reserved for accent + CTA only. Cream / sand / amber / clay
+     kept available but should NOT decorate text by default. */
   --color-cream-base: #ffffff;
-  --color-cream-subtle: #f7f3ec;
-  --color-cream-warm: #f0e8da;
+  --color-cream-subtle: #fbfbfd;   /* Apple "fbfbfd" off-white for sections */
+  --color-cream-warm: #f5f5f7;     /* Apple "f5f5f7" card subtle bg */
   --color-sand: #e8d5b7;
-  --color-amber: #d49a3f;          /* golden hour amber (kept) */
-  --color-earth: #4a2e1a;          /* dark warm brown grounding (kept) */
+  --color-amber: #d49a3f;
+  --color-earth: #4a2e1a;
 
-  --color-ink: #1a1a1a;
+  /* Apple text grays — primary / secondary / tertiary */
+  --color-ink: #1d1d1f;            /* Apple primary */
   --color-graphite: #3d3833;
-  --color-stone: #6b5d4f;
-  --color-ash: #8b7355;
+  --color-stone: #6e6e73;          /* Apple secondary */
+  --color-ash: #86868b;            /* Apple tertiary */
 
-  --color-orange-soft: #e8c896;    /* warm wheat-amber (was pink #ffe4d6) */
+  --color-orange-soft: #ffd9c2;
   --color-orange: #ff6b35;
   --color-orange-deep: #e55a2b;
   --color-clay: #c44518;
   --color-emerald: #2d8466;
 
-  --color-ink-lighter: #2c2c2a;
-  --color-text-dark: #d3d1c7;
+  --color-ink-lighter: #2c2c2e;
+  --color-text-dark: #d2d2d7;
 
   --container-content: 1200px;
   --container-tight: 880px;
@@ -78,6 +81,44 @@
     font-family: var(--font-serif);
     font-style: italic;
     font-weight: 400;
+  }
+
+  /* ─── Apple-style display headlines ─── */
+  /* Heavy sans, tight tracking, balanced wrapping. Used for hero/section
+     titles when we want the refined Apple feel (no italic, no gradient,
+     no decoration). */
+  .display-1 {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: clamp(40px, 5.6vw, 80px);
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    text-wrap: balance;
+  }
+  .display-2 {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: clamp(34px, 4.4vw, 56px);
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+    text-wrap: balance;
+  }
+  .display-3 {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: clamp(26px, 3vw, 40px);
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+  }
+  .display-subhead {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: clamp(18px, 1.6vw, 22px);
+    line-height: 1.45;
+    letter-spacing: -0.011em;
+    color: var(--color-stone);
+    text-wrap: balance;
   }
 
   .gradient-text {

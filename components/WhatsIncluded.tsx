@@ -1,21 +1,21 @@
-// Literal 6-card grid + 3-stat strip from previous landing.
-// Content swapped to "what you get every month" per Drumzon Pro brief.
+// Apple-refined "what's inside" — no eyebrow, clean sans headline,
+// 6 minimal feature cards on subtle off-white panels.
 
 const ITEMS = [
   {
     title: "4 Complete Construction Kits",
     description:
-      "Full track stems, pre-mixed. Same BPM, key-compatible. Drag into your DAW, press play, you're inside a finished track.",
+      "Full track stems, pre-mixed and key-compatible. Drag into your DAW, press play, you're inside a finished track.",
   },
   {
     title: "~80 Individual Samples",
     description:
-      "Every kick, perc hit, vocal chop, atmosphere and one-shot from the kits, isolated. BPM/key tagged in filename.",
+      "Every kick, perc, vocal chop, atmosphere and one-shot from the kits — isolated, BPM/key tagged in filename.",
   },
   {
     title: "~12 Synth Presets",
     description:
-      "The exact patches (Serum, Vital, Diva) used in the kits. Plug-and-play. Tweak to taste.",
+      "The exact patches used in the kits — Serum, Vital, Diva. Plug-and-play. Tweak to taste.",
   },
   {
     title: "~8 MIDI Files",
@@ -30,7 +30,7 @@ const ITEMS = [
   {
     title: "Royalty-free forever",
     description:
-      "Use in commercial releases. Sell tracks. Sync to anything. Yours to keep — even after cancellation.",
+      "Commercial releases, streaming, sync. Yours to keep — even after cancellation.",
   },
 ];
 
@@ -38,84 +38,34 @@ export default function WhatsIncluded() {
   return (
     <section
       id="whats-included"
-      className="px-6 md:px-10 py-[clamp(48px,6vw,88px)]"
+      className="px-6 md:px-10 py-[clamp(80px,12vw,160px)]"
     >
       <div className="mx-auto max-w-[1180px]">
-        <div className="flex flex-col items-center text-center gap-4 max-w-[760px] mx-auto mb-14 lg:mb-20">
-          <h2
-            className="h-display text-ink"
-            style={{ fontSize: "clamp(30px, 4.4vw, 56px)" }}
-          >
-            Every month you&apos;re a member,{" "}
-            <span className="serif-em gradient-text">this lands</span>{" "}
-            in your DAW.
+        <div className="max-w-[760px] mb-16 lg:mb-20">
+          <h2 className="display-2 text-ink">
+            Everything that lands in your DAW, every month.
           </h2>
-          <p className="lede mx-auto">
-            One curated drop. Construction kits, samples, presets, MIDIs.
-            No filler, no AI, no recycled material. Built for producers
-            shipping tracks.
+          <p className="display-subhead mt-5">
+            One curated drop. No filler, no AI, no recycled material —
+            built for producers shipping tracks.
           </p>
         </div>
 
-        <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-16">
+        <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4">
           {ITEMS.map((item) => (
             <li
               key={item.title}
-              className="flex gap-3.5 p-6 rounded-[20px] bg-black/[0.02] border border-black/[0.08] hover:bg-black/[0.04] hover:border-black/[0.16] hover:-translate-y-0.5 transition-all"
+              className="p-7 lg:p-8 rounded-[18px] bg-cream-warm/60 hover:bg-cream-warm transition-colors"
             >
-              <span
-                className="flex-shrink-0 text-emerald font-bold text-[18px] leading-snug"
-                aria-hidden
-              >
-                ✓
-              </span>
-              <div>
-                <h4 className="text-ink text-[15px] font-semibold leading-snug mb-1.5">
-                  {item.title}
-                </h4>
-                <p className="text-stone text-[13px] leading-[1.55]">
-                  {item.description}
-                </p>
-              </div>
+              <h3 className="text-ink text-[18px] font-semibold leading-snug mb-2 tracking-[-0.015em]">
+                {item.title}
+              </h3>
+              <p className="text-stone text-[15px] leading-[1.55]">
+                {item.description}
+              </p>
             </li>
           ))}
         </ul>
-
-        <div className="grid grid-cols-1 sm:grid-cols-3 border-y border-black/[0.08] max-w-3xl mx-auto">
-          <div className="text-center px-4 py-7 sm:border-r border-black/[0.08]">
-            <strong
-              className="block font-serif text-orange-deep leading-none tracking-tight"
-              style={{ fontSize: "clamp(22px, 2.4vw, 28px)" }}
-            >
-              24-bit / 44.1 kHz
-            </strong>
-            <span className="block mt-2 text-[11px] text-ash uppercase tracking-[0.12em] font-medium">
-              Studio WAV
-            </span>
-          </div>
-          <div className="text-center px-4 py-7 sm:border-r border-black/[0.08]">
-            <strong
-              className="block font-serif text-orange-deep leading-none tracking-tight"
-              style={{ fontSize: "clamp(22px, 2.4vw, 28px)" }}
-            >
-              Stems + MIDI
-            </strong>
-            <span className="block mt-2 text-[11px] text-ash uppercase tracking-[0.12em] font-medium">
-              Every kit
-            </span>
-          </div>
-          <div className="text-center px-4 py-7">
-            <strong
-              className="block font-serif text-orange-deep leading-none tracking-tight"
-              style={{ fontSize: "clamp(22px, 2.4vw, 28px)" }}
-            >
-              Royalty-free
-            </strong>
-            <span className="block mt-2 text-[11px] text-ash uppercase tracking-[0.12em] font-medium">
-              Commercial use
-            </span>
-          </div>
-        </div>
       </div>
     </section>
   );

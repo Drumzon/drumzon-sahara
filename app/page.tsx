@@ -2,7 +2,6 @@ import { createClient } from "@/lib/supabase/server";
 import CountdownStrip from "@/components/CountdownStrip";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Marquee from "@/components/Marquee";
 import WhatsIncluded from "@/components/WhatsIncluded";
 import HowItWorks from "@/components/HowItWorks";
 import Preview from "@/components/Preview";
@@ -87,7 +86,6 @@ export default async function Home() {
 
       <main>
         <Hero isFoundingOpen={isFoundingOpen} slotsClaimed={slotsClaimed} />
-        <Marquee />
         <WhatsIncluded />
         <HowItWorks />
         <Preview />

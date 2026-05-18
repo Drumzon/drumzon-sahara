@@ -2,17 +2,15 @@
 
 import { useState } from "react";
 import AudioPlayer from "./AudioPlayer";
-import FoundingCounter from "./FoundingCounter";
 import {
   FOUNDING_PRICE_MONTHLY,
   STANDARD_PRICE_MONTHLY,
   FOUNDING_MAX_SLOTS,
 } from "@/lib/pricing";
 
-// Hero — literal 2-col split from previous landing.
-// Text left (gradient title, lede, audio, dual CTA, trust line) +
-// cover right (cover-2 float animation, floating glass tags BPM + kits).
-// Drumzon Pro content: subscription model with Founding/Standard tiers.
+// Apple-refined Hero — no eyebrow, no glass tags, no italic gradient.
+// Heavy sans headline + descriptive subhead + audio + dual CTA.
+// Cover sits on the right as clean product imagery.
 
 const ArrowRight = () => (
   <svg
@@ -31,7 +29,7 @@ const ArrowRight = () => (
 );
 
 const COVER_SHADOW =
-  "0 30px 60px -10px rgba(26,17,8,0.30), 0 8px 16px -4px rgba(26,17,8,0.18), inset 0 0 0 1px rgba(255,107,53,0.10)";
+  "0 30px 60px -10px rgba(26,17,8,0.30), 0 8px 16px -4px rgba(26,17,8,0.18)";
 
 export default function Hero({
   isFoundingOpen,
@@ -42,6 +40,7 @@ export default function Hero({
 }) {
   const audioSrc = process.env.NEXT_PUBLIC_SAHARA_DEMO_URL || undefined;
   const [isLoading, setIsLoading] = useState(false);
+  const remaining = Math.max(0, FOUNDING_MAX_SLOTS - slotsClaimed);
 
   const handleCheckout = async () => {
     setIsLoading(true);
@@ -55,9 +54,8 @@ export default function Hero({
         }),
       });
       const data = await res.json();
-      if (data.url) {
-        window.location.href = data.url;
-      } else {
+      if (data.url) window.location.href = data.url;
+      else {
         alert(data.error || "Try again or email contact@drumzon.com");
         setIsLoading(false);
       }
@@ -68,100 +66,63 @@ export default function Hero({
   };
 
   const primaryCta = isFoundingOpen
-    ? `Claim Founding spot — €${FOUNDING_PRICE_MONTHLY}/mo`
-    : `Join Drumzon Pro — €${STANDARD_PRICE_MONTHLY}/mo`;
+    ? `Claim Founding · €${FOUNDING_PRICE_MONTHLY}/mo`
+    : `Subscribe · €${STANDARD_PRICE_MONTHLY}/mo`;
 
   return (
     <section
       id="hero"
-      className="relative pt-[clamp(80px,9vw,128px)] pb-[clamp(28px,3.5vw,48px)] px-6 md:px-10"
+      className="relative pt-[clamp(96px,12vw,160px)] pb-[clamp(48px,7vw,96px)] px-6 md:px-10"
     >
-      <div className="mx-auto max-w-[1100px] grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-        {/* LEFT — text content */}
-        <div className="lg:col-span-7 flex flex-col gap-5 items-center text-center lg:items-start lg:text-left">
-          <p className="fade-up text-ash text-[11px] font-semibold tracking-[0.22em] uppercase">
-            Curated Afro House label · One drop a month
-          </p>
-
-          <h1
-            className="fade-up h-display"
-            style={{ fontSize: "clamp(36px, 5vw, 72px)", lineHeight: 0.95 }}
-          >
-            <span className="serif-em gradient-text">Afro House</span>{" "}
-            <span className="text-ink">for producers who want the sound,</span>{" "}
-            <span className="serif-em text-stone">not the search</span>
-            <span className="text-ink">.</span>
+      <div className="mx-auto max-w-[1180px] grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        {/* LEFT — text + audio + CTAs */}
+        <div className="lg:col-span-7 flex flex-col gap-7 lg:gap-8 items-start">
+          <h1 className="display-1 text-ink">
+            The first curated label for Afro House
+            producers who want the sound, not the search.
           </h1>
 
-          <p
-            className="fade-up-1 h-display text-ink"
-            style={{
-              fontSize: "clamp(15px, 1.6vw, 21px)",
-              letterSpacing: "-0.02em",
-              lineHeight: 1.2,
-              maxWidth: "28ch",
-            }}
-          >
+          <p className="display-subhead max-w-[44ch]">
             Every month: one drop. Four complete construction kits.
             Drag, drop, you&apos;re inside the track.
           </p>
 
-          <div className="fade-up-2 w-full mt-1">
+          <div className="w-full max-w-[560px]">
             <AudioPlayer src={audioSrc} />
           </div>
 
-          {/* Founding counter chip */}
-          <div className="fade-up-3 flex items-center gap-3 text-[13px] mt-1">
-            <FoundingCounter
-              slotsClaimed={slotsClaimed}
-              maxSlots={FOUNDING_MAX_SLOTS}
-              size="sm"
-              onLight
-            />
-          </div>
-
-          <div className="fade-up-3 flex flex-wrap gap-2 mt-2 justify-center lg:justify-start">
+          <div className="flex flex-wrap gap-3 items-center">
             <button
               type="button"
               onClick={handleCheckout}
               disabled={isLoading}
-              className="inline-flex items-center justify-center gap-2 h-[44px] px-5 rounded-full bg-orange text-white text-[13px] font-medium hover:bg-orange-deep hover:-translate-y-0.5 transition-all disabled:opacity-60 disabled:cursor-wait"
-              style={{
-                boxShadow: "0 10px 28px -10px rgba(255,107,53,0.55)",
-              }}
+              className="inline-flex items-center justify-center gap-2 h-[48px] px-6 rounded-full bg-orange text-white text-[15px] font-semibold hover:bg-orange-deep transition-colors disabled:opacity-60 disabled:cursor-wait"
+              style={{ boxShadow: "0 6px 20px -8px rgba(255,107,53,0.5)" }}
             >
-              {isLoading ? "Opening checkout..." : primaryCta}
+              {isLoading ? "Opening checkout…" : primaryCta}
               {!isLoading && <ArrowRight />}
             </button>
             <a
               href="#how-it-works"
-              className="inline-flex items-center justify-center h-[44px] px-5 rounded-full text-ink text-[13px] font-medium border border-black/10 backdrop-blur-md hover:border-black/30 transition-colors"
-              style={{ background: "rgba(26,26,26,0.04)" }}
+              className="inline-flex items-center gap-1.5 h-[48px] px-2 text-ink text-[15px] font-medium hover:text-orange-deep transition-colors"
             >
-              How it works
+              How it works <ArrowRight />
             </a>
           </div>
 
-          {/* Trust line */}
-          <div className="fade-up-3 mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] text-ash uppercase tracking-[0.14em] font-semibold justify-center lg:justify-start">
-            <span className="inline-flex items-center gap-1.5">
-              <span aria-hidden>✓</span> Cancel anytime
-            </span>
-            <span aria-hidden className="text-ash/40">·</span>
-            <span className="inline-flex items-center gap-1.5">
-              <span aria-hidden>✓</span> Keep what you download
-            </span>
-            <span aria-hidden className="text-ash/40">·</span>
-            <span className="inline-flex items-center gap-1.5">
-              <span aria-hidden>✓</span> Royalty-free
-            </span>
-          </div>
+          {isFoundingOpen && remaining > 0 && (
+            <p className="text-stone text-[14px]">
+              <span className="text-ink font-medium">{remaining}</span> of{" "}
+              {FOUNDING_MAX_SLOTS} Founding spots remaining. €
+              {FOUNDING_PRICE_MONTHLY}/month locked for life.
+            </p>
+          )}
         </div>
 
-        {/* RIGHT — cover with floating glass tags */}
-        <div className="lg:col-span-5 relative w-full max-w-[300px] aspect-[4/5] mx-auto lg:mx-0">
+        {/* RIGHT — Sahara cover */}
+        <div className="lg:col-span-5 w-full max-w-[360px] mx-auto lg:mx-0">
           <div
-            className="cover-2 relative w-full h-full rounded-[20px] overflow-hidden"
+            className="cover-2 relative w-full aspect-[4/5] rounded-[22px] overflow-hidden"
             style={{ boxShadow: COVER_SHADOW }}
           >
             <img
@@ -172,62 +133,10 @@ export default function Hero({
               className="w-full h-full object-cover block"
             />
           </div>
-
-          {/* Glass tag — BPM */}
-          <div
-            className="hidden lg:flex absolute items-center gap-2.5 px-4 py-3 rounded-[20px] z-10"
-            style={{
-              top: "8%",
-              left: "-22%",
-              background: "rgba(250,247,242,0.85)",
-              backdropFilter: "blur(30px) saturate(180%)",
-              WebkitBackdropFilter: "blur(30px) saturate(180%)",
-              border: "1px solid rgba(26,26,26,0.10)",
-              boxShadow: "0 20px 40px -10px rgba(26,17,8,0.18)",
-            }}
-          >
-            <span
-              className="w-2 h-2 rounded-full bg-orange"
-              style={{ boxShadow: "0 0 12px rgba(255,107,53,1)" }}
-              aria-hidden
-            />
-            <div className="text-left">
-              <strong className="block text-[13px] font-semibold text-ink">
-                120–125 BPM
-              </strong>
-              <em className="block text-[11px] not-italic text-stone uppercase tracking-[0.08em] mt-0.5">
-                Afro House
-              </em>
-            </div>
-          </div>
-
-          {/* Glass tag — kits */}
-          <div
-            className="hidden lg:flex absolute items-center gap-2.5 px-4 py-3 rounded-[20px] z-10"
-            style={{
-              bottom: "12%",
-              right: "-18%",
-              background: "rgba(250,247,242,0.85)",
-              backdropFilter: "blur(30px) saturate(180%)",
-              WebkitBackdropFilter: "blur(30px) saturate(180%)",
-              border: "1px solid rgba(26,26,26,0.10)",
-              boxShadow: "0 20px 40px -10px rgba(26,17,8,0.18)",
-            }}
-          >
-            <span
-              className="w-2 h-2 rounded-full bg-emerald"
-              style={{ boxShadow: "0 0 12px rgba(45,132,102,1)" }}
-              aria-hidden
-            />
-            <div className="text-left">
-              <strong className="block text-[13px] font-semibold text-ink">
-                4 kits
-              </strong>
-              <em className="block text-[11px] not-italic text-stone uppercase tracking-[0.08em] mt-0.5">
-                Stems + MIDI
-              </em>
-            </div>
-          </div>
+          <p className="mt-5 text-center lg:text-left text-stone text-[13px]">
+            <span className="text-ink font-medium">Sahara</span> · DRZ-001 ·
+            Available May 31
+          </p>
         </div>
       </div>
     </section>

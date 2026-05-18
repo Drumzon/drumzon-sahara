@@ -1,5 +1,5 @@
-// Literal FAQ accordion from previous landing — native <details> with
-// orange rotating "+" marker. 8 questions from Drumzon Pro brief verbatim.
+// Apple-refined FAQ — native <details> accordion, no eyebrow, clean
+// sans typography, minimal "+" toggle.
 
 const FAQ_ITEMS = [
   {
@@ -40,42 +40,35 @@ export default function FAQ() {
   return (
     <section
       id="faq"
-      className="px-6 md:px-10 py-[clamp(56px,7vw,104px)]"
+      className="px-6 md:px-10 py-[clamp(80px,12vw,160px)]"
     >
-      <div className="mx-auto max-w-[860px]">
-        <div className="flex flex-col items-center text-center gap-3 mb-12 max-w-[720px] mx-auto">
-          <p className="text-ash text-[11px] font-semibold tracking-[0.22em] uppercase">
-            Questions
-          </p>
-          <h2
-            className="h-display text-ink"
-            style={{ fontSize: "clamp(30px, 4.4vw, 56px)" }}
-          >
-            The{" "}
-            <span className="serif-em gradient-text">honest</span> answers.
+      <div className="mx-auto max-w-[880px]">
+        <div className="max-w-[680px] mb-12 lg:mb-14">
+          <h2 className="display-2 text-ink">
+            Frequently asked.
           </h2>
         </div>
 
-        <ul className="flex flex-col gap-2">
+        <ul className="flex flex-col">
           {FAQ_ITEMS.map((item, i) => (
             <li
               key={i}
-              className="rounded-2xl border border-black/[0.08] bg-black/[0.015] overflow-hidden"
+              className={`${i === 0 ? "border-t" : ""} border-b border-black/[0.08]`}
             >
               <details className="group">
-                <summary className="cursor-pointer list-none p-5 sm:p-6 flex items-start justify-between gap-4 hover:bg-black/[0.02] transition-colors">
-                  <span className="text-ink text-[15px] sm:text-[16px] font-semibold leading-snug">
+                <summary className="cursor-pointer list-none py-6 flex items-start justify-between gap-6 hover:opacity-80 transition-opacity">
+                  <span className="text-ink text-[17px] sm:text-[18px] font-medium leading-snug tracking-[-0.015em]">
                     {item.q}
                   </span>
                   <span
                     aria-hidden
-                    className="flex-shrink-0 w-6 h-6 grid place-items-center text-orange-deep text-[18px] font-bold transition-transform group-open:rotate-45 select-none"
+                    className="flex-shrink-0 w-5 h-5 grid place-items-center text-stone text-[18px] transition-transform group-open:rotate-45 select-none"
                   >
                     +
                   </span>
                 </summary>
-                <div className="px-5 sm:px-6 pb-5 sm:pb-6">
-                  <p className="text-stone text-[14px] sm:text-[15px] leading-[1.65]">
+                <div className="pb-6 pr-12">
+                  <p className="text-stone text-[15px] sm:text-[16px] leading-[1.6]">
                     {item.a}
                   </p>
                 </div>
@@ -84,15 +77,15 @@ export default function FAQ() {
           ))}
         </ul>
 
-        <p className="mt-10 text-center text-[12px] text-ash">
+        <p className="mt-12 text-stone text-[14px]">
           Still unsure? Email{" "}
           <a
             href="mailto:contact@drumzon.com"
-            className="text-ink underline decoration-orange/40 hover:decoration-orange transition-colors font-medium"
+            className="text-ink underline decoration-stone/30 hover:decoration-ink underline-offset-4"
           >
             contact@drumzon.com
-          </a>{" "}
-          — I read every message.
+          </a>
+          .
         </p>
       </div>
     </section>

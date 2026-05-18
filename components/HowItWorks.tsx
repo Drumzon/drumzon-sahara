@@ -1,82 +1,61 @@
-// HowItWorks — new section explaining the core "time in the club"
-// mechanic. Visual language matches the previous landing (tinted cream
-// background + h-display + gradient-text emphasis).
+// Apple-refined HowItWorks — clean headline, 3 steps on subtle panel,
+// then the punchline as its own quiet statement.
 
 export default function HowItWorks() {
   return (
     <section
       id="how-it-works"
-      className="px-6 md:px-10 py-[clamp(48px,6vw,88px)] relative"
-      style={{
-        background: "rgba(245,240,230,0.42)",
-        backdropFilter: "blur(8px)",
-        WebkitBackdropFilter: "blur(8px)",
-      }}
+      className="px-6 md:px-10 py-[clamp(80px,12vw,160px)]"
+      style={{ background: "var(--color-cream-subtle)" }}
     >
-      <div className="mx-auto max-w-[880px]">
-        <div className="flex flex-col items-center text-center gap-4 mb-12 lg:mb-14 max-w-[720px] mx-auto">
-          <p className="text-ash text-[11px] font-semibold tracking-[0.22em] uppercase">
-            The rule
-          </p>
-          <h2
-            className="h-display text-ink"
-            style={{ fontSize: "clamp(30px, 4.4vw, 56px)" }}
-          >
-            Each month, one drop releases.{" "}
-            <span className="serif-em gradient-text">
-              Active members
-            </span>{" "}
-            receive it. Forever.
+      <div className="mx-auto max-w-[1100px]">
+        <div className="max-w-[760px] mb-16 lg:mb-20">
+          <h2 className="display-2 text-ink">
+            One drop a month. Active members receive it. Forever.
           </h2>
+          <p className="display-subhead mt-5">
+            Join in month 5? You get drops 5 onwards — not 1–4. Cancel
+            anytime and keep what you downloaded.
+          </p>
         </div>
 
-        {/* 3-step explainer */}
-        <div className="grid sm:grid-cols-3 gap-4 mb-12">
+        <div className="grid sm:grid-cols-3 gap-3 lg:gap-4 mb-16 lg:mb-20">
           {[
             {
-              n: "01",
+              n: "1",
               title: "Subscribe",
-              body: "Pick Founding (€7/mo, limited to 100) or Standard (€14.95/mo). Cancel anytime.",
+              body: "Pick Founding (€7/mo, capped at 100) or Standard (€14.95/mo). Cancel anytime.",
             },
             {
-              n: "02",
-              title: "Receive monthly drops",
-              body: "Every drop released while your subscription is active lands in your portal automatically.",
+              n: "2",
+              title: "Receive every drop",
+              body: "Each release lands in your portal automatically while you're active.",
             },
             {
-              n: "03",
+              n: "3",
               title: "Keep forever",
-              body: "Cancel and what you've downloaded stays in your library. What you missed before joining stays missed.",
+              body: "Cancel and what you've downloaded stays yours. What you missed stays missed.",
             },
           ].map((step) => (
-            <div
-              key={step.n}
-              className="p-6 rounded-[20px] bg-cream-base/60 border border-black/[0.08]"
-            >
-              <span className="font-mono text-[12px] text-ash tracking-[0.18em] uppercase">
+            <div key={step.n} className="p-7 lg:p-8 rounded-[18px] bg-white">
+              <p
+                className="text-orange text-[28px] font-semibold leading-none mb-4"
+                aria-hidden
+              >
                 {step.n}
-              </span>
-              <h3 className="text-ink text-[16px] font-semibold mt-2 mb-2">
+              </p>
+              <h3 className="text-ink text-[18px] font-semibold mb-2 tracking-[-0.015em]">
                 {step.title}
               </h3>
-              <p className="text-stone text-[13px] leading-[1.6]">
+              <p className="text-stone text-[15px] leading-[1.55]">
                 {step.body}
               </p>
             </div>
           ))}
         </div>
 
-        {/* Tagline — the punchline */}
-        <p
-          className="h-display text-center"
-          style={{ fontSize: "clamp(28px, 3.8vw, 44px)", lineHeight: 1.15 }}
-        >
-          <span className="text-ink">Time in the club</span>{" "}
-          <span className="text-stone">=</span>{" "}
-          <span className="serif-em gradient-text">
-            size of your library
-          </span>
-          .
+        <p className="display-3 text-ink max-w-[20ch]">
+          Time in the club equals the size of your library.
         </p>
       </div>
     </section>
