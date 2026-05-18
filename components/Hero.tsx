@@ -75,7 +75,7 @@ export default function Hero({
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* LEFT — copy + CTA. Centered on mobile, left-aligned on lg+ */}
           <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left gap-6 lg:gap-7">
-            <h1 className="text-ink font-semibold tracking-[-0.028em] leading-[1.08] text-[clamp(28px,3.4vw,46px)]">
+            <h1 className="text-ink font-semibold tracking-[-0.028em] leading-[1.08] text-[clamp(32px,3.8vw,52px)]">
               A curated <span className="text-chroma">Afro House</span> drop.
               <br />
               Every month.
@@ -126,7 +126,7 @@ export default function Hero({
           {/* RIGHT — cover + audio. Stacked on mobile (below copy), side
               column on lg+ */}
           <div className="lg:col-span-5 flex flex-col items-center gap-5 lg:gap-6 w-full">
-            <div className="w-full max-w-[280px]">
+            <div className="w-full max-w-[240px]">
               <div
                 className="relative w-full aspect-[4/5] rounded-[20px] overflow-hidden"
                 style={{
@@ -144,7 +144,7 @@ export default function Hero({
               </div>
             </div>
 
-            <div className="w-full max-w-[440px]">
+            <div className="w-full max-w-[400px]">
               <AudioPlayer src={audioSrc} />
             </div>
           </div>
