@@ -43,20 +43,20 @@ export default function FAQ() {
               key={i}
               className={`${i === 0 ? "border-t" : ""} border-b border-black/[0.06]`}
             >
-              <details className="group">
-                <summary className="cursor-pointer list-none py-5 flex items-start justify-between gap-6 hover:opacity-80 transition-opacity">
-                  <span className="text-ink text-[17px] sm:text-[18px] font-medium leading-snug tracking-[-0.014em]">
+              <details className="group [&_summary::-webkit-details-marker]:hidden">
+                <summary className="cursor-pointer list-none py-5 flex items-start justify-between gap-4 sm:gap-6 hover:opacity-80 transition-opacity">
+                  <span className="min-w-0 flex-1 text-ink text-[16px] sm:text-[18px] font-medium leading-snug tracking-[-0.014em]">
                     {item.q}
                   </span>
                   <span
                     aria-hidden
-                    className="flex-shrink-0 w-4 h-4 grid place-items-center text-stone text-[16px] transition-transform group-open:rotate-45 select-none"
+                    className="flex-shrink-0 w-4 h-4 grid place-items-center text-stone text-[16px] transition-transform group-open:rotate-45 select-none mt-0.5"
                   >
                     +
                   </span>
                 </summary>
-                <div className="pb-5 pr-10">
-                  <p className="text-stone text-[15px] sm:text-[16px] leading-[1.65]">
+                <div className="pb-5 pr-4 sm:pr-10">
+                  <p className="text-stone text-[14px] sm:text-[16px] leading-[1.65]">
                     {item.a}
                   </p>
                 </div>
