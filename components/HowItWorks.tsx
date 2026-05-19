@@ -1,32 +1,63 @@
-// Just the mechanic. No "why a membership" rationale, no value
-// equation drivers — Apple-style: state the rule, name the steps,
-// move on. v16: dropped "01 02 03" mono numbers (didn't match sans).
+// How Drumzon Pro works — 4 steps, narrative version. Each step reduces
+// perceived time/effort. 2x2 on desktop, single column on mobile.
 
-export default function HowItWorks() {
+import { FOUNDING_MAX_SLOTS } from "@/lib/pricing";
+
+const STEPS = (remaining: number) => [
+  {
+    title: "Subscribe today",
+    body: `Founding tier €19/mo locked for life — ${remaining} spots left — or Standard €29/mo after. One click, no contract, cancel anytime.`,
+  },
+  {
+    title: "The First Drop hits your inbox in 60 seconds",
+    body: "One full construction kit plus 20 samples, 5 MIDIs, 3 presets. Open in your DAW tonight. Finish a loop in 10 minutes.",
+  },
+  {
+    title: "The next drop lands on the 1st of each month",
+    body: "Four construction kits, ~80 samples, ~12 presets, ~8 MIDIs. Curated for Afro House. Every file at studio quality, ready to drag in.",
+  },
+  {
+    title: "You stay in the flow",
+    body: "No more 3-hour sample hunts. No more \"this kick is almost right but not quite.\" A library that grows every month with sounds you actually use.",
+  },
+];
+
+export default function HowItWorks({
+  slotsClaimed,
+}: {
+  slotsClaimed: number;
+}) {
+  const remaining = Math.max(0, FOUNDING_MAX_SLOTS - slotsClaimed);
+  const steps = STEPS(remaining);
+
   return (
     <section
       id="how-it-works"
       className="px-6 md:px-10 py-[clamp(32px,5vw,64px)]"
     >
-      <div className="mx-auto max-w-[760px] text-center">
-        <h2 className="display-2 text-ink mx-auto">
-          One drop a month. Yours forever.
-        </h2>
-        <p className="display-subhead mx-auto mt-4">
-          Cancel anytime. Keep every file you downloaded.
-        </p>
+      <div className="mx-auto max-w-[920px]">
+        <div className="text-center mb-10 lg:mb-12">
+          <h2 className="display-2 text-ink mx-auto">
+            How Drumzon Pro works
+          </h2>
+        </div>
 
-        <div className="grid sm:grid-cols-3 gap-x-8 gap-y-8 mt-10">
-          {[
-            { title: "Subscribe", body: "Pick Founding (€19/mo, first 100) or Standard (€29/mo). Price locked for life." },
-            { title: "Receive every drop", body: "Each release lands in your portal automatically while you're active." },
-            { title: "Keep forever", body: "Cancel and what you downloaded stays yours. What you missed stays missed." },
-          ].map((step) => (
-            <div key={step.title} className="flex flex-col gap-2.5 items-center text-center">
-              <h3 className="text-ink text-[17px] font-semibold tracking-[-0.015em]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-10">
+          {steps.map((step, i) => (
+            <div
+              key={step.title}
+              className="flex flex-col gap-2.5 text-left"
+            >
+              <span
+                className="text-stone text-[13px] font-medium tabular-nums"
+                aria-hidden
+              >
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 className="text-ink text-[17px] sm:text-[18px] font-semibold tracking-[-0.015em]">
                 {step.title}
               </h3>
-              <p className="text-stone text-[15px] leading-[1.6] max-w-[32ch]">
+              <p className="text-stone text-[15px] sm:text-[16px] leading-[1.6] max-w-[44ch]">
                 {step.body}
               </p>
             </div>

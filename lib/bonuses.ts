@@ -59,9 +59,9 @@ export const LEAD_MAGNET = {
     "Not a teaser. Not a watermarked clip. One full construction kit pulled directly from the producer's vault — same studio-grade quality as the monthly drops, free for the asking. Write a finished track using only this pack.",
   inclusions: [
     "1 complete construction kit (stems + arrangement)",
-    "20 individual samples (kicks, percs, hats, marimba, perc loops)",
-    "5 MIDI files (chord progressions, basslines, melodies)",
-    "3 Serum / Vital presets used in the kit",
+    "20 individual samples",
+    "5 MIDI files",
+    "3 Serum / Vital presets",
     "24-bit / 44.1 kHz WAV · royalty-free for personal use",
   ],
   perceived_value: 40,

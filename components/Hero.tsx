@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import AudioPlayer from "./AudioPlayer";
 import {
   FOUNDING_PRICE_MONTHLY,
@@ -76,17 +77,16 @@ export default function Hero({
           {/* LEFT — copy + CTA. Centered on mobile, left-aligned on lg+ */}
           <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left gap-6 lg:gap-7">
             <h1 className="text-ink font-semibold tracking-[-0.028em] leading-[1.1] text-[clamp(30px,3.8vw,52px)] text-balance">
-              A curated <span className="text-chroma">Afro House</span> drop.{" "}
+              Stop digging for sounds.{" "}
               <br className="hidden lg:block" />
-              Every month.{" "}
-              <br className="hidden lg:block" />
-              In your DAW.
+              Start finishing{" "}
+              <span className="text-chroma">tracks.</span>
             </h1>
 
             <p className="display-subhead text-balance">
-              Four construction kits, samples, presets, MIDIs.{" "}
-              <br className="hidden lg:block" />
-              Curated by Drumzon. Yours to keep.
+              One Afro House drop a month. Four construction kits, samples,
+              presets, MIDIs — curated, not stock. Drag, drop, you&rsquo;re
+              inside the track.
             </p>
 
             <div className="flex flex-col items-center lg:items-start gap-3 mt-1">
@@ -134,12 +134,14 @@ export default function Hero({
                     "0 24px 50px -16px rgba(26,17,8,0.20), 0 6px 14px -4px rgba(26,17,8,0.10)",
                 }}
               >
-                <img
+                <Image
                   src="/images/sahara-cover.png"
                   alt="Drumzon Pro — Sahara, May 31 drop"
-                  width="1080"
-                  height="1350"
+                  width={1080}
+                  height={1350}
                   className="w-full h-full object-cover block"
+                  priority
+                  sizes="(max-width: 1024px) 240px, 240px"
                 />
               </div>
             </div>

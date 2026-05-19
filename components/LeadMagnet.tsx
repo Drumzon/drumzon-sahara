@@ -12,6 +12,7 @@
 // later subscription upsell.
 
 import { LEAD_MAGNET } from "@/lib/bonuses";
+import { FOUNDING_MAX_SLOTS, FOUNDING_PRICE_MONTHLY } from "@/lib/pricing";
 
 const ArrowRight = () => (
   <svg
@@ -46,8 +47,18 @@ const Check = () => (
   </svg>
 );
 
-export default function LeadMagnet() {
+export default function LeadMagnet({
+  slotsClaimed,
+  isFoundingOpen,
+}: {
+  slotsClaimed?: number;
+  isFoundingOpen?: boolean;
+}) {
   const formAction = process.env.NEXT_PUBLIC_KIT_FORM_ACTION || "";
+  const remaining =
+    typeof slotsClaimed === "number"
+      ? Math.max(0, FOUNDING_MAX_SLOTS - slotsClaimed)
+      : null;
 
   return (
     <section
@@ -56,11 +67,12 @@ export default function LeadMagnet() {
     >
       <div className="mx-auto max-w-[660px] text-center">
         <h2 className="display-2 text-ink mx-auto">
-          <span className="text-chroma">The First Drop.</span>{" "}
-          Free.
+          Not ready to subscribe?{" "}
+          <span className="text-chroma">Hear it first.</span>
         </h2>
         <p className="display-subhead mx-auto mt-4">
-          A full construction kit. Same studio quality as the monthly drops.
+          The First Drop is free. Same construction kit, same studio quality,
+          same files Drumzon Pro members get on day one.
         </p>
 
         {/* The free pack card — anchors at €40 → FREE for visual impact */}
@@ -124,6 +136,17 @@ export default function LeadMagnet() {
             Instant download. Unsubscribe in one click. Yours to keep.
           </p>
         </div>
+
+        {/* Funnel recap — gently remind the founding window is closing */}
+        {remaining !== null && isFoundingOpen && remaining > 0 && (
+          <p className="text-stone text-[13px] mt-6 leading-[1.55]">
+            {remaining} founding spots left when you decide.{" "}
+            <span className="text-ink font-medium">
+              €{FOUNDING_PRICE_MONTHLY}/mo locked forever
+            </span>{" "}
+            once they&rsquo;re gone.
+          </p>
+        )}
       </div>
     </section>
   );

@@ -22,6 +22,14 @@ const FAQ_ITEMS = [
     q: "Why no refunds?",
     a: "Because the full demo is on this page. Listen first. If the sound is what you want, subscribe. If not, don't.",
   },
+  {
+    q: "What style of Afro House exactly? Is it for commercial radio or underground?",
+    a: "Underground European Afro House. Think Keinemusik, Black Coffee, &ME, Adam Port territory. Organic percussion, deep marimba, hypnotic basslines, melodic but never cheesy. If your reference tracks live on labels like Keinemusik, Innervisions, Afterlife, you're in the right place.",
+  },
+  {
+    q: "How do I know the next drops will be as good as Sahara?",
+    a: "Because curation is the product. If the monthly drop doesn't hold up, you cancel in one click and keep everything you have. The whole business runs on retention — there is no incentive to ship a weak drop. The founding tier exists exactly to align long-term incentive.",
+  },
 ];
 
 export default function FAQ() {

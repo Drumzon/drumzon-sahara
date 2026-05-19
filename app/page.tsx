@@ -1,9 +1,12 @@
 import { createClient } from "@/lib/supabase/server";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import ModelComparison from "@/components/ModelComparison";
 import HowItWorks from "@/components/HowItWorks";
-import LeadMagnet from "@/components/LeadMagnet";
+import DropContents from "@/components/DropContents";
 import PricingCard from "@/components/PricingCard";
+import LeadMagnet from "@/components/LeadMagnet";
+import WhyNoRefunds from "@/components/WhyNoRefunds";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import { FOUNDING_MAX_SLOTS } from "@/lib/pricing";
@@ -25,7 +28,7 @@ const productJsonLd = {
     {
       "@type": "Offer",
       name: "Founding tier",
-      price: "7.00",
+      price: "19.00",
       priceCurrency: "EUR",
       availability: "https://schema.org/InStock",
       url: siteUrl + "/#pricing",
@@ -33,7 +36,7 @@ const productJsonLd = {
     {
       "@type": "Offer",
       name: "Standard tier",
-      price: "14.95",
+      price: "29.00",
       priceCurrency: "EUR",
       availability: "https://schema.org/InStock",
       url: siteUrl + "/#pricing",
@@ -80,16 +83,25 @@ export default async function Home() {
       <Navbar />
 
       <main>
-        {/* Apple/Elon-shaped flow — every section earns its space.
-            Deleted: ValueStack (redundant with PricingCard features),
-            Preview (audio bites already in Hero demo). */}
+        {/* New section order per brief:
+            Hero → ModelComparison → HowItWorks → DropContents →
+            Pricing → LeadMagnet (funnel) → WhyNoRefunds → FAQ */}
         <Hero isFoundingOpen={isFoundingOpen} slotsClaimed={slotsClaimed} />
-        <HowItWorks />
-        <LeadMagnet />
+        <ModelComparison
+          isFoundingOpen={isFoundingOpen}
+          slotsClaimed={slotsClaimed}
+        />
+        <HowItWorks slotsClaimed={slotsClaimed} />
+        <DropContents />
         <PricingCard
           slotsClaimed={slotsClaimed}
           isFoundingOpen={isFoundingOpen}
         />
+        <LeadMagnet
+          slotsClaimed={slotsClaimed}
+          isFoundingOpen={isFoundingOpen}
+        />
+        <WhyNoRefunds />
         <FAQ />
       </main>
 
