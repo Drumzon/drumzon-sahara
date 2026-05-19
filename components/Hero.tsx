@@ -69,24 +69,24 @@ export default function Hero({
   return (
     <section
       id="hero"
-      className="relative pt-[clamp(80px,9vw,120px)] pb-[clamp(28px,5vw,56px)] px-6 md:px-10"
+      className="relative pt-[120px] sm:pt-[clamp(96px,10vw,130px)] pb-[clamp(28px,5vw,56px)] px-6 md:px-10"
     >
       <div className="mx-auto max-w-[1180px]">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* LEFT — copy + CTA. Centered on mobile, left-aligned on lg+ */}
           <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left gap-6 lg:gap-7">
             <h1 className="text-ink font-semibold tracking-[-0.028em] leading-[1.1] text-[clamp(30px,3.8vw,52px)] text-balance">
-              A curated <span className="text-chroma">Afro House</span> drop.
+              A curated <span className="text-chroma">Afro House</span> drop.{" "}
               <br className="hidden lg:block" />
-              {" "}Every month.
+              Every month.{" "}
               <br className="hidden lg:block" />
-              {" "}In your DAW.
+              In your DAW.
             </h1>
 
             <p className="display-subhead text-balance">
-              Four construction kits, samples, presets, MIDIs.
+              Four construction kits, samples, presets, MIDIs.{" "}
               <br className="hidden lg:block" />
-              {" "}Curated by Drumzon. Yours to keep.
+              Curated by Drumzon. Yours to keep.
             </p>
 
             <div className="flex flex-col items-center lg:items-start gap-3 mt-1">

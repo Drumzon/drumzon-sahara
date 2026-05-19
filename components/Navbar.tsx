@@ -8,7 +8,9 @@ export default function Navbar() {
     <header
       className="fixed left-1/2 -translate-x-1/2 z-[100] flex items-center justify-between gap-6 w-[calc(100%-32px)] max-w-[1180px] py-2 pl-5 pr-2 rounded-full bg-cream-base/70 backdrop-blur-xl backdrop-saturate-150 border border-black/[0.06]"
       style={{
-        top: "14px",
+        // Sits 14px below the top on desktop; on iPhone (notch / Dynamic
+        // Island) it's pushed below the status bar via safe-area-inset
+        top: "max(14px, calc(env(safe-area-inset-top, 0px) + 8px))",
         boxShadow: "0 1px 2px rgba(26,26,26,0.04), 0 8px 24px rgba(26,26,26,0.05)",
       }}
     >
