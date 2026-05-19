@@ -31,6 +31,12 @@ export default function FAQ() {
       className="px-6 md:px-10 py-[clamp(32px,5vw,64px)]"
     >
       <div className="mx-auto max-w-[680px]">
+        <div className="text-center mb-8 lg:mb-10">
+          <h2 className="display-2 text-ink mx-auto">
+            Questions.
+          </h2>
+        </div>
+
         <ul className="flex flex-col">
           {FAQ_ITEMS.map((item, i) => (
             <li

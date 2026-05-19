@@ -146,8 +146,7 @@ export default function PricingCard({
                 Founding
               </h3>
               <p className="text-stone text-[14px] leading-[1.5] max-w-[36ch]">
-                For the first {FOUNDING_MAX_SLOTS} producers. Lock your
-                lifetime price now.
+                For the first {FOUNDING_MAX_SLOTS} producers.
               </p>
             </header>
 
@@ -202,8 +201,7 @@ export default function PricingCard({
                 Standard
               </h3>
               <p className="text-stone text-[14px] leading-[1.5] max-w-[36ch]">
-                For everyone after Founding sells out. Same lifetime
-                guarantee.
+                For everyone after Founding sells out.
               </p>
             </header>
 
