@@ -4,7 +4,11 @@
 const FAQ_ITEMS = [
   {
     q: "Are the samples royalty-free?",
-    a: "Yes. Use in commercial releases on any platform. The license is permanent — what you download is yours, even after cancellation.",
+    a: "Yes. Use individual samples, presets and MIDIs in your own commercial releases on any platform — Spotify, Apple Music, Beatport, vinyl. No attribution required. Permanent license, even after cancellation. (Releasing a full construction kit as-is requires a separate license — see next question.)",
+  },
+  {
+    q: "Can I release a construction kit as my own track?",
+    a: "Not as-is. Construction kits are starting points to build YOUR track from — chop, rearrange, replace elements, add your own production. If you want to release a kit close to as-delivered (with vocals on top, slight rework), email contact@drumzon.com with your release plan. We respond in 24-48h with terms — usually a small flat fee or revenue split. The full license is in the LICENSE.txt inside every pack.",
   },
   {
     q: "Do I need Ableton?",

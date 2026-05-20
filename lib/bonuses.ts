@@ -62,7 +62,7 @@ export const LEAD_MAGNET = {
     "20 individual samples",
     "5 MIDI files",
     "3 Serum / Vital presets",
-    "24-bit / 44.1 kHz WAV · royalty-free for personal use",
+    "24-bit / 44.1 kHz WAV · royalty-free, commercial use included",
   ],
   perceived_value: 40,
 };

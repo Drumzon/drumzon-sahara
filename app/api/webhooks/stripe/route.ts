@@ -159,7 +159,9 @@ async function handleSubscriptionCreated(
       }
 
       await stripe.subscriptions.cancel(subscription.id);
-      // TODO: send apology email via Kit ("we sold out while you were paying — full refund issued")
+      // TODO: send apology email via Kit broadcast trigger
+      // Copy template ready in /scripts/EMAIL_COPY.md section 5
+      // ("Founding sold out mid-flight — full refund issued")
       return;
     }
   }
